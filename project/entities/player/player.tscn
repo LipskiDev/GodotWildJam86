@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://drvm475mdagfk"]
+
+[ext_resource type="Script" uid="uid://bhgwfchvstiqj" path="res://entities/player/player.gd" id="1_symyc"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sfv1e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_symyc"]
+albedo_color = Color(0.30980393, 0, 1, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_abrql"]
+material = SubResource("StandardMaterial3D_symyc")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_symyc"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_symyc")
+
+[node name="Meshes" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_sfv1e")
+skeleton = NodePath("../..")
+
+[node name="NaseMesh" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(0.4, 0, 0, 0, -1.7484556e-08, 0.4, 0, -0.4, -1.7484556e-08, 0, 1.232069, -0.61112344)
+mesh = SubResource("PrismMesh_abrql")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_symyc")

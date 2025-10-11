@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://c8qsqy4uupwjb"]
+
+[ext_resource type="PackedScene" uid="uid://drvm475mdagfk" path="res://entities/player/player.tscn" id="1_s3kxx"]
+[ext_resource type="PackedScene" uid="uid://cv7v8afb11jcn" path="res://entities/player/player_camera.tscn" id="2_0ikrv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j55db"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_s3kxx"]
+sky_material = SubResource("ProceduralSkyMaterial_j55db")
+
+[sub_resource type="Environment" id="Environment_0ikrv"]
+background_mode = 2
+sky = SubResource("Sky_s3kxx")
+tonemap_mode = 2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_s3kxx"]
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0ikrv"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_s3kxx")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxehg"]
+albedo_color = Color(0.2332283, 0.3581315, 0.29354975, 1)
+albedo_texture = SubResource("NoiseTexture2D_0ikrv")
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gl1uo"]
+material = SubResource("StandardMaterial3D_lxehg")
+size = Vector2(999, 999)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bgp6a"]
+
+[node name="TestLevelFerdi" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0ikrv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_gl1uo")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_bgp6a")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("1_s3kxx")]
+
+[node name="PlayerCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_0ikrv")]
+player = NodePath("../Player")
