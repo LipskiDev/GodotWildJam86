@@ -22,37 +22,38 @@ points = PackedVector3Array(0, 0, 0, 0, 2, 0, 2, 2, -2, 2, 0, -2, 0, 0, -2.5, 0,
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_symyc")
 
-[node name="Meshes" type="Node3D" parent="."]
+[node name="RotatableObjects" type="Node3D" parent="."]
+unique_name_in_owner = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Meshes"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RotatableObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_sfv1e")
 skeleton = NodePath("../..")
 
-[node name="NaseMesh" type="MeshInstance3D" parent="Meshes"]
+[node name="NaseMesh" type="MeshInstance3D" parent="RotatableObjects"]
 transform = Transform3D(0.4, 0, 0, 0, -1.7484556e-08, 0.4, 0, -0.4, -1.7484556e-08, 0, 1.232069, -0.61112344)
 mesh = SubResource("PrismMesh_abrql")
 skeleton = NodePath("../..")
 
-[node name="Attack" type="Node3D" parent="Meshes"]
+[node name="Attack" type="Node3D" parent="RotatableObjects"]
 script = ExtResource("2_abrql")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Meshes/Attack"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RotatableObjects/Attack"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1, -1)
 visible = false
 mesh = SubResource("PrismMesh_sglur")
 skeleton = NodePath("../Area3D")
 
-[node name="Area3D" type="Area3D" parent="Meshes/Attack"]
+[node name="Area3D" type="Area3D" parent="RotatableObjects/Attack"]
 unique_name_in_owner = true
 monitoring = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/Attack/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RotatableObjects/Attack/Area3D"]
 shape = SubResource("ConvexPolygonShape3D_sglur")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_symyc")
 
-[connection signal="body_entered" from="Meshes/Attack/Area3D" to="Meshes/Attack" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="RotatableObjects/Attack/Area3D" to="RotatableObjects/Attack" method="_on_area_3d_body_entered"]
