@@ -19,7 +19,7 @@ points = PackedVector3Array(0, 0, 0, 0, 2, 0, 2, 2, -2, 2, 0, -2, 0, 0, -2.5, 0,
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_symyc"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_symyc")
 
 [node name="RotatableObjects" type="Node3D" parent="."]
