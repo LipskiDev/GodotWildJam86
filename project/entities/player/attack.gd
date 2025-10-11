@@ -24,5 +24,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		mesh_instance_3d.visible = false
 
 
-func _on_area_3d_body_entered(_body: Node3D) -> void:
-	print("hit")
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.has_method("take_damage"):
+		body.take_damage(10)
