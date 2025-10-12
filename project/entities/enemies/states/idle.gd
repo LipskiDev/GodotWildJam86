@@ -11,9 +11,9 @@ var idle_time: float
 
 func randomize_idle() -> void:
 	enemy.velocity = Vector3.ZERO
-	animation_tree.set("parameters/AnimationNodeStateMachine/conditions/idle", true)
-	animation_tree.set("parameters/AnimationNodeStateMachine/conditions/run", false)
-	idle_time = randf_range(1, 5)
+	animation_tree.set("parameters/StateMachine/conditions/idle", true)
+	animation_tree.set("parameters/StateMachine/conditions/run", false)
+	idle_time = randf_range(1.0, 5.0)
 
 
 func enter() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://ts0h3qr5grgg"]
+[gd_scene load_steps=49 format=3 uid="uid://ts0h3qr5grgg"]
 
 [ext_resource type="Script" uid="uid://dnlwjjttjmxsk" path="res://entities/enemies/jens.gd" id="1_871r8"]
 [ext_resource type="Script" uid="uid://lp3uj8068cc1" path="res://entities/enemies/states/state_machine.gd" id="1_m7yin"]
@@ -18,23 +18,27 @@ colors = PackedColorArray(0.08627451, 0.13725491, 0.16470589, 1, 0.1846773, 0.26
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_871r8"]
 resource_local_to_scene = true
 gradient = SubResource("Gradient_md1d0")
-width = 1024
-height = 1024
+width = 256
+height = 256
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 metadata/_snap_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wqgnt"]
+transparency = 1
 cull_mode = 1
 shading_mode = 0
+disable_receive_shadows = true
 grow = true
 grow_amount = 0.03
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3j2p"]
 resource_local_to_scene = true
 next_pass = SubResource("StandardMaterial3D_wqgnt")
-transparency = 1
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 depth_draw_mode = 1
 diffuse_mode = 3
 specular_mode = 1
@@ -44,29 +48,29 @@ texture_filter = 0
 [sub_resource type="SphereMesh" id="SphereMesh_news4"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_b3j2p")
-radius = 0.49999666
-height = 0.99999994
 
 [sub_resource type="Gradient" id="Gradient_wqgnt"]
 colors = PackedColorArray(0, 0, 0, 1, 0.30692267, 0.3069227, 0.3069227, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tjn76"]
 gradient = SubResource("Gradient_wqgnt")
-width = 512
-height = 512
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjn76"]
+transparency = 1
 cull_mode = 1
 shading_mode = 0
+disable_receive_shadows = true
 grow = true
 grow_amount = 0.03
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a2waq"]
 next_pass = SubResource("StandardMaterial3D_tjn76")
-transparency = 1
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 depth_draw_mode = 1
 diffuse_mode = 3
 specular_mode = 1
@@ -91,6 +95,9 @@ size = Vector2(1.3, 0.15)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_b3j2p"]
 radius = 6.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wqgnt"]
+radius = 1.0
 
 [sub_resource type="Animation" id="Animation_fay7w"]
 length = 0.001
@@ -347,6 +354,94 @@ tracks/22/keys = {
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/23/type = "bezier"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Body:mesh:material:next_pass:albedo_color:r")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/24/type = "bezier"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Body:mesh:material:next_pass:albedo_color:g")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/25/type = "bezier"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Body:mesh:material:next_pass:albedo_color:b")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/26/type = "bezier"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Body:mesh:material:next_pass:albedo_color:a")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/27/type = "bezier"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Leg:mesh:material:next_pass:albedo_color:r")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/28/type = "bezier"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Leg:mesh:material:next_pass:albedo_color:g")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/29/type = "bezier"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Leg:mesh:material:next_pass:albedo_color:b")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/30/type = "bezier"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Leg:mesh:material:next_pass:albedo_color:a")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_news4"]
 resource_name = "attack"
@@ -435,7 +530,7 @@ tracks/7/path = NodePath(".")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.6666667),
+"times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -697,6 +792,108 @@ tracks/20/keys = {
 "handle_modes": PackedInt32Array(0, 2),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.16666667, 0.16666667, 0, 0),
 "times": PackedFloat32Array(0, 1)
+}
+tracks/21/type = "bezier"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Body:mesh:material:next_pass:albedo_color:r")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/22/type = "bezier"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Body:mesh:material:next_pass:albedo_color:g")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/23/type = "bezier"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Body:mesh:material:next_pass:albedo_color:b")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/24/type = "bezier"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Body:mesh:material:next_pass:albedo_color:a")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.16666667, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/25/type = "bezier"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Leg:mesh:material:next_pass:albedo_color:r")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/26/type = "bezier"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Leg:mesh:material:next_pass:albedo_color:g")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/27/type = "bezier"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Leg:mesh:material:next_pass:albedo_color:b")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/28/type = "bezier"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Leg:mesh:material:next_pass:albedo_color:a")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.16666667, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/29/type = "method"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath(".")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_871r8"]
@@ -995,9 +1192,9 @@ tracks/4/path = NodePath("Leg:position:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-0.3, -0.25, 0, 0.25, 0, -0.3, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 0),
+"points": PackedFloat32Array(-0.4520917, -0.25, 0, 0.033333335, -0.0022432208, -0.3399318, -0.26671, 0.0029914079, 0.19999999, -0.002243191, -0.44536212, -0.06662403, -0.0029890276, 0.100000024, 0.004486412, -0.35563418, -0.23333329, 0.002243191, 0.23333335, -0.0022431917, -0.4543349, -0.03333336, 0.0022432208, 0, 0.0022432208),
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 0.76666665, 1)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
@@ -1007,8 +1204,8 @@ tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "handle_modes": PackedInt32Array(2, 2, 2, 2),
-"points": PackedFloat32Array(0, 0, 0, 0, 0.11920943, 0.16741039, -0.06666666, 0, 0.36688286, 0, -0.16072688, -0.13333851, -0.0012359702, 0.19999999, 0.0018538833, 0, 0, -0.090279326, 0, 0),
-"times": PackedFloat32Array(0, 0.2, 0.7, 1)
+"points": PackedFloat32Array(0, 0, 0, 0, 0.0032775402, 0.2657318, -0.23338427, -0.0031411666, 0.5, 0.006729603, -0.24123102, -0.49463278, -0.011215985, 0.23037642, 0.0052238726, 0, 0, -0.0012089163, 0, 0),
+"times": PackedFloat32Array(0, 0.23333333, 0.76666665, 1)
 }
 tracks/6/type = "bezier"
 tracks/6/imported = false
@@ -1028,9 +1225,9 @@ tracks/7/path = NodePath("Leg2:position:y")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-0.3, -0.25, 0, 0.25, 0, -0.3, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
+"handle_modes": PackedInt32Array(0, 2, 2, 0, 2),
+"points": PackedFloat32Array(-0.4498485, -0.06666666, -0.002243191, 0.017890666, 0, -0.3399318, -0.2487725, -0.0027904068, 0.19999999, 0.00224334, -0.44311893, -0.07674214, -0.002243191, 0.08886474, 0.0025975376, -0.353391, -0.23333329, 0, 0.23333335, 0.00224334, -0.4498485, -0.03333336, -0.002243042, 0, 0),
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 0.76666665, 1)
 }
 tracks/8/type = "bezier"
 tracks/8/imported = false
@@ -1040,8 +1237,8 @@ tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "handle_modes": PackedInt32Array(2, 2, 2, 2),
-"points": PackedFloat32Array(-0.057836376, 0, 0, 0, 7.450581e-09, -0.17092323, -0.06666667, 0.024100475, 0.13333334, -0.04820095, 0.13496743, -0.10008939, -0.002474054, 0.3, 0.007415533, -0.058, 0, 0.0024148147, 0, 0),
-"times": PackedFloat32Array(0, 0.2, 0.5, 1)
+"points": PackedFloat32Array(0.0032775402, 0, 0, 0, 7.450581e-09, -0.23450145, -0.26666668, 0.004486412, 0.4935101, -0.008302836, 0.2657318, -0.48032025, 0.002243191, 0.25301772, -0.001181643, 0.0032775402, 0, 0.0024148147, 0, 0),
+"times": PackedFloat32Array(0, 0.23333333, 0.76666665, 1)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yu5sq"]
@@ -1126,14 +1323,14 @@ states/idle/position = Vector2(334, 73)
 states/run/node = SubResource("AnimationNodeAnimation_871r8")
 states/run/position = Vector2(616, 85)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_b3j2p"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_news4"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_wqgnt"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_tjn76"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_a2waq"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_rdm4j"), "idle", "die", SubResource("AnimationNodeStateMachineTransition_l1ebl"), "attack", "die", SubResource("AnimationNodeStateMachineTransition_fay7w"), "run", "die", SubResource("AnimationNodeStateMachineTransition_l4iyj")]
-graph_offset = Vector2(-81, 116)
+graph_offset = Vector2(-79, -4)
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_wqgnt"]
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_a2waq"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rdm4j"]
-graph_offset = Vector2(-567.46765, -36.164063)
+graph_offset = Vector2(-494.13998, 17.14473)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_tjn76")
 nodes/StateMachine/position = Vector2(-460, 20)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_a2waq")
@@ -1147,9 +1344,6 @@ nodes/Animation/position = Vector2(-760, 500)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"OneShot", &"OneShot", 0, &"StateMachine", &"OneShot", 1, &"TimeScale 2", &"TimeScale 2", 0, &"Animation"]
 
 [node name="Jens" type="CharacterBody3D"]
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
 floor_max_angle = 0.0
 script = ExtResource("1_871r8")
 
@@ -1162,29 +1356,40 @@ mesh = SubResource("SphereMesh_news4")
 
 [node name="Leg" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.3, 0)
+gi_mode = 2
 mesh = SubResource("SphereMesh_rdm4j")
 
 [node name="Leg2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, -0.3, -1.309067e-05)
+gi_mode = 2
 mesh = SubResource("SphereMesh_rdm4j")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
 
 [node name="StateLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8187759, 0)
-visible = false
 billboard = 1
 text = "Hallo"
 font_size = 64
 
 [node name="Healthbar" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0196626, 0)
+cast_shadow = 0
 mesh = SubResource("QuadMesh_a2waq")
 
 [node name="DetectionArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
 shape = SubResource("CylinderShape3D_b3j2p")
+
+[node name="AttackArea" type="Area3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
+shape = SubResource("SphereShape3D_wqgnt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1237,3 +1442,4 @@ animation_tree = NodePath("../../AnimationTree")
 metadata/_custom_type_script = "uid://cpg4wec8mcqnv"
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
