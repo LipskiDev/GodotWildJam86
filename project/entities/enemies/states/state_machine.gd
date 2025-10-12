@@ -1,9 +1,12 @@
 extends Node
 
+
 @export var initial_state: State
+
 
 var current_state: State
 var states: Dictionary = {}
+
 
 func _ready() -> void:
 	for child in get_children():
@@ -15,14 +18,17 @@ func _ready() -> void:
 		initial_state.enter()
 		current_state = initial_state
 
+
 func _process(delta: float) -> void:
 	$"../StateLabel".text = current_state.name
 	if current_state:
 		current_state.update(delta)
 
+
 func _physics_process(delta: float) -> void:
 	if current_state:
 		current_state.physics_update(delta)
+
 
 func on_child_transitioned(state: State, new_state_name: String):
 	if state != current_state:

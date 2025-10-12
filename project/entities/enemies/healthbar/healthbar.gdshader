@@ -17,8 +17,6 @@ void vertex() {
 
 void fragment() {
 	vec3 color = mix(neg_color, pos_color, step(amount, UV.x)).rgb;
-	
-	
 	ALBEDO = color;
 }
 

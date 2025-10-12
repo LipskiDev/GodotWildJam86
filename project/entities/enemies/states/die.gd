@@ -1,8 +1,10 @@
-extends State
 class_name Die
+extends State
+
 
 @export var enemy: CharacterBody3D
 @export var animation_tree: AnimationTree
+
 
 func enter() -> void:
 	print("jens is ded :(")

@@ -1,11 +1,14 @@
-extends State
+
 class_name Hunt
+extends State
+
 
 @export var enemy: CharacterBody3D
 @export var speed := 3.0
 @export var nav_agent: NavigationAgent3D
 @export var animation_tree: AnimationTree
 @export var attack_range = 2.0
+
 
 var player: CharacterBody3D
 var hunt_timer: float

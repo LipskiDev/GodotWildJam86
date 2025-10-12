@@ -1,5 +1,5 @@
-extends State
 class_name Wander
+extends State
 
 
 @export var enemy: CharacterBody3D
@@ -8,7 +8,7 @@ class_name Wander
 @export var speed := 2.0
 
 
-var rand_speed : float
+var rand_speed: float
 
 var idle_target: Vector3
 var wander_time: float
@@ -18,13 +18,18 @@ func randomize_wander() -> void:
 	animation_tree.set("parameters/StateMachine/conditions/idle", false)
 	animation_tree.set("parameters/StateMachine/conditions/run", true)
 	
-	idle_target = Vector3(randf_range(-10, 10), enemy.global_position.y, randf_range(-10, 10))
+	
+	idle_target = Vector3(
+			enemy.global_position.x + randf_range(-4.0, 4.0), 
+			enemy.global_position.y, 
+			enemy.global_position.z + randf_range(-4.0, 4.0)
+		)
 	nav_agent.set_target_position(idle_target)
 	
-	rand_speed = randf_range(.5, speed)
+	rand_speed = randf_range(0.5, speed)
 	animation_tree.set("parameters/TimeScale/scale", rand_speed / speed)
 	
-	wander_time = randf_range(1, 3)
+	wander_time = randf_range(1.0, 3.0)
 
 
 func enter() -> void:
