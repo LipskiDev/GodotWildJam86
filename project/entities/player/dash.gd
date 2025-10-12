@@ -4,13 +4,15 @@ extends Node
 @export var player: Player
 @export var rotation_object: Node3D
 
-@export var dash_force: float = 40.0
+@export var dash_force: float = 80.0
 @export var dash_time: float = 0.1
 @export var max_charges: int = 4
+@export var dash_spam_delay_ms: int = 400
 
 
 var dash_cur: bool = false
 var charges: int
+var last_dash_time: int = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,13 +20,9 @@ func _ready() -> void:
 	charges = max_charges
 
 
-func _physics_process(_delta: float) -> void:
-	pass
-
-
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("dash"):
-		print("dash")
+	if event.is_action_pressed("dash") and (Time.get_ticks_msec() - last_dash_time) > dash_spam_delay_ms:
+		last_dash_time = Time.get_ticks_msec()
 		if charges > 0:
 			dash_cur = true
 			charges -= 0
