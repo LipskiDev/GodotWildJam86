@@ -1,9 +1,11 @@
-extends State
 class_name Idle
+extends State
+
 
 @export var enemy: CharacterBody3D
 @export var nav_agent: NavigationAgent3D
 @export var animation_tree: AnimationTree
+
 
 var idle_target: Vector3
 var idle_time: float
