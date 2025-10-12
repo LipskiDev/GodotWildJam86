@@ -1,20 +1,22 @@
 extends CharacterBody3D
 
 
+const ATTACK_RANGE := 1.5
+const VIEW_RANGE := 10.0
+
+
 @export var player: CharacterBody3D
 @export var speed := 4.0
 @export var health := 100.0
 @export var knockback_strength := 20.0
 
 
+var playback
+
+
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var attack_area: Area3D = %AttackArea
-
-
-var playback
-const ATTACK_RANGE := 1.5
-const VIEW_RANGE := 10.0
 
 
 func _ready() -> void:
@@ -44,8 +46,12 @@ func _hit_finished() -> void:
 
 func take_damage(amount: int) -> void:
 	health -= amount
+	
+	# BUG: knockback funktoiniert nicht so richtig 
+	# weil die velocity von dem nav agent geregelt wird
 	self.velocity.y += 10.0
 	self.velocity.z += 10.0
+	
 	if health <= 0:
 		die()
 	else:
