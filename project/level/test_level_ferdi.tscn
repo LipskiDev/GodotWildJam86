@@ -62,7 +62,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9708185, 0.102909565)
 player = NodePath("../Player")
 
 [node name="Jens" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_lxehg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71688175, -5.0570602)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71688175, -9.724557)
+player = NodePath("../Player")
+
+[node name="Jens2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_lxehg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6462893, 0.71688175, -9.724557)
+player = NodePath("../Player")
+
+[node name="Jens3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_lxehg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6462893, 0.71688175, -6.9606366)
+player = NodePath("../Player")
+
+[node name="Jens4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_lxehg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.177464, 0.71688175, -6.9606366)
+player = NodePath("../Player")
+
+[node name="Jens5" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_lxehg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9995656, 0.71688175, -9.1829605)
 player = NodePath("../Player")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
