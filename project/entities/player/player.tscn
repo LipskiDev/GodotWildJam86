@@ -48,6 +48,7 @@ skeleton = NodePath("../Area3D")
 
 [node name="Area3D" type="Area3D" parent="RotatableObjects/Attack"]
 unique_name_in_owner = true
+collision_mask = 3
 monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RotatableObjects/Attack/Area3D"]

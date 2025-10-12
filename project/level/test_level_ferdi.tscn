@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://c8qsqy4uupwjb"]
+[gd_scene load_steps=16 format=3 uid="uid://c8qsqy4uupwjb"]
 
 [ext_resource type="PackedScene" uid="uid://drvm475mdagfk" path="res://entities/player/player.tscn" id="1_s3kxx"]
 [ext_resource type="PackedScene" uid="uid://cv7v8afb11jcn" path="res://entities/player/player_camera.tscn" id="2_0ikrv"]
 [ext_resource type="PackedScene" uid="uid://ts0h3qr5grgg" path="res://entities/enemies/Jens.tscn" id="3_lxehg"]
+[ext_resource type="PackedScene" uid="uid://lg0rqoxmmrdx" path="res://entities/objects/vase/vase.tscn" id="4_gl1uo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j55db"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -157,3 +158,15 @@ mesh = SubResource("BoxMesh_0ikrv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D8"]
 shape = SubResource("BoxShape3D_lxehg")
+
+[node name="vase" parent="." instance=ExtResource("4_gl1uo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5946083, -3)
+
+[node name="vase2" parent="." instance=ExtResource("4_gl1uo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5946083, -0.6495657)
+
+[node name="vase3" parent="." instance=ExtResource("4_gl1uo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.866545, 0.5946083, -0.6495657)
+
+[node name="vase4" parent="." instance=ExtResource("4_gl1uo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.866545, 0.5946083, 0.8122306)
