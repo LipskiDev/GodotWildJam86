@@ -35,13 +35,6 @@ func physics_update(delta: float) -> void:
 			gradual_turn(delta, enemy.velocity.normalized())
 		"attack":
 			enemy.velocity = Vector3.ZERO
-			
-			var target_position = player.global_position
-			var distance = enemy.global_position.distance_to(target_position)
-			if distance > 0.01:
-				enemy.look_at(target_position)
-			
-			#enemy.look_at(Vector3(player.global_position.x, enemy.global_position.y, player.global_position.z), Vector3.UP)
 	
 	if !_target_in_view_range() and hunt_timer < 0:
 		print("cock")

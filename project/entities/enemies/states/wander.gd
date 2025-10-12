@@ -15,8 +15,8 @@ var wander_time: float
 
 
 func randomize_wander() -> void:
-	animation_tree.set("parameters/AnimationNodeStateMachine/conditions/idle", false)
-	animation_tree.set("parameters/AnimationNodeStateMachine/conditions/run", true)
+	animation_tree.set("parameters/StateMachine/conditions/idle", false)
+	animation_tree.set("parameters/StateMachine/conditions/run", true)
 	
 	idle_target = Vector3(randf_range(-10, 10), enemy.global_position.y, randf_range(-10, 10))
 	nav_agent.set_target_position(idle_target)
