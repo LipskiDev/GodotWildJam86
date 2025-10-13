@@ -1,8 +1,5 @@
+class_name Jens
 extends CharacterBody3D
-
-
-const ATTACK_RANGE := 1.5
-const VIEW_RANGE := 10.0
 
 
 @export var player: CharacterBody3D
@@ -30,14 +27,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _target_in_attack_range() -> bool:
-	return global_position.distance_to(player.global_position) < ATTACK_RANGE
-
-
-func _target_in_view_range() -> bool:
-	return global_position.distance_to(player.global_position) < VIEW_RANGE
-
-
 func _hit_finished() -> void:
 	attack_area.monitoring = true
 	await get_tree().create_timer(0.1).timeout
@@ -49,7 +38,7 @@ func take_damage(amount: int) -> void:
 	
 	# BUG: knockback funktoiniert nicht so richtig 
 	# weil die velocity von dem nav agent geregelt wird
-	self.velocity.y += 10.0
+	self.velocity.y += 0.0
 	self.velocity.z += 10.0
 	
 	if health <= 0:
@@ -62,7 +51,7 @@ func take_damage(amount: int) -> void:
 
 func die() -> void:
 	$StateMachine.current_state.transitioned.emit($StateMachine.current_state, "die")
-	$CollisionShape3D.shape.radius = 0.01
+	#$CollisionShape3D.shape.radius = 0.01
 
 
 func _on_detection_area_body_entered(body: Node3D) -> void:

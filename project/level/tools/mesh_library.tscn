@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=3 uid="uid://bwniaps1m8ahe"]
+
+[ext_resource type="Texture2D" uid="uid://b2ghw7xy213or" path="res://assets/textures/grass-surface.png" id="1_alsnv"]
+[ext_resource type="Texture2D" uid="uid://bfsc37h2b3w18" path="res://assets/textures/grass-path.png" id="2_87taq"]
+[ext_resource type="Texture2D" uid="uid://lx3e4cp5gror" path="res://assets/textures/grass-path-vertical.png" id="3_s1ya5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_87taq"]
+albedo_color = Color(0.50140655, 0.5014065, 0.5014065, 1)
+albedo_texture = ExtResource("1_alsnv")
+metallic_specular = 0.0
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_s1ya5"]
+material = SubResource("StandardMaterial3D_87taq")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_87taq"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s1ya5"]
+albedo_color = Color(0.50140655, 0.5014065, 0.5014065, 1)
+albedo_texture = ExtResource("2_87taq")
+metallic_specular = 0.0
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_70gn3"]
+material = SubResource("StandardMaterial3D_s1ya5")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70gn3"]
+albedo_color = Color(0.50140655, 0.5014065, 0.5014065, 1)
+albedo_texture = ExtResource("3_s1ya5")
+metallic_specular = 0.0
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_87taq"]
+material = SubResource("StandardMaterial3D_70gn3")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3tvxq"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qlfh0"]
+load_path = "res://.godot/imported/grass-path-corner.png-267de02653022337118048f23ef116ac.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oiu3d"]
+albedo_color = Color(0.50140655, 0.5014065, 0.5014065, 1)
+albedo_texture = SubResource("CompressedTexture2D_qlfh0")
+metallic_specular = 0.0
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_klqe1"]
+material = SubResource("StandardMaterial3D_oiu3d")
+size = Vector3(2, 2, 2)
+
+[node name="MeshLibrary" type="Node3D"]
+
+[node name="GrassSurface" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("BoxMesh_s1ya5")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GrassSurface"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GrassSurface/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_87taq")
+
+[node name="GrassPath" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 0, 0)
+mesh = SubResource("BoxMesh_70gn3")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GrassPath"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GrassPath/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_87taq")
+
+[node name="GrassPathVertical" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8, 0, 0)
+mesh = SubResource("BoxMesh_87taq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GrassPathVertical"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GrassPathVertical/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_3tvxq")
+
+[node name="GrassPathCorner" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -12, 0, 0)
+mesh = SubResource("BoxMesh_klqe1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GrassPathCorner"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GrassPathCorner/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_3tvxq")
