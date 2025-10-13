@@ -1,10 +1,6 @@
 extends CharacterBody3D
 
 
-const ATTACK_RANGE := 1.5
-const VIEW_RANGE := 10.0
-
-
 @export var player: CharacterBody3D
 @export var speed := 4.0
 @export var health := 100.0
@@ -28,14 +24,6 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	move_and_slide()
-
-
-func _target_in_attack_range() -> bool:
-	return global_position.distance_to(player.global_position) < ATTACK_RANGE
-
-
-func _target_in_view_range() -> bool:
-	return global_position.distance_to(player.global_position) < VIEW_RANGE
 
 
 func _hit_finished() -> void:
@@ -62,7 +50,7 @@ func take_damage(amount: int) -> void:
 
 func die() -> void:
 	$StateMachine.current_state.transitioned.emit($StateMachine.current_state, "die")
-	$CollisionShape3D.shape.radius = 0.01
+	#$CollisionShape3D.shape.radius = 0.01
 
 
 func _on_detection_area_body_entered(body: Node3D) -> void:

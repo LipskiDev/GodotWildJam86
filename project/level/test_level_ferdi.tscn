@@ -18,8 +18,8 @@ sky = SubResource("Sky_s3kxx")
 tonemap_mode = 2
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_lxehg"]
-vertices = PackedVector3Array(-4.75, 0.47413778, -1.75, -5, 0.47413778, -0.75, -2.75, 0.47413778, -0.75, -2.25, 0.47413778, -1.75, 499, 0.47413778, -499, -2, 0.47413778, -4, -1.75, 0.47413778, -2.25, -1.75, 0.47413778, 1.25, 499, 0.47413778, 499, -3, 0.47413778, 1, -4, 0.47413778, 3, -4, 0.47413778, 1.25, -5, 0.47413778, 1, -499, 0.47413778, 499, -5, 0.47413778, -3.75, -499, 0.47413778, -499, -2.25, 0.47413778, 3.25, -1.75, 0.47413778, 2.75)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(6, 5, 4), PackedInt32Array(3, 6, 2), PackedInt32Array(2, 6, 7), PackedInt32Array(7, 6, 4), PackedInt32Array(7, 4, 8), PackedInt32Array(7, 9, 2), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(0, 1, 14), PackedInt32Array(14, 1, 15), PackedInt32Array(10, 16, 13), PackedInt32Array(13, 16, 8), PackedInt32Array(14, 15, 5), PackedInt32Array(5, 15, 4), PackedInt32Array(8, 17, 7), PackedInt32Array(12, 13, 1), PackedInt32Array(1, 13, 15), PackedInt32Array(8, 16, 17)]
+vertices = PackedVector3Array(8, 0.47413778, -2.25, 6.25, 0.47413778, -2, 6, 0.47413778, -1.5, 9.5, 0.47413778, -1.75, -5, 0.47413778, -0.75, -499, 0.47413778, -499, -499, 0.47413778, 499, -5, 0.47413778, 1, -4.75, 0.47413778, -1.75, -2.75, 0.47413778, -0.75, -2.25, 0.47413778, -1.75, 9.5, 0.47413778, 2, 8.25, 0.47413778, 2, -2.25, 0.47413778, 3.25, 499, 0.47413778, 499, -1.75, 0.47413778, -2.25, -3, 0.47413778, 1, -1.75, 0.47413778, 1.25, 6.25, 0.47413778, 0.5, -4, 0.47413778, 3, -4, 0.47413778, 1.25, 6, 0.47413778, -3.75, -2, 0.47413778, -4, 7.75, 0.47413778, 0.5, -1.75, 0.47413778, 2.75, 7.75, 0.47413778, -4, -5, 0.47413778, -3.75, 499, 0.47413778, -499, 10, 0.47413778, -1.25, 10, 0.47413778, 1.5)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5), PackedInt32Array(4, 8, 9), PackedInt32Array(9, 8, 10), PackedInt32Array(12, 11, 13), PackedInt32Array(13, 11, 14), PackedInt32Array(13, 14, 6), PackedInt32Array(15, 9, 10), PackedInt32Array(16, 9, 17), PackedInt32Array(17, 9, 15), PackedInt32Array(17, 15, 2), PackedInt32Array(17, 2, 18), PackedInt32Array(20, 19, 7), PackedInt32Array(7, 19, 6), PackedInt32Array(1, 2, 21), PackedInt32Array(21, 2, 15), PackedInt32Array(21, 15, 22), PackedInt32Array(23, 12, 18), PackedInt32Array(18, 12, 24), PackedInt32Array(24, 12, 13), PackedInt32Array(3, 0, 25), PackedInt32Array(8, 4, 26), PackedInt32Array(26, 4, 5), PackedInt32Array(29, 28, 14), PackedInt32Array(14, 28, 27), PackedInt32Array(3, 25, 28), PackedInt32Array(28, 25, 27), PackedInt32Array(22, 26, 5), PackedInt32Array(13, 6, 19), PackedInt32Array(11, 29, 14), PackedInt32Array(21, 22, 25), PackedInt32Array(25, 22, 27), PackedInt32Array(27, 22, 5), PackedInt32Array(24, 17, 18)]
 sample_partition_type = 2
 agent_height = 1.0
 
@@ -159,14 +159,14 @@ mesh = SubResource("BoxMesh_0ikrv")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D8"]
 shape = SubResource("BoxShape3D_lxehg")
 
-[node name="vase" parent="." instance=ExtResource("4_gl1uo")]
+[node name="vase" parent="NavigationRegion3D" instance=ExtResource("4_gl1uo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5946083, -3)
 
-[node name="vase2" parent="." instance=ExtResource("4_gl1uo")]
+[node name="vase2" parent="NavigationRegion3D" instance=ExtResource("4_gl1uo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5946083, -0.6495657)
 
-[node name="vase3" parent="." instance=ExtResource("4_gl1uo")]
+[node name="vase3" parent="NavigationRegion3D" instance=ExtResource("4_gl1uo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.866545, 0.5946083, -0.6495657)
 
-[node name="vase4" parent="." instance=ExtResource("4_gl1uo")]
+[node name="vase4" parent="NavigationRegion3D" instance=ExtResource("4_gl1uo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.866545, 0.5946083, 0.8122306)
