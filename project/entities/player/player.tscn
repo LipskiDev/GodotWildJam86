@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://drvm475mdagfk"]
+[gd_scene load_steps=11 format=3 uid="uid://drvm475mdagfk"]
 
 [ext_resource type="Script" uid="uid://bhgwfchvstiqj" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="Script" uid="uid://c0x7wwsb4q63n" path="res://entities/player/attack.gd" id="2_abrql"]
 [ext_resource type="Script" uid="uid://ox1aw8xjtjvj" path="res://entities/player/dash.gd" id="3_sglur"]
+[ext_resource type="PackedScene" uid="uid://d4flbv8c15tmm" path="res://entities/player/ground_smoke_trail.tscn" id="4_bls4j"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sfv1e"]
 
@@ -62,5 +63,7 @@ shape = SubResource("CapsuleShape3D_symyc")
 script = ExtResource("3_sglur")
 player = NodePath("..")
 rotation_object = NodePath("../RotatableObjects")
+
+[node name="GroundSmokeTrail" parent="." instance=ExtResource("4_bls4j")]
 
 [connection signal="body_entered" from="RotatableObjects/Attack/Area3D" to="RotatableObjects/Attack" method="_on_area_3d_body_entered"]
