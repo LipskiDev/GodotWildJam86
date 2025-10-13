@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://d4flbv8c15tmm"]
+
+[ext_resource type="Script" uid="uid://17c8k7qi0pdc" path="res://entities/player/ground_smoke_trail.gd" id="1_0p4nc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bls4j"]
+transparency = 1
+vertex_color_use_as_albedo = true
+metallic_specular = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_fkugw"]
+material = SubResource("StandardMaterial3D_bls4j")
+radius = 0.2
+height = 0.4
+
+[sub_resource type="Curve" id="Curve_sglur"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5270271, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_sglur"]
+offsets = PackedFloat32Array(0, 0.29651162, 0.502907)
+colors = PackedColorArray(0.38549262, 0.38549247, 0.3854924, 1, 0.44077674, 0.44077665, 0.44077662, 0.40160644, 0.47788018, 0.47788012, 0.47788012, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkugw"]
+transparency = 1
+vertex_color_use_as_albedo = true
+metallic_specular = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_8fjmc"]
+material = SubResource("StandardMaterial3D_fkugw")
+radius = 0.4
+height = 0.8
+
+[sub_resource type="Curve" id="Curve_qiwj3"]
+_limits = [0.0, 20.0, 0.0, 1.0]
+_data = [Vector2(0, 13.424657), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="GroundSmokeTrail" type="Node3D"]
+script = ExtResource("1_0p4nc")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+amount = 32
+explosiveness = 0.15
+mesh = SubResource("SphereMesh_fkugw")
+emission_shape = 1
+emission_sphere_radius = 0.4
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 0.2, 0)
+initial_velocity_max = 0.3
+radial_accel_max = 5.0
+scale_amount_curve = SubResource("Curve_sglur")
+color_ramp = SubResource("Gradient_sglur")
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 0.88
+mesh = SubResource("SphereMesh_8fjmc")
+emission_shape = 1
+emission_sphere_radius = 0.6
+gravity = Vector3(0, 0.2, 0)
+radial_accel_max = 1.0
+radial_accel_curve = SubResource("Curve_qiwj3")
+scale_amount_curve = SubResource("Curve_sglur")
+color_ramp = SubResource("Gradient_sglur")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+enabled = false
+target_position = Vector3(0, -3, 0)

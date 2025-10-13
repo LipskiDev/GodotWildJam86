@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://ts0h3qr5grgg"]
+[gd_scene load_steps=50 format=3 uid="uid://ts0h3qr5grgg"]
 
 [ext_resource type="Script" uid="uid://dnlwjjttjmxsk" path="res://entities/enemies/jens.gd" id="1_871r8"]
 [ext_resource type="Script" uid="uid://lp3uj8068cc1" path="res://entities/enemies/states/state_machine.gd" id="1_m7yin"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://c07a4o2w21s8g" path="res://entities/enemies/states/wander.gd" id="3_md1d0"]
 [ext_resource type="Script" uid="uid://bvia45vj7dbi0" path="res://entities/enemies/states/hunt.gd" id="5_b3j2p"]
 [ext_resource type="Script" uid="uid://cpg4wec8mcqnv" path="res://entities/enemies/states/die.gd" id="6_news4"]
+[ext_resource type="PackedScene" uid="uid://d4flbv8c15tmm" path="res://entities/player/ground_smoke_trail.tscn" id="8_tjn76"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g2phv"]
 resource_local_to_scene = true
@@ -1146,6 +1147,10 @@ script = ExtResource("6_news4")
 enemy = NodePath("../..")
 animation_tree = NodePath("../../AnimationTree")
 metadata/_custom_type_script = "uid://cpg4wec8mcqnv"
+
+[node name="GroundSmokeTrail" parent="." instance=ExtResource("8_tjn76")]
+pos_leeway = 1.0
+min_velocity = 0.1
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
