@@ -1,3 +1,4 @@
+class_name Jens
 extends CharacterBody3D
 
 
@@ -37,7 +38,7 @@ func take_damage(amount: int) -> void:
 	
 	# BUG: knockback funktoiniert nicht so richtig 
 	# weil die velocity von dem nav agent geregelt wird
-	self.velocity.y += 10.0
+	self.velocity.y += 0.0
 	self.velocity.z += 10.0
 	
 	if health <= 0:

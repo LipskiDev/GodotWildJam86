@@ -39,8 +39,8 @@ func physics_update(delta: float) -> void:
 		"attack":
 			enemy.velocity = Vector3.ZERO
 	
-	if !_target_in_view_range() and hunt_timer < 0:
-		print("cock")
+	if !_target_in_view_range() and hunt_timer < 0.0:
+		print("player left")
 		transitioned.emit(self, "idle")
 	
 	if _target_in_attack_range():
