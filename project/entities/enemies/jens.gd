@@ -60,8 +60,9 @@ func take_damage(amount: int) -> void:
 		$StateMachine.current_state.transitioned.emit($StateMachine.current_state, "hunt")
 
 func squash():
-	#TO DO
-	pass
+	$StateMachine.current_state.transitioned.emit($StateMachine.current_state, "squash")
+	die()
+
 	
 func die() -> void:
 	$StateMachine.current_state.transitioned.emit($StateMachine.current_state, "die")
