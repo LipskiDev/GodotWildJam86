@@ -49,8 +49,6 @@ texture_filter = 0
 [sub_resource type="SphereMesh" id="SphereMesh_news4"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_b3j2p")
-radius = 0.49999723
-height = 0.99999994
 
 [sub_resource type="Gradient" id="Gradient_wqgnt"]
 colors = PackedColorArray(0, 0, 0, 1, 0.30692267, 0.3069227, 0.3069227, 1)
@@ -1051,11 +1049,13 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_b3j2p")
 nodes/Animation/position = Vector2(-760, 500)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"OneShot", &"OneShot", 0, &"StateMachine", &"OneShot", 1, &"TimeScale 2", &"TimeScale 2", 0, &"Animation"]
 
-[node name="Jens" type="CharacterBody3D"]
+[node name="Jens" type="CharacterBody3D" groups=["Squashable"]]
+collision_layer = 2
+collision_mask = 14
 floor_max_angle = 0.0
 script = ExtResource("1_871r8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Squashable"]]
 shape = SubResource("SphereShape3D_g2phv")
 
 [node name="Body" type="MeshInstance3D" parent="."]
@@ -1087,6 +1087,7 @@ cast_shadow = 0
 mesh = SubResource("QuadMesh_a2waq")
 
 [node name="DetectionArea" type="Area3D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
 shape = SubResource("CylinderShape3D_b3j2p")
@@ -1094,6 +1095,8 @@ shape = SubResource("CylinderShape3D_b3j2p")
 [node name="AttackArea" type="Area3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+collision_layer = 2
+collision_mask = 10
 monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]

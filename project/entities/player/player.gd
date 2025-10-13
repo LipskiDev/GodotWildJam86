@@ -5,7 +5,7 @@ extends CharacterBody3D
 const SPEED = 6.0
 const JUMP_VELOCITY = 7.0
 const COYOTE_TIME = 0.2 	# BUG: wenn man schnell jump drückt kann man double jump machen
-
+const BOUNCE_IMPULSE = 14.0
 
 var movement_force: float = 0.09 # Kraft der aktuellen input eingebe
 
@@ -49,3 +49,16 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED * 0.1)
 
 	move_and_slide()
+	for index in range(get_slide_collision_count()):
+		var collision = get_slide_collision(index)
+		
+		if collision.get_collider() == null:
+			continue
+		if collision.get_collider().is_in_group("Squashable"):
+			print("Collided with Swquashable")
+			var squashable = collision.get_collider()
+				
+			if Vector3.UP.dot(collision.get_normal()) > 0.1:
+				squashable.squash()
+				velocity.y = BOUNCE_IMPULSE
+				break
