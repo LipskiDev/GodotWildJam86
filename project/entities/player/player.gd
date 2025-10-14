@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump. and double jump
 	if Input.is_action_just_pressed("jump") and (on_floor or jumps > 0):
+		# catch case when player falls off a ledge and still has 2 jumps left
 		if jumps == max_jumps and not on_floor:
 			jumps -= 1
 		velocity.y = JUMP_VELOCITY

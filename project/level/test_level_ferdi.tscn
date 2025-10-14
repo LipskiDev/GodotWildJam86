@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8qsqy4uupwjb"]
+[gd_scene load_steps=13 format=3 uid="uid://c8qsqy4uupwjb"]
 
 [ext_resource type="PackedScene" uid="uid://drvm475mdagfk" path="res://entities/player/player.tscn" id="1_s3kxx"]
 [ext_resource type="PackedScene" uid="uid://cv7v8afb11jcn" path="res://entities/player/player_camera.tscn" id="2_0ikrv"]
 [ext_resource type="Material" uid="uid://2gfoa0v6l7dr" path="res://level/tools/test_material.tres" id="3_lxehg"]
 [ext_resource type="Texture2D" uid="uid://m11kxamvpght" path="res://assets/textures/grid.png" id="4_gl1uo"]
 [ext_resource type="PackedScene" uid="uid://ts0h3qr5grgg" path="res://entities/enemies/Jens.tscn" id="5_1hek3"]
+[ext_resource type="PackedScene" uid="uid://ecc4wcqj0ved" path="res://entities/objects/tree/tree.tscn" id="5_kqqdx"]
 [ext_resource type="PackedScene" uid="uid://lg0rqoxmmrdx" path="res://entities/objects/vase/vase.tscn" id="6_kqqdx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j55db"]
@@ -145,6 +146,15 @@ transform = Transform3D(0.033155166, 0, 0.9994503, 0, 1, 0, -0.9994503, 0, 0.033
 operation = 2
 size = Vector3(5.640747, 2, 19.060318)
 material = ExtResource("3_lxehg")
+
+[node name="Tree" parent="NavigationRegion3D" instance=ExtResource("5_kqqdx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.876999, -17.935066, -12.350942)
+
+[node name="Tree2" parent="NavigationRegion3D" instance=ExtResource("5_kqqdx")]
+transform = Transform3D(1, 0, 0, 0, 0.7223142, 0, 0, 0, 1, 25.243141, -17.935066, -12.350942)
+
+[node name="Tree3" parent="NavigationRegion3D" instance=ExtResource("5_kqqdx")]
+transform = Transform3D(1, 0, 0, 0, 1.1005214, 0, 0, 0, 1, 27.480938, -17.935066, -15.001071)
 
 [node name="gegner" type="Node" parent="."]
 

@@ -1051,6 +1051,8 @@ nodes/Animation/position = Vector2(-760, 500)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"OneShot", &"OneShot", 0, &"StateMachine", &"OneShot", 1, &"TimeScale 2", &"TimeScale 2", 0, &"Animation"]
 
 [node name="Jens" type="CharacterBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 floor_max_angle = 0.0
 script = ExtResource("1_871r8")
 
@@ -1149,8 +1151,8 @@ animation_tree = NodePath("../../AnimationTree")
 metadata/_custom_type_script = "uid://cpg4wec8mcqnv"
 
 [node name="GroundSmokeTrail" parent="." instance=ExtResource("8_tjn76")]
-pos_leeway = 1.0
-min_velocity = 0.1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45806193, 0)
+min_velocity = 0.5
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
