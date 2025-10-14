@@ -15,6 +15,7 @@ var hunt_timer: float
 
 
 func enter() -> void:
+	print("jens goes hunting")
 	player = get_tree().get_first_node_in_group("Player")
 	animation_tree.set("parameters/StateMachine/conditions/idle", false)
 	animation_tree.set("parameters/StateMachine/conditions/run", true)
@@ -40,7 +41,7 @@ func physics_update(delta: float) -> void:
 			enemy.velocity = Vector3.ZERO
 	
 	if !_target_in_view_range() and hunt_timer < 0:
-		print("cock")
+		print("player escaped, back to idle")
 		transitioned.emit(self, "idle")
 	
 	if _target_in_attack_range():

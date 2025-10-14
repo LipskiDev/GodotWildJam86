@@ -67,7 +67,8 @@ func die() -> void:
 
 
 func _on_detection_area_body_entered(body: Node3D) -> void:
-	if body.is_in_group("Player"):
+	print("detecteds")
+	if body.is_in_group("Player") && $StateMachine.current_state != $StateMachine/Squash:
 		$StateMachine.current_state.transitioned.emit($StateMachine.current_state, "hunt")
 
 

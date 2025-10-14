@@ -19,6 +19,7 @@ func randomize_idle() -> void:
 
 
 func enter() -> void:
+	print("jens is idle")
 	randomize_idle()
 
 

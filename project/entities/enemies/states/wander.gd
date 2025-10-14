@@ -33,6 +33,7 @@ func randomize_wander() -> void:
 
 
 func enter() -> void:
+	print("jens wanders")
 	randomize_wander()
 
 

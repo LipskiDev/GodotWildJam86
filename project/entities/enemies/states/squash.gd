@@ -12,7 +12,7 @@ const squash_speed = 0.01
 var desquash_speed = 1
 	
 func enter() -> void:
-	print("jens is squashed :(")
+	print("jens squashed")
 	enemy.velocity = Vector3.ZERO
 	squash_timer = 3
 	squash()
@@ -44,5 +44,5 @@ func desquash():
 	desquash_tween.tween_property(body, "position", Vector3(0, 0, 0), desquash_speed).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	desquash_tween.tween_property(leg1, "position", Vector3(0.4, -0.3, 0), desquash_speed).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	desquash_tween.tween_property(leg2, "position", Vector3(-0.4, -0.3, 0), desquash_speed).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	transitioned.emit(self, "idle")
 	animation_tree.set("parameters/StateMachine/conditions/squash", false)
-	animation_tree.set("parameters/StateMachine/conditions/idle", true)
