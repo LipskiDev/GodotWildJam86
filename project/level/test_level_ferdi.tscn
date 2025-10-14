@@ -1,13 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8qsqy4uupwjb"]
+[gd_scene load_steps=18 format=3 uid="uid://c8qsqy4uupwjb"]
 
 [ext_resource type="PackedScene" uid="uid://drvm475mdagfk" path="res://entities/player/player.tscn" id="1_s3kxx"]
 [ext_resource type="PackedScene" uid="uid://cv7v8afb11jcn" path="res://entities/player/player_camera.tscn" id="2_0ikrv"]
 [ext_resource type="Material" uid="uid://2gfoa0v6l7dr" path="res://level/tools/test_material.tres" id="3_lxehg"]
 [ext_resource type="Texture2D" uid="uid://m11kxamvpght" path="res://assets/textures/grid.png" id="4_gl1uo"]
 [ext_resource type="Material" uid="uid://bfb4l33pr5ja2" path="res://level/tools/wüsten_fliesen.tres" id="4_kqqdx"]
+[ext_resource type="Material" uid="uid://c2bev1ykeep5s" path="res://level/tools/dreck.tres" id="4_v77n0"]
 [ext_resource type="PackedScene" uid="uid://ts0h3qr5grgg" path="res://entities/enemies/Jens.tscn" id="5_1hek3"]
 [ext_resource type="PackedScene" uid="uid://lg0rqoxmmrdx" path="res://entities/objects/vase/vase.tscn" id="6_kqqdx"]
 [ext_resource type="PackedScene" uid="uid://r3rjtqvtt0jf" path="res://entities/objects/tree/tree.tscn" id="6_o788b"]
+[ext_resource type="Texture2D" uid="uid://c4klyf5lku1xg" path="res://assets/textures/sand.png" id="7_01jeq"]
+[ext_resource type="Texture2D" uid="uid://y6rehlj7ksqe" path="res://assets/textures/sand_n.png" id="8_qbde3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j55db"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -24,6 +27,7 @@ ambient_light_sky_contribution = 0.15
 tonemap_mode = 2
 tonemap_exposure = 0.5
 tonemap_white = 0.5
+glow_enabled = true
 fog_enabled = true
 fog_light_color = Color(0.25882354, 0.15294118, 0.60784316, 1)
 fog_light_energy = 0.2
@@ -40,6 +44,17 @@ albedo_texture = ExtResource("4_gl1uo")
 uv1_triplanar = true
 uv1_world_triplanar = true
 texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvt8x"]
+albedo_texture = ExtResource("7_01jeq")
+metallic_specular = 0.0
+normal_enabled = true
+normal_scale = 2.0
+normal_texture = ExtResource("8_qbde3")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 2
 
 [node name="TestLevelFerdi" type="Node3D"]
 
@@ -77,7 +92,7 @@ material = ExtResource("3_lxehg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.5)
 operation = 2
 size = Vector3(18, 19, 19)
-material = ExtResource("3_lxehg")
+material = ExtResource("4_v77n0")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 9.4123535, -7.2027836, 0)
@@ -161,6 +176,12 @@ transform = Transform3D(0.033155166, 0, 0.9994503, 0, 1, 0, -0.9994503, 0, 0.033
 operation = 2
 size = Vector3(5.640747, 2, 19.060318)
 material = ExtResource("3_lxehg")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.14155, -17.946499, 13.793966)
+operation = 2
+size = Vector3(25.512817, 1.443371, 10.728394)
+material = SubResource("StandardMaterial3D_qvt8x")
 
 [node name="Tree" parent="NavigationRegion3D" instance=ExtResource("6_o788b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.16536, -17.508049, -15.898354)
