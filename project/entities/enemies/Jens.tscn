@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://ts0h3qr5grgg"]
+[gd_scene load_steps=49 format=3 uid="uid://ts0h3qr5grgg"]
 
 [ext_resource type="Script" uid="uid://dnlwjjttjmxsk" path="res://entities/enemies/jens.gd" id="1_871r8"]
 [ext_resource type="Script" uid="uid://lp3uj8068cc1" path="res://entities/enemies/states/state_machine.gd" id="1_m7yin"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://c07a4o2w21s8g" path="res://entities/enemies/states/wander.gd" id="3_md1d0"]
 [ext_resource type="Script" uid="uid://bvia45vj7dbi0" path="res://entities/enemies/states/hunt.gd" id="5_b3j2p"]
 [ext_resource type="Script" uid="uid://cpg4wec8mcqnv" path="res://entities/enemies/states/die.gd" id="6_news4"]
-[ext_resource type="Script" uid="uid://c830onissoal8" path="res://entities/enemies/sqash.gd" id="8_tjn76"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g2phv"]
 resource_local_to_scene = true
@@ -50,6 +49,7 @@ texture_filter = 0
 [sub_resource type="SphereMesh" id="SphereMesh_news4"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_b3j2p")
+height = 0.99999994
 
 [sub_resource type="Gradient" id="Gradient_wqgnt"]
 colors = PackedColorArray(0, 0, 0, 1, 0.30692267, 0.3069227, 0.3069227, 1)
@@ -969,52 +969,6 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.23333333, 0.76666665, 1)
 }
 
-[sub_resource type="Animation" id="Animation_tjn76"]
-resource_name = "squash"
-step = 0.0333333
-tracks/0/type = "scale_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.2, 1, 1, 0.1, 1)
-tracks/1/type = "scale_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Leg")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.2, 1, 1, 0.1, 1)
-tracks/2/type = "scale_3d"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Leg2")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.2, 1, 1, 0.1, 1)
-tracks/3/type = "position_3d"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Body")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 0.006452582, -0.026153194, -0.009666411, 0.2, 1, 0.006, -0.3, -0.01)
-tracks/4/type = "position_3d"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Leg")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array(0, 1, 0.40000004, -0.3, 0.037536435, 0.2, 1, 0.616721, -0.3, 0.037536435)
-tracks/5/type = "position_3d"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Leg2")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = PackedFloat32Array(0, 1, -0.40000004, -0.3, -0.029900473, 0.2, 1, -0.54989195, -0.3, -0.029900473)
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yu5sq"]
 _data = {
 &"RESET": SubResource("Animation_fay7w"),
@@ -1022,8 +976,7 @@ _data = {
 &"die": SubResource("Animation_wqgnt"),
 &"hit": SubResource("Animation_871r8"),
 &"idle": SubResource("Animation_l1ebl"),
-&"run": SubResource("Animation_l4iyj"),
-&"squash": SubResource("Animation_tjn76")
+&"run": SubResource("Animation_l4iyj")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b3j2p"]
@@ -1105,7 +1058,7 @@ graph_offset = Vector2(-79, -4)
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_a2waq"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rdm4j"]
-graph_offset = Vector2(-886, 58)
+graph_offset = Vector2(-221.93295, -51.23443)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_tjn76")
 nodes/StateMachine/position = Vector2(-460, 20)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_a2waq")
@@ -1128,16 +1081,16 @@ script = ExtResource("1_871r8")
 shape = SubResource("SphereShape3D_g2phv")
 
 [node name="Body" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006452582, -0.026153194, -0.009666411)
+transform = Transform3D(1, 0, 0, 0, 0.100000024, 0, 0, 0, 1, 0.006452582, -0.026153194, -0.009666411)
 mesh = SubResource("SphereMesh_news4")
 
 [node name="Leg" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40000004, -0.3, 0.037536435)
+transform = Transform3D(1, 0, 0, 0, 0.100000024, 0, 0, 0, 1, 0.40000004, -0.3, 0.037536435)
 gi_mode = 2
 mesh = SubResource("SphereMesh_rdm4j")
 
 [node name="Leg2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40000004, -0.3, -0.029900473)
+transform = Transform3D(1, 0, 0, 0, 0.100000024, 0, 0, 0, 1, -0.40000004, -0.3, -0.029900473)
 gi_mode = 2
 mesh = SubResource("SphereMesh_rdm4j")
 
@@ -1222,7 +1175,6 @@ animation_tree = NodePath("../../AnimationTree")
 metadata/_custom_type_script = "uid://cpg4wec8mcqnv"
 
 [node name="Sqash" type="Node" parent="StateMachine"]
-script = ExtResource("8_tjn76")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
