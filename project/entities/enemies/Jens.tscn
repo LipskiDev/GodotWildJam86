@@ -1151,6 +1151,7 @@ animation_tree = NodePath("../../AnimationTree")
 metadata/_custom_type_script = "uid://cpg4wec8mcqnv"
 
 [node name="GroundSmokeTrail" parent="." instance=ExtResource("8_tjn76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47239113, 0)
 pos_leeway = 1.0
 min_velocity = 0.1
 
