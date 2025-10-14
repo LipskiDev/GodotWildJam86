@@ -49,8 +49,8 @@ func take_damage(amount: int) -> void:
 	
 	# BUG: knockback funktoiniert nicht so richtig 
 	# weil die velocity von dem nav agent geregelt wird
-	self.velocity.y += 10.0
-	self.velocity.z += 10.0
+	#self.velocity.y += 10.0
+	#self.velocity.z += 10.0
 	
 	if health <= 0:
 		die()
@@ -61,12 +61,9 @@ func take_damage(amount: int) -> void:
 
 func squash():
 	$StateMachine.current_state.transitioned.emit($StateMachine.current_state, "squash")
-	die()
-
 	
 func die() -> void:
 	$StateMachine.current_state.transitioned.emit($StateMachine.current_state, "die")
-	$CollisionShape3D.shape.radius = 0.01
 
 
 func _on_detection_area_body_entered(body: Node3D) -> void:
