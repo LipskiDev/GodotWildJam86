@@ -1,0 +1,144 @@
+[gd_scene load_steps=21 format=3 uid="uid://r3rjtqvtt0jf"]
+
+[ext_resource type="Script" uid="uid://cfpt2kn8c6vlw" path="res://entities/objects/tree/tree.gd" id="1_ithg8"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_80gp8"]
+height = 4.8669434
+radius = 0.2626953
+
+[sub_resource type="Curve" id="Curve_rr3vf"]
+_data = [Vector2(0, 0), 0.0, 4.3075175, 0, 0, Vector2(0.50636125, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.5583792, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jxth"]
+transparency = 1
+vertex_color_use_as_albedo = true
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_xr40p"]
+material = SubResource("StandardMaterial3D_0jxth")
+size = 0.2
+sections = 6
+section_length = 0.05
+curve = SubResource("Curve_rr3vf")
+
+[sub_resource type="Curve" id="Curve_5y7fe"]
+_limits = [0.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 52.78311), 0.0, 0.0, 0, 0, Vector2(0.29177058, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_qppn4"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 51.34357), 0.0, -169.01614, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_srgsp"]
+colors = PackedColorArray(0, 0.41960785, 0, 0.78431374, 0, 0.41960785, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_80gp8"]
+offsets = PackedFloat32Array(0.07977208, 0.994302)
+colors = PackedColorArray(0.2924487, 0.16262016, 0.021650607, 1, 0.4823616, 0.3184431, 0.15390721, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ithg8"]
+gradient = SubResource("Gradient_80gp8")
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+repeat = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_80gp8"]
+noise_type = 2
+fractal_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ithg8"]
+noise = SubResource("FastNoiseLite_80gp8")
+seamless = true
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rr3vf"]
+albedo_texture = SubResource("GradientTexture2D_ithg8")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_ithg8")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0jxth"]
+material = SubResource("StandardMaterial3D_rr3vf")
+top_radius = 0.15
+bottom_radius = 0.2
+height = 3.0
+
+[sub_resource type="Gradient" id="Gradient_xr40p"]
+colors = PackedColorArray(0, 0.41960785, 0, 0.78431374, 0, 0.6901961, 0.24313726, 0.77254903)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5y7fe"]
+gradient = SubResource("Gradient_xr40p")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.90000004, 0.1)
+repeat = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rr3vf"]
+frequency = 0.02
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0jxth"]
+resource_local_to_scene = true
+noise = SubResource("FastNoiseLite_rr3vf")
+seamless = true
+in_3d_space = true
+as_normal_map = true
+normalize = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qppn4"]
+resource_local_to_scene = true
+albedo_texture = SubResource("GradientTexture2D_5y7fe")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_0jxth")
+uv1_world_triplanar = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_srgsp"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_qppn4")
+radius = 1.5
+height = 3.5
+
+[node name="Tree" type="StaticBody3D"]
+script = ExtResource("1_ithg8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9415283, 0)
+shape = SubResource("CylinderShape3D_80gp8")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0928822, 0)
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 0.8
+mesh = SubResource("RibbonTrailMesh_xr40p")
+emission_shape = 2
+emission_sphere_radius = 1.5
+direction = Vector3(0, -1, 0)
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+radial_accel_max = 1.0
+radial_accel_curve = SubResource("Curve_5y7fe")
+damping_max = 0.3
+damping_curve = SubResource("Curve_qppn4")
+scale_amount_min = 0.0
+color_ramp = SubResource("Gradient_srgsp")
+
+[node name="Stem" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_0jxth")
+skeleton = NodePath("")
+
+[node name="Leafs" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.353256, 0)
+mesh = SubResource("SphereMesh_srgsp")
+skeleton = NodePath("")
