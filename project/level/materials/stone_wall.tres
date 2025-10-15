@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://4px458ycnie7"]
+
+[ext_resource type="Texture2D" uid="uid://dbugui6uev3yd" path="res://assets/textures/stone-wall.png" id="1_yenfk"]
+[ext_resource type="Texture2D" uid="uid://0abacymherj0" path="res://assets/textures/stone-wall_n.png" id="2_s0hel"]
+
+[resource]
+albedo_texture = ExtResource("1_yenfk")
+normal_enabled = true
+normal_texture = ExtResource("2_s0hel")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0

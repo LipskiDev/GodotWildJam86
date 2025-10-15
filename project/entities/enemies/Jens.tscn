@@ -50,8 +50,6 @@ texture_filter = 0
 [sub_resource type="SphereMesh" id="SphereMesh_news4"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_b3j2p")
-radius = 0.49999705
-height = 0.99999994
 
 [sub_resource type="Gradient" id="Gradient_wqgnt"]
 colors = PackedColorArray(0, 0, 0, 1, 0.30692267, 0.3069227, 0.3069227, 1)
@@ -1039,11 +1037,12 @@ graph_offset = Vector2(-79, -4)
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_a2waq"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rdm4j"]
-graph_offset = Vector2(-484.10745, 63.26446)
+graph_offset = Vector2(-666.2867, -15.994019)
+nodes/output/position = Vector2(320, 100)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_tjn76")
 nodes/StateMachine/position = Vector2(-460, 20)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_a2waq")
-nodes/TimeScale/position = Vector2(160, 120)
+nodes/TimeScale/position = Vector2(160, 80)
 nodes/OneShot/node = SubResource("AnimationNodeOneShot_news4")
 nodes/OneShot/position = Vector2(-20, 100)
 "nodes/TimeScale 2/node" = SubResource("AnimationNodeTimeScale_wqgnt")
