@@ -1,7 +1,7 @@
 class_name Jens
 extends CharacterBody3D
 
-
+@export var player: CharacterBody3D
 @export var speed := 4.0
 @export var health := 100.0
 @export var knockback_strength := 20.0
@@ -37,8 +37,8 @@ func take_damage(amount: int) -> void:
 	
 	# BUG: knockback funktoiniert nicht so richtig 
 	# weil die velocity von dem nav agent geregelt wird
-	self.velocity.y += 0.0
-	self.velocity.z += 10.0
+	# self.velocity.y += 0.0
+	# self.velocity.z += 10.0
 	
 	if health <= 0:
 		die()
@@ -68,6 +68,13 @@ func _on_attack_area_body_entered(body: Node3D) -> void:
 				0.0, 
 				body.global_position.z - self.global_position.z
 			)).normalized() * knockback_strength
-
-func squash(amount: int):
-	pass
+			
+func squash(dmg: int):
+	health -= dmg
+	if health <= 0:
+		die()
+	else:
+		animation_tree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_ABORT)
+		animation_tree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		$StateMachine.current_state.transitioned.emit($StateMachine.current_state, "squash")
+		

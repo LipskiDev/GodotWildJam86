@@ -7,15 +7,17 @@ extends State
 var player: CharacterBody3D
 
 func enter() -> void:
-	pass
+	print("jens is squashed")
+	enemy.velocity = Vector3.ZERO
+	animation_tree.set("parameters/StateMachine/conditions/squash", true)
 
 func exit() -> void:
 	pass
 
 
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	pass
 
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	pass

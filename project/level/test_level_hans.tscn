@@ -57,41 +57,8 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_rjjpg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9708185, 0)
-collision_mask = 14
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_m01il")]
-player = NodePath("../Player")
-
-[node name="Jens" parent="." node_paths=PackedStringArray("player") groups=["Squashable"] instance=ExtResource("3_d6uaq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3841858e-07, 4.01061, -3.0185232)
-collision_layer = 2
-collision_mask = 14
-axis_lock_angular_x = true
-axis_lock_angular_z = true
-player = NodePath("../Player")
-
-[node name="Jens2" parent="." node_paths=PackedStringArray("player") groups=["Squashable"] instance=ExtResource("3_d6uaq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.012788, 1.9143893, -7.5693827)
-collision_layer = 2
-collision_mask = 14
-axis_lock_angular_x = true
-axis_lock_angular_z = true
-player = NodePath("../Player")
-
-[node name="Jens3" parent="." node_paths=PackedStringArray("player") groups=["Squashable"] instance=ExtResource("3_d6uaq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.228513, 2.0428047, -8.078653)
-collision_layer = 2
-collision_mask = 14
-axis_lock_angular_x = true
-axis_lock_angular_z = true
-player = NodePath("../Player")
-
-[node name="Jens4" parent="." node_paths=PackedStringArray("player") groups=["Squashable"] instance=ExtResource("3_d6uaq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -7)
-collision_layer = 2
-collision_mask = 14
-axis_lock_angular_x = true
-axis_lock_angular_z = true
 player = NodePath("../Player")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
@@ -188,41 +155,18 @@ mesh = SubResource("BoxMesh_0ikrv")
 shape = SubResource("BoxShape3D_lxehg")
 
 [node name="vase" parent="." instance=ExtResource("4_m01il")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4639149, 1.3441775, 0)
-collision_layer = 8
-collision_mask = 7
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46193975, -2.346528)
 
 [node name="vase2" parent="." instance=ExtResource("4_m01il")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4639149, 1.3441775, 2.7434268)
-collision_layer = 8
-collision_mask = 7
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6706657, 0.46193975, -2.3613596)
 
 [node name="vase3" parent="." instance=ExtResource("4_m01il")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.162113, 1.3441775, 2.7434268)
-collision_layer = 8
-collision_mask = 7
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3372507, 0.46193975, -3.1708598)
 
 [node name="vase4" parent="." instance=ExtResource("4_m01il")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.162113, 1.3441775, -1.354023)
-collision_layer = 8
-collision_mask = 7
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46193975, 3.6372952)
 
 [node name="vase5" parent="." instance=ExtResource("4_m01il")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.185007, 1.3441775, -1.354023)
-collision_layer = 8
-collision_mask = 7
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6668358, 0.46193975, 0)
 
-[node name="vase6" parent="." instance=ExtResource("4_m01il")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.185007, 1.3441775, 3.6801262)
-collision_layer = 8
-collision_mask = 7
-
-[node name="vase7" parent="." instance=ExtResource("4_m01il")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9869146, 1.3441775, 3.6801262)
-collision_layer = 8
-collision_mask = 7
-
-[node name="vase8" parent="." instance=ExtResource("4_m01il")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9869146, 1.3441775, 6.9034433)
-collision_layer = 8
-collision_mask = 7
+[node name="Jens" parent="." instance=ExtResource("3_d6uaq")]

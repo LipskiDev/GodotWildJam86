@@ -826,8 +826,8 @@ points = PackedVector3Array(-0.0359487, 0.046267852, 0.060223132, -0.03166426, 0
 script = ExtResource("1_et8hs")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell" type="MeshInstance3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15752313, 0.35380435, 0.018591061)
@@ -839,8 +839,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15752313, 0.35380435, 0.01
 shape = SubResource("ConvexPolygonShape3D_tkcms")
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_001" type="MeshInstance3D" parent="RigidBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18555844, -0.09093143, -0.31746542)
@@ -852,8 +852,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18555844, -0.09093143, -0.
 shape = SubResource("ConvexPolygonShape3D_et8hs")
 
 [node name="RigidBody3D3" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_002" type="MeshInstance3D" parent="RigidBody3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.040211108, 0.050905973, 0.38324302)
@@ -865,8 +865,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.040211108, 0.050905973, 0.3
 shape = SubResource("ConvexPolygonShape3D_yau3v")
 
 [node name="RigidBody3D4" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_003" type="MeshInstance3D" parent="RigidBody3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15814857, 0.15686113, -0.2194832)
@@ -878,8 +878,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15814857, 0.15686113, -0.21
 shape = SubResource("ConvexPolygonShape3D_hsmbl")
 
 [node name="RigidBody3D15" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_004" type="MeshInstance3D" parent="RigidBody3D15"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09817407, 0.46051967, 0.06951521)
@@ -891,8 +891,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09817407, 0.46051967, 0.069
 shape = SubResource("ConvexPolygonShape3D_he1p6")
 
 [node name="RigidBody3D18" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_005" type="MeshInstance3D" parent="RigidBody3D18"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029900208, -0.37356162, 0.14737497)
@@ -904,8 +904,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029900208, -0.37356162, 0.1
 shape = SubResource("ConvexPolygonShape3D_slmgh")
 
 [node name="RigidBody3D17" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_006" type="MeshInstance3D" parent="RigidBody3D17"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07857011, 0.50830185, -0.10085498)
@@ -917,8 +917,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07857011, 0.50830185, -0.1
 shape = SubResource("ConvexPolygonShape3D_22ssv")
 
 [node name="RigidBody3D19" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_007" type="MeshInstance3D" parent="RigidBody3D19"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08159394, 0.50541884, -0.11007175)
@@ -930,8 +930,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08159394, 0.50541884, -0.11
 shape = SubResource("ConvexPolygonShape3D_cqocu")
 
 [node name="RigidBody3D20" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_008" type="MeshInstance3D" parent="RigidBody3D20"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29818526, -0.27392504, -0.015790606)
@@ -943,8 +943,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29818526, -0.27392504, -0.
 shape = SubResource("ConvexPolygonShape3D_ijoch")
 
 [node name="RigidBody3D21" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_009" type="MeshInstance3D" parent="RigidBody3D21"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29553753, -0.16743201, 0.23415941)
@@ -956,8 +956,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29553753, -0.16743201, 0.2
 shape = SubResource("ConvexPolygonShape3D_i470u")
 
 [node name="RigidBody3D22" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_010" type="MeshInstance3D" parent="RigidBody3D22"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29420286, 0.12643813, 0.13441345)
@@ -969,8 +969,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29420286, 0.12643813, 0.13
 shape = SubResource("ConvexPolygonShape3D_0pfq2")
 
 [node name="RigidBody3D23" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_011" type="MeshInstance3D" parent="RigidBody3D23"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08651, 0.28170365, 0.11274178)
@@ -982,8 +982,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08651, 0.28170365, 0.112741
 shape = SubResource("ConvexPolygonShape3D_xb7fx")
 
 [node name="RigidBody3D13" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_012" type="MeshInstance3D" parent="RigidBody3D13"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.062295634, 0.39694583, 0.0860149)
@@ -995,8 +995,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.062295634, 0.39694583, 0.08
 shape = SubResource("ConvexPolygonShape3D_7i0f2")
 
 [node name="RigidBody3D14" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_013" type="MeshInstance3D" parent="RigidBody3D14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38362584, 0.019393183, 0.038279116)
@@ -1008,8 +1008,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38362584, 0.019393183, 0.03
 shape = SubResource("ConvexPolygonShape3D_4tyrg")
 
 [node name="RigidBody3D12" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_014" type="MeshInstance3D" parent="RigidBody3D12"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20974058, 0.2054051, -0.17377706)
@@ -1021,8 +1021,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20974058, 0.2054051, -0.17
 shape = SubResource("ConvexPolygonShape3D_rmrdx")
 
 [node name="RigidBody3D11" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_015" type="MeshInstance3D" parent="RigidBody3D11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012927618, 0.47624856, -0.006474234)
@@ -1034,8 +1034,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012927618, 0.47624856, -0.
 shape = SubResource("ConvexPolygonShape3D_24j5i")
 
 [node name="RigidBody3D10" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_016" type="MeshInstance3D" parent="RigidBody3D10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2840369, -0.104356706, 0.26538157)
@@ -1047,8 +1047,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2840369, -0.104356706, 0.26
 shape = SubResource("ConvexPolygonShape3D_vn38a")
 
 [node name="RigidBody3D9" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_017" type="MeshInstance3D" parent="RigidBody3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11404644, -0.06263671, 0.39262506)
@@ -1060,8 +1060,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11404644, -0.06263671, 0.3
 shape = SubResource("ConvexPolygonShape3D_ddq5r")
 
 [node name="RigidBody3D8" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_018" type="MeshInstance3D" parent="RigidBody3D8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10988094, -0.33469594, -0.15866336)
@@ -1073,8 +1073,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10988094, -0.33469594, -0.1
 shape = SubResource("ConvexPolygonShape3D_ikr0d")
 
 [node name="RigidBody3D7" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_019" type="MeshInstance3D" parent="RigidBody3D7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06636086, 0.54038143, 0.106076755)
@@ -1086,8 +1086,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06636086, 0.54038143, 0.106
 shape = SubResource("ConvexPolygonShape3D_v7jyk")
 
 [node name="RigidBody3D6" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_020" type="MeshInstance3D" parent="RigidBody3D6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12106389, 0.21071905, 0.23451345)
@@ -1099,8 +1099,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12106389, 0.21071905, 0.234
 shape = SubResource("ConvexPolygonShape3D_14872")
 
 [node name="RigidBody3D5" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 0
+collision_mask = 15
 
 [node name="Vase_cell_021" type="MeshInstance3D" parent="RigidBody3D5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1423157, 0.4625126, -0.03494993)

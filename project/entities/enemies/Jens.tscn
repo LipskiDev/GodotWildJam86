@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://ts0h3qr5grgg"]
+[gd_scene load_steps=57 format=3 uid="uid://ts0h3qr5grgg"]
 
 [ext_resource type="Script" uid="uid://dnlwjjttjmxsk" path="res://entities/enemies/jens.gd" id="1_871r8"]
 [ext_resource type="Script" uid="uid://lp3uj8068cc1" path="res://entities/enemies/states/state_machine.gd" id="1_m7yin"]
@@ -7,7 +7,8 @@
 [ext_resource type="Script" uid="uid://c07a4o2w21s8g" path="res://entities/enemies/states/wander.gd" id="3_md1d0"]
 [ext_resource type="Script" uid="uid://bvia45vj7dbi0" path="res://entities/enemies/states/hunt.gd" id="5_b3j2p"]
 [ext_resource type="Script" uid="uid://cpg4wec8mcqnv" path="res://entities/enemies/states/die.gd" id="6_news4"]
-[ext_resource type="PackedScene" uid="uid://d4flbv8c15tmm" path="res://entities/player/ground_smoke_trail.tscn" id="8_tjn76"]
+[ext_resource type="Script" uid="uid://dlwi7dxkd87ch" path="res://entities/enemies/states/squash.gd" id="8_tjn76"]
+[ext_resource type="PackedScene" uid="uid://d4flbv8c15tmm" path="res://entities/player/ground_smoke_trail.tscn" id="9_a2waq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g2phv"]
 resource_local_to_scene = true
@@ -50,7 +51,6 @@ texture_filter = 0
 [sub_resource type="SphereMesh" id="SphereMesh_news4"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_b3j2p")
-height = 0.99999994
 
 [sub_resource type="Gradient" id="Gradient_wqgnt"]
 colors = PackedColorArray(0, 0, 0, 1, 0.30692267, 0.3069227, 0.3069227, 1)
@@ -1124,6 +1124,9 @@ animation = &"idle"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_871r8"]
 animation = &"run"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rdm4j"]
+animation = &"squash"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b3j2p"]
 xfade_time = 0.25
 advance_mode = 2
@@ -1168,6 +1171,26 @@ xfade_time = 0.25
 advance_mode = 2
 advance_condition = &"die"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yu5sq"]
+xfade_time = 0.25
+advance_mode = 2
+advance_condition = &"squash"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_owrlx"]
+xfade_time = 0.25
+advance_mode = 2
+advance_condition = &"squash"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xsrnk"]
+xfade_time = 0.25
+advance_mode = 2
+advance_condition = &"squash"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ft5ge"]
+xfade_time = 0.25
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_tjn76"]
 states/Start/position = Vector2(199, 100)
 states/attack/node = SubResource("AnimationNodeAnimation_news4")
@@ -1178,15 +1201,17 @@ states/idle/node = SubResource("AnimationNodeAnimation_md1d0")
 states/idle/position = Vector2(334, 73)
 states/run/node = SubResource("AnimationNodeAnimation_871r8")
 states/run/position = Vector2(616, 85)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_b3j2p"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_news4"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_wqgnt"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_tjn76"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_a2waq"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_rdm4j"), "idle", "die", SubResource("AnimationNodeStateMachineTransition_l1ebl"), "attack", "die", SubResource("AnimationNodeStateMachineTransition_fay7w"), "run", "die", SubResource("AnimationNodeStateMachineTransition_l4iyj")]
-graph_offset = Vector2(108.94491, 52.611115)
+states/squash/node = SubResource("AnimationNodeAnimation_rdm4j")
+states/squash/position = Vector2(425.94492, 5.236621)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_b3j2p"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_news4"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_wqgnt"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_tjn76"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_a2waq"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_rdm4j"), "idle", "die", SubResource("AnimationNodeStateMachineTransition_l1ebl"), "attack", "die", SubResource("AnimationNodeStateMachineTransition_fay7w"), "run", "die", SubResource("AnimationNodeStateMachineTransition_l4iyj"), "idle", "squash", SubResource("AnimationNodeStateMachineTransition_yu5sq"), "run", "squash", SubResource("AnimationNodeStateMachineTransition_owrlx"), "attack", "squash", SubResource("AnimationNodeStateMachineTransition_xsrnk"), "squash", "idle", SubResource("AnimationNodeStateMachineTransition_ft5ge")]
+graph_offset = Vector2(108.94491, -67.98918)
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_wqgnt"]
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_a2waq"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rdm4j"]
-graph_offset = Vector2(-769.6343, 27.981003)
+graph_offset = Vector2(-665.1521, 51.68367)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_tjn76")
 nodes/StateMachine/position = Vector2(-460, 20)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_a2waq")
@@ -1200,6 +1225,8 @@ nodes/Animation/position = Vector2(-760, 500)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"OneShot", &"OneShot", 0, &"StateMachine", &"OneShot", 1, &"TimeScale 2", &"TimeScale 2", 0, &"Animation"]
 
 [node name="Jens" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 13
 floor_max_angle = 0.0
 script = ExtResource("1_871r8")
 
@@ -1235,6 +1262,7 @@ cast_shadow = 0
 mesh = SubResource("QuadMesh_a2waq")
 
 [node name="DetectionArea" type="Area3D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
 shape = SubResource("CylinderShape3D_b3j2p")
@@ -1242,6 +1270,7 @@ shape = SubResource("CylinderShape3D_b3j2p")
 [node name="AttackArea" type="Area3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+collision_layer = 0
 monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
@@ -1259,10 +1288,11 @@ parameters/StateMachine/conditions/attack = false
 parameters/StateMachine/conditions/die = false
 parameters/StateMachine/conditions/idle = true
 parameters/StateMachine/conditions/run = false
+parameters/StateMachine/conditions/squash = false
 parameters/TimeScale/scale = 1.0
-parameters/OneShot/active = false
-parameters/OneShot/internal_active = false
-parameters/OneShot/request = 1
+parameters/OneShot/active = true
+parameters/OneShot/internal_active = true
+parameters/OneShot/request = 0
 "parameters/TimeScale 2/scale" = 0.0
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -1297,8 +1327,12 @@ enemy = NodePath("../..")
 animation_tree = NodePath("../../AnimationTree")
 metadata/_custom_type_script = "uid://cpg4wec8mcqnv"
 
-[node name="GroundSmokeTrail" parent="." instance=ExtResource("8_tjn76")]
-visible = false
+[node name="Squash" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "animation_tree")]
+script = ExtResource("8_tjn76")
+enemy = NodePath("../..")
+animation_tree = NodePath("../../AnimationTree")
+
+[node name="GroundSmokeTrail" parent="." instance=ExtResource("9_a2waq")]
 pos_leeway = 1.0
 min_velocity = 0.1
 
