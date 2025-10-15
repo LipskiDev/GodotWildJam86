@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cg3utj6oyr1n2"]
+
+[ext_resource type="Texture2D" uid="uid://bagk2vq0n1hrm" path="res://assets/textures/bark_brown.png" id="1_v70mm"]
+[ext_resource type="Texture2D" uid="uid://c1dfqvgj2s8nk" path="res://assets/textures/bark_brown_n.png" id="2_swbyx"]
+
+[resource]
+albedo_texture = ExtResource("1_v70mm")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("2_swbyx")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0

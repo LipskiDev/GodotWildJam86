@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dwam3nmsa7xom"]
+
+[ext_resource type="Texture2D" uid="uid://iakvp1dobcll" path="res://assets/textures/grass.png" id="1_fx705"]
+[ext_resource type="Texture2D" uid="uid://b84muihw281b7" path="res://assets/textures/grass_n.png" id="2_1iqj4"]
+
+[resource]
+resource_local_to_scene = true
+albedo_texture = ExtResource("1_fx705")
+albedo_texture_msdf = true
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("2_1iqj4")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0

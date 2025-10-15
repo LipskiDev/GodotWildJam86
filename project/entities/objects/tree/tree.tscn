@@ -1,6 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://r3rjtqvtt0jf"]
+[gd_scene load_steps=13 format=3 uid="uid://r3rjtqvtt0jf"]
 
 [ext_resource type="Script" uid="uid://cfpt2kn8c6vlw" path="res://entities/objects/tree/tree.gd" id="1_ithg8"]
+[ext_resource type="Material" uid="uid://cg3utj6oyr1n2" path="res://level/materials/bark.tres" id="2_amsp1"]
+[ext_resource type="Material" uid="uid://do4gw7k060vxu" path="res://level/materials/blätter.tres" id="3_x0y32"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_80gp8"]
 height = 4.8669434
@@ -38,72 +40,15 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_srgsp"]
 colors = PackedColorArray(0, 0.41960785, 0, 0.78431374, 0, 0.41960785, 0, 0)
 
-[sub_resource type="Gradient" id="Gradient_80gp8"]
-offsets = PackedFloat32Array(0.07977208, 0.994302)
-colors = PackedColorArray(0.2924487, 0.16262016, 0.021650607, 1, 0.4823616, 0.3184431, 0.15390721, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ithg8"]
-gradient = SubResource("Gradient_80gp8")
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.5)
-repeat = 2
-metadata/_snap_enabled = true
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_80gp8"]
-noise_type = 2
-fractal_type = 3
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ithg8"]
-noise = SubResource("FastNoiseLite_80gp8")
-seamless = true
-as_normal_map = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rr3vf"]
-albedo_texture = SubResource("GradientTexture2D_ithg8")
-metallic_specular = 0.0
-normal_enabled = true
-normal_texture = SubResource("NoiseTexture2D_ithg8")
-
 [sub_resource type="CylinderMesh" id="CylinderMesh_0jxth"]
-material = SubResource("StandardMaterial3D_rr3vf")
+material = ExtResource("2_amsp1")
 top_radius = 0.15
 bottom_radius = 0.2
 height = 3.0
 
-[sub_resource type="Gradient" id="Gradient_xr40p"]
-colors = PackedColorArray(0, 0.41960785, 0, 0.78431374, 0, 0.6901961, 0.24313726, 0.77254903)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5y7fe"]
-gradient = SubResource("Gradient_xr40p")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.90000004, 0.1)
-repeat = 2
-metadata/_snap_enabled = true
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_rr3vf"]
-frequency = 0.02
-fractal_type = 0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0jxth"]
-resource_local_to_scene = true
-noise = SubResource("FastNoiseLite_rr3vf")
-seamless = true
-in_3d_space = true
-as_normal_map = true
-normalize = false
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qppn4"]
-resource_local_to_scene = true
-albedo_texture = SubResource("GradientTexture2D_5y7fe")
-metallic_specular = 0.0
-normal_enabled = true
-normal_texture = SubResource("NoiseTexture2D_0jxth")
-uv1_world_triplanar = true
-
 [sub_resource type="SphereMesh" id="SphereMesh_srgsp"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_qppn4")
+material = ExtResource("3_x0y32")
 radius = 1.5
 height = 3.5
 
