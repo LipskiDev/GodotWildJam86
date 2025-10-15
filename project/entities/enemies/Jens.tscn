@@ -1179,7 +1179,7 @@ states/idle/position = Vector2(334, 73)
 states/run/node = SubResource("AnimationNodeAnimation_871r8")
 states/run/position = Vector2(616, 85)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_b3j2p"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_news4"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_wqgnt"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_tjn76"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_a2waq"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_rdm4j"), "idle", "die", SubResource("AnimationNodeStateMachineTransition_l1ebl"), "attack", "die", SubResource("AnimationNodeStateMachineTransition_fay7w"), "run", "die", SubResource("AnimationNodeStateMachineTransition_l4iyj")]
-graph_offset = Vector2(-79, -236.58232)
+graph_offset = Vector2(108.94491, 52.611115)
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_wqgnt"]
 
@@ -1257,13 +1257,13 @@ tree_root = SubResource("AnimationNodeBlendTree_rdm4j")
 anim_player = NodePath("../AnimationPlayer")
 parameters/StateMachine/conditions/attack = false
 parameters/StateMachine/conditions/die = false
-parameters/StateMachine/conditions/idle = false
+parameters/StateMachine/conditions/idle = true
 parameters/StateMachine/conditions/run = false
 parameters/TimeScale/scale = 1.0
 parameters/OneShot/active = false
 parameters/OneShot/internal_active = false
-parameters/OneShot/request = 0
-"parameters/TimeScale 2/scale" = 1.0
+parameters/OneShot/request = 1
+"parameters/TimeScale 2/scale" = 0.0
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_m7yin")

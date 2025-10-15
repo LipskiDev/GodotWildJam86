@@ -2,7 +2,6 @@ class_name Jens
 extends CharacterBody3D
 
 
-@export var player: CharacterBody3D
 @export var speed := 4.0
 @export var health := 100.0
 @export var knockback_strength := 20.0
@@ -69,3 +68,6 @@ func _on_attack_area_body_entered(body: Node3D) -> void:
 				0.0, 
 				body.global_position.z - self.global_position.z
 			)).normalized() * knockback_strength
+
+func squash(amount: int):
+	pass
