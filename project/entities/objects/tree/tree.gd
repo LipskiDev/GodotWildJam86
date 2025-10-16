@@ -1,6 +1,9 @@
 extends StaticBody3D
 
 
+var tween: Tween
+
+
 @onready var leafs: MeshInstance3D = $Leafs
 
 
@@ -19,6 +22,10 @@ func take_damage(_amount: int) -> void:
 	
 	var radius = leafs.mesh.radius
 	
-	var tween = get_tree().create_tween()
+	if tween:
+		tween.kill()
+	
+	tween = get_tree().create_tween()
+	
 	$Leafs.mesh.radius = radius * 0.5
 	tween.tween_property($Leafs.mesh, "radius", radius, 0.5).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
