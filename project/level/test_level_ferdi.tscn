@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c8qsqy4uupwjb"]
+[gd_scene load_steps=27 format=3 uid="uid://c8qsqy4uupwjb"]
 
 [ext_resource type="PackedScene" uid="uid://drvm475mdagfk" path="res://entities/player/player.tscn" id="1_s3kxx"]
 [ext_resource type="PackedScene" uid="uid://cv7v8afb11jcn" path="res://entities/player/player_camera.tscn" id="2_0ikrv"]
@@ -14,6 +14,10 @@
 [ext_resource type="Material" uid="uid://do4gw7k060vxu" path="res://level/materials/blätter.tres" id="9_qbde3"]
 [ext_resource type="Material" uid="uid://dwam3nmsa7xom" path="res://level/materials/grass.tres" id="10_qvt8x"]
 [ext_resource type="Material" uid="uid://cg3utj6oyr1n2" path="res://level/materials/bark.tres" id="11_40eq5"]
+[ext_resource type="Material" uid="uid://bs7a41iqvwiyb" path="res://level/materials/rock.tres" id="12_rfql7"]
+[ext_resource type="PackedScene" uid="uid://dedu5xe152q31" path="res://entities/objects/stairs.tscn" id="13_h8l83"]
+[ext_resource type="Texture2D" uid="uid://iakvp1dobcll" path="res://assets/textures/grass.png" id="14_jmfkj"]
+[ext_resource type="Texture2D" uid="uid://b84muihw281b7" path="res://assets/textures/grass_n.png" id="15_ogcmd"]
 [ext_resource type="PackedScene" uid="uid://b7517a6cp3rr6" path="res://entities/objects/grass_foliage.tscn" id="15_xfk3k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j55db"]
@@ -41,6 +45,39 @@ vertices = PackedVector3Array(49.75, -11.5, -39.642303, 38, -11.5, -19.392303, 4
 polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Array(0, 4, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(8, 10, 9), PackedInt32Array(14, 13, 11), PackedInt32Array(11, 13, 12), PackedInt32Array(16, 13, 15), PackedInt32Array(15, 13, 14), PackedInt32Array(19, 18, 17), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 23), PackedInt32Array(23, 20, 24), PackedInt32Array(26, 25, 27), PackedInt32Array(27, 25, 28), PackedInt32Array(28, 25, 29), PackedInt32Array(25, 30, 29), PackedInt32Array(31, 22, 23), PackedInt32Array(23, 32, 31), PackedInt32Array(31, 32, 30), PackedInt32Array(30, 32, 29), PackedInt32Array(28, 33, 27), PackedInt32Array(35, 34, 36), PackedInt32Array(36, 34, 37), PackedInt32Array(39, 38, 40), PackedInt32Array(40, 38, 41), PackedInt32Array(44, 43, 42), PackedInt32Array(46, 45, 42), PackedInt32Array(42, 45, 44), PackedInt32Array(44, 45, 38), PackedInt32Array(38, 45, 47), PackedInt32Array(37, 34, 41), PackedInt32Array(41, 38, 37), PackedInt32Array(37, 38, 47), PackedInt32Array(46, 48, 45), PackedInt32Array(50, 49, 51), PackedInt32Array(51, 49, 52), PackedInt32Array(51, 52, 35), PackedInt32Array(51, 35, 36), PackedInt32Array(39, 40, 53), PackedInt32Array(39, 53, 54), PackedInt32Array(54, 53, 52), PackedInt32Array(54, 52, 55), PackedInt32Array(55, 52, 56), PackedInt32Array(56, 52, 49), PackedInt32Array(56, 57, 55), PackedInt32Array(50, 51, 58), PackedInt32Array(58, 51, 59), PackedInt32Array(44, 61, 60), PackedInt32Array(62, 58, 59), PackedInt32Array(62, 59, 57), PackedInt32Array(57, 59, 60), PackedInt32Array(57, 60, 55), PackedInt32Array(55, 60, 61), PackedInt32Array(64, 63, 65), PackedInt32Array(65, 63, 60), PackedInt32Array(60, 63, 44), PackedInt32Array(44, 63, 43), PackedInt32Array(69, 68, 66), PackedInt32Array(66, 68, 67), PackedInt32Array(71, 70, 72), PackedInt32Array(72, 70, 73), PackedInt32Array(77, 76, 74), PackedInt32Array(74, 76, 75), PackedInt32Array(80, 79, 78), PackedInt32Array(81, 80, 82), PackedInt32Array(82, 80, 78), PackedInt32Array(82, 78, 33), PackedInt32Array(82, 33, 28), PackedInt32Array(84, 83, 85), PackedInt32Array(85, 83, 86), PackedInt32Array(85, 86, 87), PackedInt32Array(87, 86, 88), PackedInt32Array(87, 89, 85), PackedInt32Array(86, 90, 88), PackedInt32Array(93, 92, 91), PackedInt32Array(63, 64, 94), PackedInt32Array(94, 64, 95), PackedInt32Array(94, 95, 96), PackedInt32Array(96, 95, 98), PackedInt32Array(96, 98, 97), PackedInt32Array(91, 96, 93), PackedInt32Array(93, 96, 97), PackedInt32Array(102, 101, 99), PackedInt32Array(99, 101, 100), PackedInt32Array(104, 103, 105), PackedInt32Array(105, 103, 106), PackedInt32Array(106, 103, 107), PackedInt32Array(45, 48, 103), PackedInt32Array(103, 48, 107), PackedInt32Array(110, 109, 108), PackedInt32Array(110, 108, 107), PackedInt32Array(107, 108, 106), PackedInt32Array(106, 108, 111), PackedInt32Array(109, 92, 108), PackedInt32Array(108, 92, 93)]
 agent_height = 1.0
 agent_radius = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18i3a"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("14_jmfkj")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("15_ogcmd")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4dfjr"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("14_jmfkj")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("15_ogcmd")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1y5rl"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("14_jmfkj")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("15_ogcmd")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
 
 [node name="TestLevelFerdi" type="Node3D"]
 
@@ -177,8 +214,8 @@ size = Vector3(16.279053, 1, 11.7456665)
 material = ExtResource("9_qbde3")
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.208916, -17.499996, 27.272867)
-size = Vector3(16.279053, 1, 11.7456665)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -17.5, 27)
+size = Vector3(16, 1, 12)
 material = ExtResource("10_qvt8x")
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
@@ -200,6 +237,50 @@ material = ExtResource("4_v77n0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.780964, -17.499996, 43.319572)
 size = Vector3(16.279053, 1, 11.7456665)
 material = ExtResource("3_01jeq")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.93652, -17.67532, -2.2091606)
+radius = 2.2756119
+radial_segments = 6
+rings = 5
+material = ExtResource("12_rfql7")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.367775, -17.944801, -2.2091606)
+radius = 1.906
+radial_segments = 4
+rings = 4
+material = ExtResource("12_rfql7")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.367775, -17.944801, -3.717286)
+radius = 1.6
+radial_segments = 9
+rings = 4
+material = ExtResource("12_rfql7")
+
+[node name="Stairs" parent="NavigationRegion3D/CSGCombiner3D" instance=ExtResource("13_h8l83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.44391, -18, 21.090553)
+steps = 34
+step_width = 8.0
+
+[node name="Stairs2" parent="NavigationRegion3D/CSGCombiner3D" instance=ExtResource("13_h8l83")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 36, -18, 27)
+steps = 7
+step_width = 12.0
+material = SubResource("StandardMaterial3D_18i3a")
+
+[node name="Stairs4" parent="NavigationRegion3D/CSGCombiner3D" instance=ExtResource("13_h8l83")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 14.000001, -18, 27)
+steps = 7
+step_width = 12.0
+material = SubResource("StandardMaterial3D_4dfjr")
+
+[node name="Stairs3" parent="NavigationRegion3D/CSGCombiner3D" instance=ExtResource("13_h8l83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -18, 36)
+steps = 7
+step_width = 16.0
+material = SubResource("StandardMaterial3D_1y5rl")
 
 [node name="Tree" parent="NavigationRegion3D" instance=ExtResource("6_o788b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.16536, -17.508049, -15.898354)

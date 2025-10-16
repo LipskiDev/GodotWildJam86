@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dedu5xe152q31"]
+
+[ext_resource type="Script" uid="uid://c1o3axcqodyvg" path="res://entities/objects/stairs.gd" id="1_t8q2f"]
+[ext_resource type="Material" uid="uid://4px458ycnie7" path="res://level/materials/stone_wall.tres" id="2_8gqfk"]
+
+[node name="Stairs" type="Node3D"]
+script = ExtResource("1_t8q2f")
+material = ExtResource("2_8gqfk")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://drvm475mdagfk"]
+[gd_scene load_steps=12 format=3 uid="uid://drvm475mdagfk"]
 
 [ext_resource type="Script" uid="uid://bhgwfchvstiqj" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="Script" uid="uid://c0x7wwsb4q63n" path="res://entities/player/attack.gd" id="2_abrql"]
+[ext_resource type="Script" uid="uid://b0nsgai36fwi1" path="res://entities/player/treppen_festhängungs_prävention.gd" id="3_fkugw"]
 [ext_resource type="Script" uid="uid://ox1aw8xjtjvj" path="res://entities/player/dash.gd" id="3_sglur"]
 [ext_resource type="PackedScene" uid="uid://d4flbv8c15tmm" path="res://entities/player/ground_smoke_trail.tscn" id="4_bls4j"]
 
@@ -54,6 +55,17 @@ monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RotatableObjects/Attack/Area3D"]
 shape = SubResource("ConvexPolygonShape3D_sglur")
+
+[node name="TreppenFesthängungsPrävention" type="Node3D" parent="RotatableObjects" node_paths=PackedStringArray("player")]
+script = ExtResource("3_fkugw")
+player = NodePath("../..")
+
+[node name="StairsBelowRayCast" type="RayCast3D" parent="RotatableObjects/TreppenFesthängungsPrävention"]
+target_position = Vector3(0, -0.75, 0)
+
+[node name="StairsAheadRayCast" type="RayCast3D" parent="RotatableObjects/TreppenFesthängungsPrävention"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.5)
+target_position = Vector3(0, -0.55, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=50 format=3 uid="uid://ts0h3qr5grgg"]
+[gd_scene load_steps=43 format=3 uid="uid://ts0h3qr5grgg"]
 
 [ext_resource type="Script" uid="uid://dnlwjjttjmxsk" path="res://entities/enemies/jens.gd" id="1_871r8"]
 [ext_resource type="Script" uid="uid://lp3uj8068cc1" path="res://entities/enemies/states/state_machine.gd" id="1_m7yin"]
+[ext_resource type="Material" uid="uid://0nv7jcmpn32p" path="res://level/materials/Jens.tres" id="2_a2waq"]
 [ext_resource type="Script" uid="uid://dnci7ni3toc6h" path="res://entities/enemies/states/idle.gd" id="2_g2phv"]
 [ext_resource type="Shader" uid="uid://crt1kpjgc1vn8" path="res://entities/enemies/healthbar/healthbar.gdshader" id="2_wqgnt"]
 [ext_resource type="Script" uid="uid://c07a4o2w21s8g" path="res://entities/enemies/states/wander.gd" id="3_md1d0"]
@@ -13,76 +14,18 @@
 resource_local_to_scene = true
 radius = 0.55
 
-[sub_resource type="Gradient" id="Gradient_md1d0"]
-offsets = PackedFloat32Array(0.3991228, 1)
-colors = PackedColorArray(0.08627451, 0.13725491, 0.16470589, 1, 0.1846773, 0.26921904, 0.31480762, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_871r8"]
-resource_local_to_scene = true
-gradient = SubResource("Gradient_md1d0")
-width = 256
-height = 256
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
-metadata/_snap_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wqgnt"]
-transparency = 1
-cull_mode = 1
-shading_mode = 0
-disable_receive_shadows = true
-grow = true
-grow_amount = 0.03
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3j2p"]
-resource_local_to_scene = true
-next_pass = SubResource("StandardMaterial3D_wqgnt")
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-depth_draw_mode = 1
-diffuse_mode = 3
-specular_mode = 1
-albedo_texture = SubResource("GradientTexture2D_871r8")
-texture_filter = 0
-
 [sub_resource type="SphereMesh" id="SphereMesh_news4"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_b3j2p")
-
-[sub_resource type="Gradient" id="Gradient_wqgnt"]
-colors = PackedColorArray(0, 0, 0, 1, 0.30692267, 0.3069227, 0.3069227, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tjn76"]
-gradient = SubResource("Gradient_wqgnt")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-metadata/_snap_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjn76"]
-transparency = 1
-cull_mode = 1
-shading_mode = 0
-disable_receive_shadows = true
-grow = true
-grow_amount = 0.03
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a2waq"]
-next_pass = SubResource("StandardMaterial3D_tjn76")
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-depth_draw_mode = 1
-diffuse_mode = 3
-specular_mode = 1
-albedo_texture = SubResource("GradientTexture2D_tjn76")
-texture_filter = 0
+material = ExtResource("2_a2waq")
+radial_segments = 7
+rings = 5
 
 [sub_resource type="SphereMesh" id="SphereMesh_rdm4j"]
-material = SubResource("StandardMaterial3D_a2waq")
+material = ExtResource("2_a2waq")
 radius = 0.2
 height = 0.4
+radial_segments = 5
+rings = 3
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wqgnt"]
 resource_local_to_scene = true
