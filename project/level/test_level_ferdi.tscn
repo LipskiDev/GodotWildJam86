@@ -46,29 +46,29 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Arr
 agent_height = 1.0
 agent_radius = 0.6
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmfkj"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("14_jmfkj")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("15_ogcmd")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogcmd"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("14_jmfkj")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("15_ogcmd")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18i3a"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("14_jmfkj")
-metallic_specular = 0.0
-normal_enabled = true
-normal_texture = ExtResource("15_ogcmd")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4dfjr"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("14_jmfkj")
-metallic_specular = 0.0
-normal_enabled = true
-normal_texture = ExtResource("15_ogcmd")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1y5rl"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("14_jmfkj")
 metallic_specular = 0.0
@@ -92,6 +92,7 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_s3kxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.990349, 0)
+max_jumps = 2
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014289856, 1.4829588, 0)
@@ -268,19 +269,19 @@ step_width = 8.0
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 36, -18, 27)
 steps = 7
 step_width = 12.0
-material = SubResource("StandardMaterial3D_18i3a")
+material = SubResource("StandardMaterial3D_jmfkj")
 
 [node name="Stairs4" parent="NavigationRegion3D/CSGCombiner3D" instance=ExtResource("13_h8l83")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 14.000001, -18, 27)
 steps = 7
 step_width = 12.0
-material = SubResource("StandardMaterial3D_4dfjr")
+material = SubResource("StandardMaterial3D_ogcmd")
 
 [node name="Stairs3" parent="NavigationRegion3D/CSGCombiner3D" instance=ExtResource("13_h8l83")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -18, 36)
 steps = 7
 step_width = 16.0
-material = SubResource("StandardMaterial3D_1y5rl")
+material = SubResource("StandardMaterial3D_18i3a")
 
 [node name="Tree" parent="NavigationRegion3D" instance=ExtResource("6_o788b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.16536, -17.508049, -15.898354)
