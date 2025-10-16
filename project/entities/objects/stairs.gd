@@ -43,7 +43,7 @@ func _ready() -> void:
 
 func create_box(left_pos: float, i: int) -> CSGBox3D:
 	var box: CSGBox3D = CSGBox3D.new()
-	box.operation = CSGShape3D.OPERATION_SUBTRACTION if subtract else CSGShape3D.OPERATION_UNION
+	#box.operation = CSGShape3D.OPERATION_SUBTRACTION if subtract else CSGShape3D.OPERATION_UNION
 	box.size = Vector3(step_width, step_height, step_depth)
 	box.position.z = left_pos - i * step_depth
 	box.position.y = i * step_height
@@ -72,7 +72,7 @@ func create_stairs() -> void:
 		for j in steps - 1:
 			if i >= j - 1:
 				var box: CSGBox3D = create_box(left_pos, i + 1)
-				box.operation = CSGShape3D.OPERATION_SUBTRACTION if subtract else CSGShape3D.OPERATION_UNION
+				#box.operation = CSGShape3D.OPERATION_SUBTRACTION if subtract else CSGShape3D.OPERATION_UNION
 				box.position.y -= step_height * j + step_height
 				if box.position.y >= 0.0:
 					add_child(box)
