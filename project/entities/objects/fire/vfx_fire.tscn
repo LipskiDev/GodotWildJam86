@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://dk3f8rrfdbyf0"]
+
+[ext_resource type="Shader" uid="uid://bxbvxkbouhutr" path="res://entities/objects/fire/fire_shader.tres" id="1_hicfo"]
+[ext_resource type="Shader" uid="uid://cmaxmafcat0ol" path="res://entities/objects/fire/smoke_shader.res" id="2_8e1ii"]
+[ext_resource type="Shader" uid="uid://cvsa0uf2ac0qf" path="res://entities/objects/fire/ember_shader.res" id="3_51en7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_taptm"]
+render_priority = 0
+shader = ExtResource("1_hicfo")
+shader_parameter/Vector2Parameter = Vector2(0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_etyy7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m5nin"]
+render_priority = 0
+shader = ExtResource("2_8e1ii")
+
+[sub_resource type="QuadMesh" id="QuadMesh_l4ojd"]
+
+[sub_resource type="Curve" id="Curve_jtqsa"]
+_data = [Vector2(0.016853929, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.47191018), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_k78in"]
+offsets = PackedFloat32Array(0, 0.54605263, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8xfrl"]
+render_priority = 0
+shader = ExtResource("3_51en7")
+
+[sub_resource type="QuadMesh" id="QuadMesh_2s3e8"]
+
+[sub_resource type="Curve" id="Curve_stjeb"]
+_data = [Vector2(0.016853929, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.47191018), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_t3llc"]
+offsets = PackedFloat32Array(0, 0.54605263, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="VFX_fire" type="Node3D"]
+
+[node name="Fire" type="CPUParticles3D" parent="."]
+sorting_offset = 2.0
+material_override = SubResource("ShaderMaterial_taptm")
+amount = 1
+mesh = SubResource("QuadMesh_etyy7")
+gravity = Vector3(0, 0, 0)
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(1.4981097, 0.73926353, 0, 0.8)
+
+[node name="Smoke" type="CPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_m5nin")
+amount = 15
+lifetime = 1.3
+randomness = 0.1
+fixed_fps = 60
+mesh = SubResource("QuadMesh_l4ojd")
+emission_shape = 1
+emission_sphere_radius = 0.2
+gravity = Vector3(0, 4, 0)
+angular_velocity_min = -180.0
+damping_min = 1.5
+damping_max = 2.2
+angle_min = -120.0
+angle_max = 90.0
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_jtqsa")
+color = Color(0.74898446, 0.24148607, 0.09638963, 1)
+color_ramp = SubResource("Gradient_k78in")
+
+[node name="Embers" type="CPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_8xfrl")
+amount = 15
+lifetime = 1.3
+randomness = 0.1
+fixed_fps = 60
+mesh = SubResource("QuadMesh_2s3e8")
+emission_shape = 1
+emission_sphere_radius = 0.5
+gravity = Vector3(0, 4, 0)
+angular_velocity_min = -180.0
+damping_min = 1.5
+damping_max = 2.2
+angle_min = -120.0
+angle_max = 90.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_stjeb")
+color = Color(1, 0.72605973, 0, 1)
+color_ramp = SubResource("Gradient_t3llc")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
