@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://brx4i2bpn4rrp"]
+
+[ext_resource type="Script" uid="uid://bd7w1fgrlfiq7" path="res://ui/display_mask.gd" id="1_u8ucs"]
+[ext_resource type="Texture2D" uid="uid://bet3wuiw4nwei" path="res://icon.svg" id="1_xejo8"]
+
+[node name="DisplayMask" type="VBoxContainer"]
+offset_right = 128.0
+offset_bottom = 152.0
+alignment = 1
+script = ExtResource("1_u8ucs")
+texture = ExtResource("1_xejo8")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_xejo8")
+stretch_mode = 4
+
+[node name="Label" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 8
+text = "Maske 1 (press shift)"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1

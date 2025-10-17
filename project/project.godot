@@ -15,6 +15,17 @@ run/main_scene="uid://c8qsqy4uupwjb"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=405
+window/size/resizable=false
+window/size/always_on_top=true
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="viewport"
+window/vsync/vsync_mode=0
+
 [file_customization]
 
 folder_colors={
@@ -23,6 +34,10 @@ folder_colors={
 "res://level/level-utils/": "yellow",
 "res://level/materials/": "purple"
 }
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
 
 [input]
 
