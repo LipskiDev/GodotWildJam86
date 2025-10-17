@@ -321,7 +321,40 @@ tracks/19/enabled = true
 tracks/19/path = NodePath("Body:scale")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
-tracks/19/keys = PackedFloat32Array()
+tracks/19/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/20/type = "bezier"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Body:scale:x")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"handle_modes": PackedInt32Array(2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/21/type = "bezier"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Body:scale:y")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"handle_modes": PackedInt32Array(2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/22/type = "bezier"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Body:scale:z")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"handle_modes": PackedInt32Array(2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_news4"]
 resource_name = "attack"
@@ -851,6 +884,53 @@ tracks/8/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.05, -0.25, 0, 0.25, 0, -0.03, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1.0521941, 1.9947847, 3)
 }
+tracks/9/type = "scale_3d"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Body")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array()
+tracks/10/type = "scale_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Body")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array()
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Body:scale:x")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(1, -0.2499999, -0.00065156794, 3, 0.007818818, 1, -0.5, 0, 0, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Body:scale:y")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(1, -0.25, 5.8308247e-05, 3, -0.0006996989, 1, -0.5, 0, 0, 0),
+"times": PackedFloat32Array(0, 3)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Body:scale:z")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(1, -0.25, 5.8308247e-05, 3, -0.0006996989, 1, -0.5, 0, 0, 0),
+"times": PackedFloat32Array(0, 3)
+}
 
 [sub_resource type="Animation" id="Animation_l4iyj"]
 resource_name = "run"
@@ -1047,7 +1127,6 @@ advance_mode = 2
 advance_condition = &"squash"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ft5ge"]
-xfade_time = 0.25
 switch_mode = 2
 advance_mode = 2
 
@@ -1062,7 +1141,7 @@ states/idle/position = Vector2(334, 73)
 states/run/node = SubResource("AnimationNodeAnimation_871r8")
 states/run/position = Vector2(616, 85)
 states/squash/node = SubResource("AnimationNodeAnimation_a2waq")
-states/squash/position = Vector2(465, -30)
+states/squash/position = Vector2(463, -31)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_b3j2p"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_news4"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_wqgnt"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_tjn76"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_a2waq"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_rdm4j"), "idle", "die", SubResource("AnimationNodeStateMachineTransition_l1ebl"), "attack", "die", SubResource("AnimationNodeStateMachineTransition_fay7w"), "run", "die", SubResource("AnimationNodeStateMachineTransition_l4iyj"), "idle", "squash", SubResource("AnimationNodeStateMachineTransition_yu5sq"), "run", "squash", SubResource("AnimationNodeStateMachineTransition_owrlx"), "attack", "squash", SubResource("AnimationNodeStateMachineTransition_xsrnk"), "squash", "idle", SubResource("AnimationNodeStateMachineTransition_ft5ge")]
 graph_offset = Vector2(-243, -197)
 
@@ -1071,7 +1150,7 @@ graph_offset = Vector2(-243, -197)
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_a2waq"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rdm4j"]
-graph_offset = Vector2(-800.0703, 0)
+graph_offset = Vector2(-1064.7374, 94.66516)
 nodes/output/position = Vector2(320, 100)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_tjn76")
 nodes/StateMachine/position = Vector2(-460, 20)
@@ -1186,6 +1265,7 @@ metadata/_custom_type_script = "uid://cpg4wec8mcqnv"
 
 [node name="GroundSmokeTrail" parent="." instance=ExtResource("8_tjn76")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47239113, 0)
+visible = false
 pos_leeway = 1.0
 min_velocity = 0.1
 
