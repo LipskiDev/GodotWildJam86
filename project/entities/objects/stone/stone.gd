@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends StaticBody3D
 
 var pieces: PackedScene = preload("res://entities/objects/stone/stone_pieces.tscn")
 
