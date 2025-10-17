@@ -10,7 +10,9 @@ const scene_paths: Array[String] = [
 	"res://entities/objects/vase/vase_pieces.tscn",
 	"res://globals/all_materials.tscn",
 	"res://entities/player/ground_smoke_trail.tscn",
-	"res://entities/enemies/tree_enemy_rigged.tscn"
+	"res://entities/enemies/tree_enemy_rigged.tscn",
+	"res://entities/objects/stone/stone.tscn",
+	"res://entities/objects/stone/stone_pieces.tscn"
 ]
 
 
