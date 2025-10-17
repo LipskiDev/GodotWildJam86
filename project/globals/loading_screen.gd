@@ -9,7 +9,8 @@ const scene_paths: Array[String] = [
 	"res://entities/objects/vase/vase.tscn",
 	"res://entities/objects/vase/vase_pieces.tscn",
 	"res://globals/all_materials.tscn",
-	"res://entities/player/ground_smoke_trail.tscn"
+	"res://entities/player/ground_smoke_trail.tscn",
+	"res://entities/enemies/tree_enemy_rigged.tscn"
 ]
 
 
@@ -20,11 +21,11 @@ const scene_paths: Array[String] = [
 func _ready() -> void:
 	for scene_path in scene_paths:
 		var scene = ResourceLoader.load(scene_path).instantiate()
-		print(scene)
+		#print(scene)
 		
 		compile_scene(scene)
 		
-		for child in scene.get_children():
+		for child in scene.get_children(true):
 			compile_scene(child)
 		
 		compile_container.add_child(scene)
