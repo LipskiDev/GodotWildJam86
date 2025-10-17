@@ -75,10 +75,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	# squash jens
-	print(get_slide_collision_count())
 	for index in range(get_slide_collision_count()):
 		var collision = get_slide_collision(index)
-		print(collision.get_collider())
 		if collision.get_collider() == null:
 			continue
 		if collision.has_method("squash"):
