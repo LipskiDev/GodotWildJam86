@@ -1,0 +1,91 @@
+[gd_scene load_steps=23 format=3 uid="uid://df4prbegl2pxf"]
+
+[ext_resource type="Material" uid="uid://cg3utj6oyr1n2" path="res://level/materials/bark.tres" id="1_iet6e"]
+[ext_resource type="Material" uid="uid://do4gw7k060vxu" path="res://level/materials/blätter.tres" id="2_sqj0o"]
+[ext_resource type="Material" uid="uid://c2bev1ykeep5s" path="res://level/materials/dreck.tres" id="3_4nycu"]
+[ext_resource type="Material" uid="uid://dwam3nmsa7xom" path="res://level/materials/grass.tres" id="4_ts58y"]
+[ext_resource type="Material" uid="uid://0nv7jcmpn32p" path="res://level/materials/Jens.tres" id="5_ljx0c"]
+[ext_resource type="Material" uid="uid://c8wk787ymea7l" path="res://level/materials/moss.tres" id="6_801xa"]
+[ext_resource type="Material" uid="uid://bs7a41iqvwiyb" path="res://level/materials/rock.tres" id="7_xysya"]
+[ext_resource type="Material" uid="uid://cvpbv3ebq45m5" path="res://level/materials/sand.tres" id="8_3nwnh"]
+[ext_resource type="Material" uid="uid://4px458ycnie7" path="res://level/materials/stone_wall.tres" id="9_m282s"]
+[ext_resource type="Material" uid="uid://2gfoa0v6l7dr" path="res://level/materials/test_material.tres" id="10_e13b8"]
+[ext_resource type="Material" uid="uid://bfb4l33pr5ja2" path="res://level/materials/wüsten_fliesen.tres" id="11_i5lrv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_o156x"]
+material = ExtResource("1_iet6e")
+
+[sub_resource type="BoxMesh" id="BoxMesh_gbrya"]
+material = ExtResource("2_sqj0o")
+
+[sub_resource type="BoxMesh" id="BoxMesh_4ty08"]
+material = ExtResource("3_4nycu")
+
+[sub_resource type="BoxMesh" id="BoxMesh_hycqx"]
+material = ExtResource("4_ts58y")
+
+[sub_resource type="BoxMesh" id="BoxMesh_unfy6"]
+material = ExtResource("5_ljx0c")
+
+[sub_resource type="BoxMesh" id="BoxMesh_wivgp"]
+material = ExtResource("6_801xa")
+
+[sub_resource type="BoxMesh" id="BoxMesh_8kiiv"]
+material = ExtResource("7_xysya")
+
+[sub_resource type="BoxMesh" id="BoxMesh_y174j"]
+material = ExtResource("8_3nwnh")
+
+[sub_resource type="BoxMesh" id="BoxMesh_obk40"]
+material = ExtResource("9_m282s")
+
+[sub_resource type="BoxMesh" id="BoxMesh_354mu"]
+material = ExtResource("10_e13b8")
+
+[sub_resource type="BoxMesh" id="BoxMesh_xopol"]
+material = ExtResource("11_i5lrv")
+
+[node name="MaterialLoading" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_o156x")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = SubResource("BoxMesh_gbrya")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+mesh = SubResource("BoxMesh_4ty08")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+mesh = SubResource("BoxMesh_hycqx")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+mesh = SubResource("BoxMesh_unfy6")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+mesh = SubResource("BoxMesh_wivgp")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+mesh = SubResource("BoxMesh_8kiiv")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+mesh = SubResource("BoxMesh_y174j")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+mesh = SubResource("BoxMesh_obk40")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+mesh = SubResource("BoxMesh_354mu")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+mesh = SubResource("BoxMesh_xopol")
