@@ -79,8 +79,7 @@ func _physics_process(delta: float) -> void:
 		var collision = get_slide_collision(index)
 		if collision.get_collider() == null:
 			continue
-		if collision.has_method("squash"):
-			print("Collided with duck")
+		if collision.get_collider().has_method("squash"):
 			var squashable = collision.get_collider()
 				
 			if Vector3.UP.dot(collision.get_normal()) > 0.1:

@@ -72,4 +72,8 @@ func _on_attack_area_body_entered(body: Node3D) -> void:
 
 func squash(dmg: int):
 	health -= dmg
-	
+	if health <= 0:
+		die()
+	else:
+		$StateMachine.current_state.transitioned.emit($StateMachine.current_state, "squash")
+		
