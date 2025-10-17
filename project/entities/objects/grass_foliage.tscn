@@ -115,6 +115,8 @@ shader_parameter/strength = 0.2
 
 [sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_jci4i"]
 material = SubResource("ShaderMaterial_bx5gm")
+sections = 2
+section_length = 0.5
 
 [node name="GrassFoliage" type="Node3D"]
 script = ExtResource("1_iovlq")
