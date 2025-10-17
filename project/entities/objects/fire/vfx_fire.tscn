@@ -1,15 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://dk3f8rrfdbyf0"]
 
-[ext_resource type="Shader" uid="uid://bxbvxkbouhutr" path="res://entities/objects/fire/fire_shader.tres" id="1_hicfo"]
 [ext_resource type="Shader" uid="uid://cmaxmafcat0ol" path="res://entities/objects/fire/smoke_shader.res" id="2_8e1ii"]
 [ext_resource type="Shader" uid="uid://cvsa0uf2ac0qf" path="res://entities/objects/fire/ember_shader.res" id="3_51en7"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_taptm"]
-render_priority = 0
-shader = ExtResource("1_hicfo")
-shader_parameter/Vector2Parameter = Vector2(0, 1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_etyy7"]
+[ext_resource type="Shader" uid="uid://bxbvxkbouhutr" path="res://entities/objects/fire/fire_shader2.tres" id="4_8e1ii"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m5nin"]
 render_priority = 0
@@ -39,17 +32,16 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.54605263, 1)
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="VFX_fire" type="Node3D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hicfo"]
+render_priority = 0
+shader = ExtResource("4_8e1ii")
+shader_parameter/Vector2Parameter = Vector2(0, 1)
 
-[node name="Fire" type="CPUParticles3D" parent="."]
-sorting_offset = 2.0
-material_override = SubResource("ShaderMaterial_taptm")
-amount = 1
-mesh = SubResource("QuadMesh_etyy7")
-gravity = Vector3(0, 0, 0)
-scale_amount_min = 2.0
-scale_amount_max = 2.0
-color = Color(1.4981097, 0.73926353, 0, 0.8)
+[sub_resource type="QuadMesh" id="QuadMesh_8e1ii"]
+material = SubResource("ShaderMaterial_hicfo")
+size = Vector2(2, 2)
+
+[node name="VFX_fire" type="Node3D"]
 
 [node name="Smoke" type="CPUParticles3D" parent="."]
 material_override = SubResource("ShaderMaterial_m5nin")
@@ -66,7 +58,8 @@ damping_min = 1.5
 damping_max = 2.2
 angle_min = -120.0
 angle_max = 90.0
-scale_amount_max = 1.5
+scale_amount_min = 2.0
+scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_jtqsa")
 color = Color(0.74898446, 0.24148607, 0.09638963, 1)
 color_ramp = SubResource("Gradient_k78in")
@@ -93,3 +86,7 @@ color = Color(1, 0.72605973, 0, 1)
 color_ramp = SubResource("Gradient_t3llc")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+sorting_offset = 2.0
+mesh = SubResource("QuadMesh_8e1ii")
