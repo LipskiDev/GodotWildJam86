@@ -28,5 +28,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.has_method("take_damage"):
 		body.take_damage(10)
 	
+	if body.has_method("rock_smash"):
+		body.rock_smash()
+	
 	if body is RigidBody3D:
 		body.apply_impulse((body.global_position - self.global_position).normalized() * 3.0)
