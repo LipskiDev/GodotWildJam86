@@ -69,3 +69,7 @@ func _on_attack_area_body_entered(body: Node3D) -> void:
 				0.0, 
 				body.global_position.z - self.global_position.z
 			)).normalized() * knockback_strength
+
+func squash(dmg: int):
+	health -= dmg
+	
