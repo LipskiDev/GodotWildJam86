@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://denfjc0nfgk00"]
+[gd_scene load_steps=8 format=3 uid="uid://denfjc0nfgk00"]
 
 [ext_resource type="PackedScene" uid="uid://drvm475mdagfk" path="res://entities/player/player.tscn" id="1_yiysr"]
 [ext_resource type="PackedScene" uid="uid://cv7v8afb11jcn" path="res://entities/player/player_camera.tscn" id="3_jt31d"]
 [ext_resource type="PackedScene" uid="uid://37ssktu6xoyy" path="res://level/level-utils/stair_new.tscn" id="3_uv3sv"]
+[ext_resource type="PackedScene" uid="uid://dhjmue468flpp" path="res://entities/objects/stone/stone.tscn" id="4_uv3sv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qtsvt"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -42,8 +43,11 @@ size = Vector3(36.125, 10.068848, 35.55664)
 [node name="StairNew" parent="CSGCombiner3D" instance=ExtResource("3_uv3sv")]
 transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, -2.943667, 0.11454201, 0.99970937)
 operation = 2
-polygon = PackedVector2Array(0, 0, 0, 1.05, 2, 1.05, 2, 0.9, 4, 0.9, 4, 0.75, 6, 0.75, 6, 0.6, 8, 0.6, 8, 0.45, 10, 0.45, 10, 0.3, 12, 0.3, 12, 0.15, 14, 0.15, 14, 0)
+polygon = PackedVector2Array(0, 0, 0, 1.2, 2, 1.2, 2, 1.05, 4, 1.05, 4, 0.9, 6, 0.9, 6, 0.75, 8, 0.75, 8, 0.6, 10, 0.6, 10, 0.45, 12, 0.45, 12, 0.3, 14, 0.3, 14, 0.15, 16, 0.15, 16, 0)
 mode = 1
 spin_degrees = 360.0
 spin_sides = 8
 step_width = 2.0
+
+[node name="Stone" parent="." instance=ExtResource("4_uv3sv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.578949, -0.0014240742, 13.915907)
