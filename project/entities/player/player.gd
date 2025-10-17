@@ -3,11 +3,13 @@ extends CharacterBody3D
 
 
 const SPEED = 6.0
-const JUMP_VELOCITY = 7.0
+const JUMP_VELOCITY = 7.5
 const COYOTE_TIME = 0.2 	# BUG: wenn man schnell jump drückt kann man double jump machen
 const BOUNCE_IMPULSE = 7.0
+const FULL_JUMP_TIME: float = 0.2
 
-@export var max_jumps: int = 2
+
+@export var max_jumps: int = 1
 
 
 var movement_force: float = 0.09 # Kraft der aktuellen input eingebe
@@ -16,6 +18,9 @@ var on_floor: bool = true
 var coyote_timer: float = 0.0
 
 var jumps: int = 0
+var jump_held_time: float = 0.0
+var jumping: bool = false
+
 
 @onready var rotatable_objects: Node3D = %RotatableObjects
 
@@ -37,10 +42,19 @@ func _physics_process(delta: float) -> void:
 		# catch case when player falls off a ledge and still has 2 jumps left
 		if jumps == max_jumps and not on_floor:
 			jumps -= 1
-		velocity.y = JUMP_VELOCITY
+		#velocity.y = JUMP_VELOCITY
 		jumps -= 1
+		jump_held_time = 0.0
+		jumping = true
 	
-
+	if Input.is_action_pressed("jump") and jump_held_time < FULL_JUMP_TIME and jumping:
+		jump_held_time += delta
+		self.velocity.y = JUMP_VELOCITY
+	
+	if Input.is_action_just_released("jump") and velocity.y > 0.0:
+		self.velocity.y *= 0.5
+		jumping = false
+	
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
