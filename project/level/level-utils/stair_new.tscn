@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://37ssktu6xoyy"]
+
+[ext_resource type="Material" uid="uid://cg3utj6oyr1n2" path="res://level/materials/bark.tres" id="1_c6u0l"]
+[ext_resource type="Script" uid="uid://bck41cjdftync" path="res://level/level-utils/stair_new.gd" id="1_rrrke"]
+
+[node name="StairNew" type="CSGPolygon3D"]
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 1.2, 0.5, 1.2, 0.5, 1.05, 1, 1.05, 1, 0.9, 1.5, 0.9, 1.5, 0.75, 2, 0.75, 2, 0.6, 2.5, 0.6, 2.5, 0.45, 3, 0.45, 3, 0.3, 3.5, 0.3, 3.5, 0.15, 4, 0.15, 4, 0)
+material = ExtResource("1_c6u0l")
+script = ExtResource("1_rrrke")

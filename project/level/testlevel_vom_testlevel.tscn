@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://drvm475mdagfk" path="res://entities/player/player.tscn" id="1_yiysr"]
 [ext_resource type="PackedScene" uid="uid://cv7v8afb11jcn" path="res://entities/player/player_camera.tscn" id="3_jt31d"]
-[ext_resource type="PackedScene" uid="uid://dedu5xe152q31" path="res://entities/objects/stairs.tscn" id="3_uv3sv"]
+[ext_resource type="PackedScene" uid="uid://37ssktu6xoyy" path="res://level/level-utils/stair_new.tscn" id="3_uv3sv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qtsvt"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -25,20 +25,25 @@ environment = SubResource("Environment_uv3sv")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1, -1.5)
-use_collision = true
-size = Vector3(23, 2, 30)
-
 [node name="Player" parent="." instance=ExtResource("1_yiysr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1830492, 0, 0)
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_jt31d")]
 player = NodePath("../Player")
 
-[node name="Stairs" parent="." instance=ExtResource("3_uv3sv")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 6.5733395, -0.575891, 0)
-subtract = true
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
 
-[node name="Stairs2" parent="." instance=ExtResource("3_uv3sv")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5625, -5.034424, 1.2783203)
+use_collision = true
+size = Vector3(36.125, 10.068848, 35.55664)
+
+[node name="StairNew" parent="CSGCombiner3D" instance=ExtResource("3_uv3sv")]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, -2.943667, 0.11454201, 0.99970937)
+operation = 2
+polygon = PackedVector2Array(0, 0, 0, 1.05, 2, 1.05, 2, 0.9, 4, 0.9, 4, 0.75, 6, 0.75, 6, 0.6, 8, 0.6, 8, 0.45, 10, 0.45, 10, 0.3, 12, 0.3, 12, 0.15, 14, 0.15, 14, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+step_width = 2.0
