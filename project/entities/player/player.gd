@@ -18,6 +18,7 @@ var coyote_timer: float = 0.0
 
 var jumps: int = 0
 var jump_held_time: float = 0.0
+var jumping: bool = false
 
 
 @onready var rotatable_objects: Node3D = %RotatableObjects
@@ -40,16 +41,18 @@ func _physics_process(delta: float) -> void:
 		# catch case when player falls off a ledge and still has 2 jumps left
 		if jumps == max_jumps and not on_floor:
 			jumps -= 1
-		velocity.y = JUMP_VELOCITY
+		#velocity.y = JUMP_VELOCITY
 		jumps -= 1
 		jump_held_time = 0.0
+		jumping = true
 	
-	if Input.is_action_pressed("jump") and jump_held_time < FULL_JUMP_TIME:
+	if Input.is_action_pressed("jump") and jump_held_time < FULL_JUMP_TIME and jumping:
 		jump_held_time += delta
 		self.velocity.y = JUMP_VELOCITY
 	
 	if Input.is_action_just_released("jump") and velocity.y > 0.0:
 		self.velocity.y *= 0.5
+		jumping = false
 	
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
