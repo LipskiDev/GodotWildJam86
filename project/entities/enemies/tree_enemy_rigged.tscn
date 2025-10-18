@@ -62,6 +62,86 @@ radius = 0.3
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_sewl5"]
 height = 4.0
 
+[sub_resource type="Animation" id="Animation_ntq46"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.031196713, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.06269741, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.12408241, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Armature:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Armature/Skeleton3D/Cylinder:mesh:surface_0/material:albedo_color:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_qdmbd"]
 resource_name = "attack"
 length = 1.75
@@ -79,24 +159,6 @@ tracks/1/path = NodePath("Armature/Skeleton3D:Bone.003")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0.016961522, -0.034739785, -0.15284643, 0.9874935)
-
-[sub_resource type="Animation" id="Animation_reekx"]
-resource_name = "pray"
-length = 0.9583333
-tracks/0/type = "rotation_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D:Bone.001")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.041664846, 0.0015808501, -0.027342977, 0.99875623, 0.033333335, 1, -0.005119138, -0.0008124869, -0.025817133, 0.9996532, 0.06666667, 1, -0.11150901, -0.0062505775, -0.022134207, 0.99349725, 0.1, 1, -0.26095855, -0.013878778, -0.016447527, 0.9651102, 0.16666667, 1, -0.5809207, -0.030160176, -0.001908759, 0.813399, 0.2, 1, -0.67890304, -0.03512757, 0.0034159091, 0.73337924, 0.23333333, 1, -0.726273, -0.037524488, 0.00620694, 0.6863534, 0.26666668, 1, -0.7421226, -0.03832566, 0.007179525, 0.6691291, 0.43333334, 1, -0.7421226, -0.038325656, 0.0071795243, 0.6691291, 0.46666667, 1, -0.7400801, -0.038222436, 0.007052999, 0.67139465, 0.5, 1, -0.7318413, -0.037806004, 0.00654625, 0.68039405, 0.53333336, 1, -0.707878, -0.036594115, 0.0051035425, 0.70536774, 0.56666666, 1, -0.672048, -0.03478043, 0.0030250265, 0.7396842, 0.6, 1, -0.6239394, -0.03234249, 0.0003630876, 0.7808031, 0.6333333, 1, -0.56344694, -0.029273212, -0.0028052805, 0.8256287, 0.6666667, 1, -0.49106184, -0.025595797, -0.0063744886, 0.8707253, 0.73333335, 1, -0.3221342, -0.01699742, -0.0139364395, 0.9464389, 0.76666665, 1, -0.23672684, -0.012642838, -0.017411811, 0.97133803, 0.8, 1, -0.15638737, -0.008542621, -0.020490846, 0.98744637, 0.8333333, 1, -0.084969096, -0.004894586, -0.023080792, 0.99610424, 0.8666667, 1, -0.03046418, -0.0021085585, -0.024966665, 0.9992218, 0.9, 1, 0.009131612, -8.357971e-05, -0.02628797, 0.9996127, 0.93333334, 1, 0.03252406, 0.0011131435, -0.027049348, 0.9991043, 0.9583333, 1, 0.041664846, 0.0015808501, -0.027342977, 0.99875623)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = true
-tracks/1/enabled = true
-tracks/1/path = NodePath("Armature/Skeleton3D:Bone.003")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.016961522, -0.034739785, -0.15284643, 0.9874935, 0.16666667, 1, -0.106263764, -0.04180903, -0.14611183, 0.9826553, 0.33333334, 1, -0.22832592, -0.04826188, -0.13710253, 0.9626739, 0.36666667, 1, -0.25208837, -0.049451917, -0.13506709, 0.9569551, 0.4, 1, -0.24660057, -0.049179062, -0.13554557, 0.95833033, 0.6666667, 1, -0.12170221, -0.042655878, -0.14510289, 0.98097616, 0.8666667, 1, -0.026388647, -0.037289172, -0.15074286, 0.987517, 0.9583333, 1, 0.016961522, -0.034739785, -0.15284643, 0.9874935)
 
 [sub_resource type="Animation" id="Animation_b4yqb"]
 resource_name = "die"
@@ -192,85 +254,23 @@ tracks/7/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_ntq46"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
+[sub_resource type="Animation" id="Animation_reekx"]
+resource_name = "pray"
+length = 0.9583333
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
 tracks/0/enabled = true
-tracks/0/path = NodePath("Armature:position:x")
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone.001")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.031196713, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
+tracks/0/keys = PackedFloat32Array(0, 1, 0.041664846, 0.0015808501, -0.027342977, 0.99875623, 0.033333335, 1, -0.005119138, -0.0008124869, -0.025817133, 0.9996532, 0.06666667, 1, -0.11150901, -0.0062505775, -0.022134207, 0.99349725, 0.1, 1, -0.26095855, -0.013878778, -0.016447527, 0.9651102, 0.16666667, 1, -0.5809207, -0.030160176, -0.001908759, 0.813399, 0.2, 1, -0.67890304, -0.03512757, 0.0034159091, 0.73337924, 0.23333333, 1, -0.726273, -0.037524488, 0.00620694, 0.6863534, 0.26666668, 1, -0.7421226, -0.03832566, 0.007179525, 0.6691291, 0.43333334, 1, -0.7421226, -0.038325656, 0.0071795243, 0.6691291, 0.46666667, 1, -0.7400801, -0.038222436, 0.007052999, 0.67139465, 0.5, 1, -0.7318413, -0.037806004, 0.00654625, 0.68039405, 0.53333336, 1, -0.707878, -0.036594115, 0.0051035425, 0.70536774, 0.56666666, 1, -0.672048, -0.03478043, 0.0030250265, 0.7396842, 0.6, 1, -0.6239394, -0.03234249, 0.0003630876, 0.7808031, 0.6333333, 1, -0.56344694, -0.029273212, -0.0028052805, 0.8256287, 0.6666667, 1, -0.49106184, -0.025595797, -0.0063744886, 0.8707253, 0.73333335, 1, -0.3221342, -0.01699742, -0.0139364395, 0.9464389, 0.76666665, 1, -0.23672684, -0.012642838, -0.017411811, 0.97133803, 0.8, 1, -0.15638737, -0.008542621, -0.020490846, 0.98744637, 0.8333333, 1, -0.084969096, -0.004894586, -0.023080792, 0.99610424, 0.8666667, 1, -0.03046418, -0.0021085585, -0.024966665, 0.9992218, 0.9, 1, 0.009131612, -8.357971e-05, -0.02628797, 0.9996127, 0.93333334, 1, 0.03252406, 0.0011131435, -0.027049348, 0.9991043, 0.9583333, 1, 0.041664846, 0.0015808501, -0.027342977, 0.99875623)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
 tracks/1/enabled = true
-tracks/1/path = NodePath("Armature:position:y")
+tracks/1/path = NodePath("Armature/Skeleton3D:Bone.003")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.06269741, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Armature:position:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-0.12408241, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Armature:rotation:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Armature:rotation:y")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Armature:rotation:z")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Armature/Skeleton3D/Cylinder:mesh:surface_0/material:albedo_color:a")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
+tracks/1/keys = PackedFloat32Array(0, 1, 0.016961522, -0.034739785, -0.15284643, 0.9874935, 0.16666667, 1, -0.106263764, -0.04180903, -0.14611183, 0.9826553, 0.33333334, 1, -0.22832592, -0.04826188, -0.13710253, 0.9626739, 0.36666667, 1, -0.25208837, -0.049451917, -0.13506709, 0.9569551, 0.4, 1, -0.24660057, -0.049179062, -0.13554557, 0.95833033, 0.6666667, 1, -0.12170221, -0.042655878, -0.14510289, 0.98097616, 0.8666667, 1, -0.026388647, -0.037289172, -0.15074286, 0.987517, 0.9583333, 1, 0.016961522, -0.034739785, -0.15284643, 0.9874935)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ofeuc"]
 _data = {

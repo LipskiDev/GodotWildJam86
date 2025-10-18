@@ -25,6 +25,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body is Player:
+		return
+	
 	if body.has_method("take_damage"):
 		body.take_damage(10)
 	
