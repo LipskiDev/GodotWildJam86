@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://po84pmft2rgq"]
+
+[ext_resource type="Texture2D" uid="uid://cyxucxllb4guu" path="res://assets/textures/heart-0001.png" id="1_7in5q"]
+[ext_resource type="Texture2D" uid="uid://p8ws8cunmbtu" path="res://assets/textures/heart-0002.png" id="2_11reb"]
+[ext_resource type="Texture2D" uid="uid://b4fp0fhti860u" path="res://assets/textures/heart-0003.png" id="3_j2fep"]
+[ext_resource type="Texture2D" uid="uid://dftp02g8k2j0t" path="res://assets/textures/heart-0004.png" id="4_8x5by"]
+[ext_resource type="Texture2D" uid="uid://c6wans5n8y2te" path="res://assets/textures/heart-0005.png" id="5_48dgp"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_xl3ym"]
+frames = 8
+frame_0/texture = ExtResource("1_7in5q")
+frame_0/duration = 5.0
+frame_1/texture = ExtResource("2_11reb")
+frame_1/duration = 0.08
+frame_2/texture = ExtResource("3_j2fep")
+frame_2/duration = 0.08
+frame_3/texture = ExtResource("4_8x5by")
+frame_3/duration = 0.08
+frame_4/texture = ExtResource("5_48dgp")
+frame_4/duration = 5.0
+frame_5/texture = ExtResource("4_8x5by")
+frame_5/duration = 0.08
+frame_6/texture = ExtResource("3_j2fep")
+frame_6/duration = 0.08
+frame_7/texture = ExtResource("2_11reb")
+frame_7/duration = 0.08
+
+[node name="Heart" type="TextureRect"]
+texture_filter = 1
+texture = SubResource("AnimatedTexture_xl3ym")
+stretch_mode = 2
