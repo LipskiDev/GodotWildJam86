@@ -15,6 +15,9 @@ var charges: int
 var last_dash_time: int = 0
 
 
+@onready var animation_player: AnimationPlayer = $"../RotatableObjects/schleim/AnimationPlayer"
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	charges = max_charges
@@ -27,5 +30,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			dash_cur = true
 			charges -= 0
 			player.velocity = rotation_object.global_basis * Vector3(0.0, 0.0, -1.0) * dash_force
+			animation_player.play("sprint start")
 			await get_tree().create_timer(dash_time).timeout
 			player.velocity *= 0.1
+			animation_player.play("sprint end")
