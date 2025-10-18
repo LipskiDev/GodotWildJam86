@@ -66,6 +66,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("jump") and velocity.y > 0.0:
 		self.velocity.y *= 0.5
 		jumping = false
+		
+	if Input.is_action_just_pressed("reset"):
+		get_tree().reload_current_scene()
 	
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
