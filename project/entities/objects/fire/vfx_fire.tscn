@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://dk3f8rrfdbyf0"]
+[gd_scene load_steps=15 format=3 uid="uid://dk3f8rrfdbyf0"]
 
+[ext_resource type="Script" uid="uid://dh3ywjjqrkmc2" path="res://entities/objects/fire/vfx_fire.gd" id="1_8e1ii"]
 [ext_resource type="Shader" uid="uid://cmaxmafcat0ol" path="res://entities/objects/fire/smoke_shader.res" id="2_8e1ii"]
 [ext_resource type="Shader" uid="uid://cvsa0uf2ac0qf" path="res://entities/objects/fire/ember_shader.res" id="3_51en7"]
 [ext_resource type="Shader" uid="uid://bxbvxkbouhutr" path="res://entities/objects/fire/fire_shader2.tres" id="4_8e1ii"]
@@ -42,6 +43,7 @@ material = SubResource("ShaderMaterial_hicfo")
 size = Vector2(2, 2)
 
 [node name="VFX_fire" type="Node3D"]
+script = ExtResource("1_8e1ii")
 
 [node name="Smoke" type="CPUParticles3D" parent="."]
 material_override = SubResource("ShaderMaterial_m5nin")
@@ -86,7 +88,8 @@ color = Color(1, 0.72605973, 0, 1)
 color_ramp = SubResource("Gradient_t3llc")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.9390932, 0.35419908, 0, 1)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Fire" type="MeshInstance3D" parent="."]
 sorting_offset = 2.0
 mesh = SubResource("QuadMesh_8e1ii")

@@ -27,7 +27,7 @@ op_type = 0
 operator = 2
 
 [sub_resource type="Gradient" id="Gradient_uhngv"]
-offsets = PackedFloat32Array(0, 0.11363637, 0.42613637)
+offsets = PackedFloat32Array(0, 0.0055555557, 0.42613637)
 colors = PackedColorArray(0, 0, 0, 1, 0.09659091, 0.09659091, 0.09659091, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_quw7n"]
