@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c8qsqy4uupwjb"]
+[gd_scene load_steps=36 format=3 uid="uid://c8qsqy4uupwjb"]
 
 [ext_resource type="PackedScene" uid="uid://drvm475mdagfk" path="res://entities/player/player.tscn" id="1_s3kxx"]
 [ext_resource type="PackedScene" uid="uid://cv7v8afb11jcn" path="res://entities/player/player_camera.tscn" id="2_0ikrv"]
@@ -19,8 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://iakvp1dobcll" path="res://assets/textures/grass.png" id="14_jmfkj"]
 [ext_resource type="Texture2D" uid="uid://b84muihw281b7" path="res://assets/textures/grass_n.png" id="15_ogcmd"]
 [ext_resource type="PackedScene" uid="uid://b7517a6cp3rr6" path="res://entities/objects/grass_foliage.tscn" id="15_xfk3k"]
+[ext_resource type="PackedScene" uid="uid://dhjmue468flpp" path="res://entities/objects/stone/stone.tscn" id="17_4dfjr"]
 [ext_resource type="PackedScene" uid="uid://bgr5gnctvwvoy" path="res://entities/enemies/tree_enemy_rigged.tscn" id="18_18i3a"]
 [ext_resource type="PackedScene" uid="uid://drk83qwk64jaq" path="res://globals/loading_screen.tscn" id="20_ogcmd"]
+[ext_resource type="PackedScene" uid="uid://y3ecl1gcn72n" path="res://ui/HUD.tscn" id="23_1y5rl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j55db"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -48,39 +50,6 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Arr
 agent_height = 1.0
 agent_radius = 0.6
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogcmd"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("14_jmfkj")
-metallic_specular = 0.0
-normal_enabled = true
-normal_texture = ExtResource("15_ogcmd")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18i3a"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("14_jmfkj")
-metallic_specular = 0.0
-normal_enabled = true
-normal_texture = ExtResource("15_ogcmd")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4dfjr"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("14_jmfkj")
-metallic_specular = 0.0
-normal_enabled = true
-normal_texture = ExtResource("15_ogcmd")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
-texture_filter = 0
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1y5rl"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("14_jmfkj")
@@ -104,6 +73,61 @@ uv1_world_triplanar = true
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lo87i"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("14_jmfkj")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("15_ogcmd")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_su1bj"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("14_jmfkj")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("15_ogcmd")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2bj2"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("14_jmfkj")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("15_ogcmd")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kmonx"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("14_jmfkj")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("15_ogcmd")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shalb"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("14_jmfkj")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("15_ogcmd")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3nnh"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("14_jmfkj")
 metallic_specular = 0.0
@@ -299,7 +323,7 @@ material = ExtResource("12_rfql7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, -18, 33)
 polygon = PackedVector2Array(0, 0, 0, 0.91, 0.5, 0.91, 0.5, 0.78, 1, 0.78, 1, 0.65, 1.5, 0.65, 1.5, 0.52, 2, 0.52, 2, 0.39, 2.5, 0.39, 2.5, 0.26, 3, 0.26, 3, 0.13, 3.5, 0.13, 3.5, 0)
 depth = 12.0
-material = SubResource("StandardMaterial3D_ogcmd")
+material = SubResource("StandardMaterial3D_1y5rl")
 steps = 7
 step_height = 0.13
 
@@ -307,7 +331,7 @@ step_height = 0.13
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 17, -18, 20.999998)
 polygon = PackedVector2Array(0, 0, 0, 0.91, 0.5, 0.91, 0.5, 0.78, 1, 0.78, 1, 0.65, 1.5, 0.65, 1.5, 0.52, 2, 0.52, 2, 0.39, 2.5, 0.39, 2.5, 0.26, 3, 0.26, 3, 0.13, 3.5, 0.13, 3.5, 0)
 depth = 12.0
-material = SubResource("StandardMaterial3D_18i3a")
+material = SubResource("StandardMaterial3D_0u714")
 steps = 7
 step_height = 0.13
 
@@ -315,7 +339,7 @@ step_height = 0.13
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, -18, 33)
 polygon = PackedVector2Array(0, 0, 0, 0.91, 0.5, 0.91, 0.5, 0.78, 1, 0.78, 1, 0.65, 1.5, 0.65, 1.5, 0.52, 2, 0.52, 2, 0.39, 2.5, 0.39, 2.5, 0.26, 3, 0.26, 3, 0.13, 3.5, 0.13, 3.5, 0)
 depth = 16.0
-material = SubResource("StandardMaterial3D_4dfjr")
+material = SubResource("StandardMaterial3D_lo87i")
 steps = 7
 step_height = 0.13
 
@@ -325,7 +349,7 @@ polygon = PackedVector2Array(0, 0, 0, 0.91, 0.5, 0.91, 0.5, 0.78, 1, 0.78, 1, 0.
 mode = 1
 spin_degrees = 90.0
 spin_sides = 3
-material = SubResource("StandardMaterial3D_1y5rl")
+material = SubResource("StandardMaterial3D_su1bj")
 steps = 7
 step_height = 0.13
 
@@ -335,7 +359,7 @@ polygon = PackedVector2Array(0, 0, 0, 0.91, 0.5, 0.91, 0.5, 0.78, 1, 0.78, 1, 0.
 mode = 1
 spin_degrees = 90.0
 spin_sides = 3
-material = SubResource("StandardMaterial3D_0u714")
+material = SubResource("StandardMaterial3D_m2bj2")
 steps = 7
 step_height = 0.13
 
@@ -346,7 +370,7 @@ polygon = PackedVector2Array(0, 0, 0, 0.91, 0.8, 0.91, 0.8, 0.78, 1.6, 0.78, 1.6
 mode = 1
 spin_degrees = 360.0
 spin_sides = 8
-material = SubResource("StandardMaterial3D_lo87i")
+material = SubResource("StandardMaterial3D_kmonx")
 steps = 7
 step_height = 0.13
 step_width = 0.8
@@ -392,7 +416,7 @@ polygon = PackedVector2Array(0, 0, 0, 0.6, 1, 0.6, 1, 0.45, 2, 0.45, 2, 0.3, 3, 
 mode = 1
 spin_degrees = 360.0
 spin_sides = 8
-material = ExtResource("10_qvt8x")
+material = SubResource("StandardMaterial3D_shalb")
 steps = 4
 step_width = 1.0
 
@@ -402,7 +426,7 @@ polygon = PackedVector2Array(0, 0, 0, 0.6, 3, 0.6, 3, 0.45, 6, 0.45, 6, 0.3, 9, 
 mode = 1
 spin_degrees = 360.0
 spin_sides = 5
-material = ExtResource("10_qvt8x")
+material = SubResource("StandardMaterial3D_q3nnh")
 steps = 4
 step_width = 3.0
 
@@ -426,6 +450,17 @@ transform = Transform3D(1.0325844, 0, 0, 0, 0.8267554, 0, 0, 0, 0.8628198, 1.241
 
 [node name="Tree10" parent="NavigationRegion3D" instance=ExtResource("6_o788b")]
 transform = Transform3D(1.0325844, 0, 0, 0, 0.8267554, 0, 0, 0, 0.8628198, 5.5227017, -9.267409, 32.371704)
+
+[node name="Steine" type="Node" parent="."]
+
+[node name="Stone" parent="Steine" instance=ExtResource("17_4dfjr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.519062, -9.0014305, -0.878839)
+
+[node name="Stone2" parent="Steine" instance=ExtResource("17_4dfjr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.519062, -9.0014305, 1.1121469)
+
+[node name="Stone3" parent="Steine" instance=ExtResource("17_4dfjr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.53561, -9.532139, 0.03504467)
 
 [node name="gegner" type="Node" parent="."]
 
@@ -834,3 +869,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.964, -17, 31.609)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.964, -17, 31.609)
 
 [node name="LoadingScreen" parent="." instance=ExtResource("20_ogcmd")]
+
+[node name="Hud" parent="." instance=ExtResource("23_1y5rl")]
