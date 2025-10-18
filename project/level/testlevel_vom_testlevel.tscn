@@ -56,5 +56,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 
 [node name="StoneMask" parent="." instance=ExtResource("7_kuxge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
 [node name="Fireplace" parent="." instance=ExtResource("6_7xpug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.917416, 0, -11.255405)
