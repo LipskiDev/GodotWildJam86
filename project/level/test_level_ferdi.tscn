@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c8qsqy4uupwjb"]
+[gd_scene load_steps=38 format=3 uid="uid://c8qsqy4uupwjb"]
 
 [ext_resource type="PackedScene" uid="uid://drvm475mdagfk" path="res://entities/player/player.tscn" id="1_s3kxx"]
 [ext_resource type="PackedScene" uid="uid://cv7v8afb11jcn" path="res://entities/player/player_camera.tscn" id="2_0ikrv"]
@@ -23,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://bgr5gnctvwvoy" path="res://entities/enemies/tree_enemy_rigged.tscn" id="18_18i3a"]
 [ext_resource type="PackedScene" uid="uid://drk83qwk64jaq" path="res://globals/loading_screen.tscn" id="20_ogcmd"]
 [ext_resource type="PackedScene" uid="uid://y3ecl1gcn72n" path="res://ui/HUD.tscn" id="23_1y5rl"]
+[ext_resource type="PackedScene" uid="uid://m34aoulp4i4o" path="res://entities/masks/kaktus_mask.tscn" id="24_0u714"]
+[ext_resource type="PackedScene" uid="uid://bqnncq8sfq0op" path="res://entities/masks/stone_mask.tscn" id="25_lo87i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j55db"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -49,39 +51,6 @@ vertices = PackedVector3Array(49.75, -11.5, -39.642303, 38, -11.5, -19.392303, 4
 polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Array(0, 4, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(8, 10, 9), PackedInt32Array(14, 13, 11), PackedInt32Array(11, 13, 12), PackedInt32Array(16, 13, 15), PackedInt32Array(15, 13, 14), PackedInt32Array(19, 18, 17), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 23), PackedInt32Array(23, 20, 24), PackedInt32Array(26, 25, 27), PackedInt32Array(27, 25, 28), PackedInt32Array(28, 25, 29), PackedInt32Array(25, 30, 29), PackedInt32Array(31, 22, 23), PackedInt32Array(23, 32, 31), PackedInt32Array(31, 32, 30), PackedInt32Array(30, 32, 29), PackedInt32Array(28, 33, 27), PackedInt32Array(35, 34, 36), PackedInt32Array(36, 34, 37), PackedInt32Array(39, 38, 40), PackedInt32Array(40, 38, 41), PackedInt32Array(44, 43, 42), PackedInt32Array(46, 45, 42), PackedInt32Array(42, 45, 44), PackedInt32Array(44, 45, 38), PackedInt32Array(38, 45, 47), PackedInt32Array(37, 34, 41), PackedInt32Array(41, 38, 37), PackedInt32Array(37, 38, 47), PackedInt32Array(46, 48, 45), PackedInt32Array(50, 49, 51), PackedInt32Array(51, 49, 52), PackedInt32Array(51, 52, 35), PackedInt32Array(51, 35, 36), PackedInt32Array(39, 40, 53), PackedInt32Array(39, 53, 54), PackedInt32Array(54, 53, 52), PackedInt32Array(54, 52, 55), PackedInt32Array(55, 52, 56), PackedInt32Array(56, 52, 49), PackedInt32Array(56, 57, 55), PackedInt32Array(50, 51, 58), PackedInt32Array(58, 51, 59), PackedInt32Array(44, 61, 60), PackedInt32Array(62, 58, 59), PackedInt32Array(62, 59, 57), PackedInt32Array(57, 59, 60), PackedInt32Array(57, 60, 55), PackedInt32Array(55, 60, 61), PackedInt32Array(64, 63, 65), PackedInt32Array(65, 63, 60), PackedInt32Array(60, 63, 44), PackedInt32Array(44, 63, 43), PackedInt32Array(69, 68, 66), PackedInt32Array(66, 68, 67), PackedInt32Array(71, 70, 72), PackedInt32Array(72, 70, 73), PackedInt32Array(77, 76, 74), PackedInt32Array(74, 76, 75), PackedInt32Array(80, 79, 78), PackedInt32Array(81, 80, 82), PackedInt32Array(82, 80, 78), PackedInt32Array(82, 78, 33), PackedInt32Array(82, 33, 28), PackedInt32Array(84, 83, 85), PackedInt32Array(85, 83, 86), PackedInt32Array(85, 86, 87), PackedInt32Array(87, 86, 88), PackedInt32Array(87, 89, 85), PackedInt32Array(86, 90, 88), PackedInt32Array(93, 92, 91), PackedInt32Array(63, 64, 94), PackedInt32Array(94, 64, 95), PackedInt32Array(94, 95, 96), PackedInt32Array(96, 95, 98), PackedInt32Array(96, 98, 97), PackedInt32Array(91, 96, 93), PackedInt32Array(93, 96, 97), PackedInt32Array(102, 101, 99), PackedInt32Array(99, 101, 100), PackedInt32Array(104, 103, 105), PackedInt32Array(105, 103, 106), PackedInt32Array(106, 103, 107), PackedInt32Array(45, 48, 103), PackedInt32Array(103, 48, 107), PackedInt32Array(110, 109, 108), PackedInt32Array(110, 108, 107), PackedInt32Array(107, 108, 106), PackedInt32Array(106, 108, 111), PackedInt32Array(109, 92, 108), PackedInt32Array(108, 92, 93)]
 agent_height = 1.0
 agent_radius = 0.6
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1y5rl"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("14_jmfkj")
-metallic_specular = 0.0
-normal_enabled = true
-normal_texture = ExtResource("15_ogcmd")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0u714"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("14_jmfkj")
-metallic_specular = 0.0
-normal_enabled = true
-normal_texture = ExtResource("15_ogcmd")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lo87i"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("14_jmfkj")
-metallic_specular = 0.0
-normal_enabled = true
-normal_texture = ExtResource("15_ogcmd")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
-texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_su1bj"]
 resource_local_to_scene = true
@@ -128,6 +97,39 @@ uv1_world_triplanar = true
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3nnh"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("14_jmfkj")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("15_ogcmd")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwxkg"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("14_jmfkj")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("15_ogcmd")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3jd3c"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("14_jmfkj")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("15_ogcmd")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ir0q2"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("14_jmfkj")
 metallic_specular = 0.0
@@ -323,7 +325,7 @@ material = ExtResource("12_rfql7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, -18, 33)
 polygon = PackedVector2Array(0, 0, 0, 0.91, 0.5, 0.91, 0.5, 0.78, 1, 0.78, 1, 0.65, 1.5, 0.65, 1.5, 0.52, 2, 0.52, 2, 0.39, 2.5, 0.39, 2.5, 0.26, 3, 0.26, 3, 0.13, 3.5, 0.13, 3.5, 0)
 depth = 12.0
-material = SubResource("StandardMaterial3D_1y5rl")
+material = SubResource("StandardMaterial3D_su1bj")
 steps = 7
 step_height = 0.13
 
@@ -331,7 +333,7 @@ step_height = 0.13
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 17, -18, 20.999998)
 polygon = PackedVector2Array(0, 0, 0, 0.91, 0.5, 0.91, 0.5, 0.78, 1, 0.78, 1, 0.65, 1.5, 0.65, 1.5, 0.52, 2, 0.52, 2, 0.39, 2.5, 0.39, 2.5, 0.26, 3, 0.26, 3, 0.13, 3.5, 0.13, 3.5, 0)
 depth = 12.0
-material = SubResource("StandardMaterial3D_0u714")
+material = SubResource("StandardMaterial3D_m2bj2")
 steps = 7
 step_height = 0.13
 
@@ -339,7 +341,7 @@ step_height = 0.13
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17, -18, 33)
 polygon = PackedVector2Array(0, 0, 0, 0.91, 0.5, 0.91, 0.5, 0.78, 1, 0.78, 1, 0.65, 1.5, 0.65, 1.5, 0.52, 2, 0.52, 2, 0.39, 2.5, 0.39, 2.5, 0.26, 3, 0.26, 3, 0.13, 3.5, 0.13, 3.5, 0)
 depth = 16.0
-material = SubResource("StandardMaterial3D_lo87i")
+material = SubResource("StandardMaterial3D_kmonx")
 steps = 7
 step_height = 0.13
 
@@ -349,7 +351,7 @@ polygon = PackedVector2Array(0, 0, 0, 0.91, 0.5, 0.91, 0.5, 0.78, 1, 0.78, 1, 0.
 mode = 1
 spin_degrees = 90.0
 spin_sides = 3
-material = SubResource("StandardMaterial3D_su1bj")
+material = SubResource("StandardMaterial3D_shalb")
 steps = 7
 step_height = 0.13
 
@@ -359,7 +361,7 @@ polygon = PackedVector2Array(0, 0, 0, 0.91, 0.5, 0.91, 0.5, 0.78, 1, 0.78, 1, 0.
 mode = 1
 spin_degrees = 90.0
 spin_sides = 3
-material = SubResource("StandardMaterial3D_m2bj2")
+material = SubResource("StandardMaterial3D_q3nnh")
 steps = 7
 step_height = 0.13
 
@@ -370,7 +372,7 @@ polygon = PackedVector2Array(0, 0, 0, 0.91, 0.8, 0.91, 0.8, 0.78, 1.6, 0.78, 1.6
 mode = 1
 spin_degrees = 360.0
 spin_sides = 8
-material = SubResource("StandardMaterial3D_kmonx")
+material = SubResource("StandardMaterial3D_rwxkg")
 steps = 7
 step_height = 0.13
 step_width = 0.8
@@ -416,7 +418,7 @@ polygon = PackedVector2Array(0, 0, 0, 0.6, 1, 0.6, 1, 0.45, 2, 0.45, 2, 0.3, 3, 
 mode = 1
 spin_degrees = 360.0
 spin_sides = 8
-material = SubResource("StandardMaterial3D_shalb")
+material = SubResource("StandardMaterial3D_3jd3c")
 steps = 4
 step_width = 1.0
 
@@ -426,7 +428,7 @@ polygon = PackedVector2Array(0, 0, 0, 0.6, 3, 0.6, 3, 0.45, 6, 0.45, 6, 0.3, 9, 
 mode = 1
 spin_degrees = 360.0
 spin_sides = 5
-material = SubResource("StandardMaterial3D_q3nnh")
+material = SubResource("StandardMaterial3D_ir0q2")
 steps = 4
 step_width = 3.0
 
@@ -871,3 +873,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.964, -17, 31.609)
 [node name="LoadingScreen" parent="." instance=ExtResource("20_ogcmd")]
 
 [node name="Hud" parent="." instance=ExtResource("23_1y5rl")]
+
+[node name="KaktusMask" parent="." instance=ExtResource("24_0u714")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4599276, -8.872723, -3.3023221)
+
+[node name="StoneMask" parent="." instance=ExtResource("25_lo87i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9480741, -9.047195, -6.6526127)

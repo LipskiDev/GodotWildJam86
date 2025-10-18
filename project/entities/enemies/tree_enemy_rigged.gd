@@ -23,8 +23,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if player_locked:
-		var target_basis = global_transform.looking_at(player.global_position, Vector3.UP).basis
-		self.global_transform.basis = self.global_transform.basis.slerp(target_basis, 2.0 * delta)
+		var direction: Vector3 = player.global_position - global_position
+		direction.y = 0
+		direction = direction.normalized()
+		var target_y_rotation: float = atan2(direction.x, direction.z) + PI
+		self.rotation.y = lerp_angle(rotation.y, target_y_rotation, 2.0 * delta)
 		
 		time += delta
 		

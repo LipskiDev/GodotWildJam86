@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://denfjc0nfgk00"]
+[gd_scene load_steps=11 format=3 uid="uid://denfjc0nfgk00"]
 
 [ext_resource type="PackedScene" uid="uid://drvm475mdagfk" path="res://entities/player/player.tscn" id="1_yiysr"]
 [ext_resource type="Material" uid="uid://c8wk787ymea7l" path="res://level/materials/moss.tres" id="3_1o1ho"]
 [ext_resource type="PackedScene" uid="uid://cv7v8afb11jcn" path="res://entities/player/player_camera.tscn" id="3_jt31d"]
 [ext_resource type="PackedScene" uid="uid://bgr5gnctvwvoy" path="res://entities/enemies/tree_enemy_rigged.tscn" id="4_1o1ho"]
 [ext_resource type="PackedScene" uid="uid://dhjmue468flpp" path="res://entities/objects/stone/stone.tscn" id="4_uv3sv"]
-[ext_resource type="PackedScene" uid="uid://e7pgxn3fixl8" path="res://entities/objects/fire/fireplace.tscn" id="6_7xpug"]
+[ext_resource type="PackedScene" uid="uid://m34aoulp4i4o" path="res://entities/masks/kaktus_mask.tscn" id="6_7xpug"]
+[ext_resource type="PackedScene" uid="uid://bqnncq8sfq0op" path="res://entities/masks/stone_mask.tscn" id="7_kuxge"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qtsvt"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -50,5 +51,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.578949, -0.0014240742, 13.
 [node name="tree_enemy_rigged" parent="." instance=ExtResource("4_1o1ho")]
 transform = Transform3D(-0.8660254, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, -0.8660254, -6.20571, 0, 0)
 
+[node name="KaktusMask" parent="." instance=ExtResource("6_7xpug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="StoneMask" parent="." instance=ExtResource("7_kuxge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 [node name="Fireplace" parent="." instance=ExtResource("6_7xpug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.917416, 0, -11.255405)

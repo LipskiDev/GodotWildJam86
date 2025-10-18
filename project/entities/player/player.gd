@@ -10,6 +10,7 @@ const FULL_JUMP_TIME: float = 0.2
 
 
 @export var max_jumps: int = 1
+@export var health: int = 3
 
 
 var movement_force: float = 0.09 # Kraft der aktuellen input eingebe
@@ -86,3 +87,10 @@ func _physics_process(delta: float) -> void:
 				squashable.squash(20)
 				velocity.y = BOUNCE_IMPULSE
 				break
+
+
+func take_damage(_amount: int) -> void:
+	health -= 1
+	Globals.damage_taken.emit()
+	if health <= 0:
+		Globals.player_died.emit()

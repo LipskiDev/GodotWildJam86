@@ -1,12 +1,69 @@
-[gd_scene load_steps=7 format=3 uid="uid://y3ecl1gcn72n"]
+[gd_scene load_steps=9 format=3 uid="uid://y3ecl1gcn72n"]
 
 [ext_resource type="PackedScene" uid="uid://brx4i2bpn4rrp" path="res://ui/Display_mask.tscn" id="1_1x8ju"]
-[ext_resource type="Texture2D" uid="uid://d0o17dfqx52a" path="res://assets/textures/rock_n.png" id="1_pom5v"]
-[ext_resource type="Texture2D" uid="uid://b84muihw281b7" path="res://assets/textures/grass_n.png" id="2_aaqae"]
-[ext_resource type="Texture2D" uid="uid://m11kxamvpght" path="res://assets/textures/grid.png" id="3_wxbmk"]
-[ext_resource type="Texture2D" uid="uid://c4klyf5lku1xg" path="res://assets/textures/sand.png" id="4_pom5v"]
+[ext_resource type="Script" uid="uid://bppau8auxrbst" path="res://ui/heart_management.gd" id="1_pom5v"]
+[ext_resource type="PackedScene" uid="uid://po84pmft2rgq" path="res://ui/heart.tscn" id="1_wxbmk"]
+[ext_resource type="Script" uid="uid://ct75erd1k5nf" path="res://ui/mask_container.gd" id="2_jd13s"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pfnlp"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaqae"]
+resource_local_to_scene = true
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 0.5, 0.5, 0.5)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jd13s"]
+resource_local_to_scene = true
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 0.5, 0.5, 0.5)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxbmk"]
+resource_local_to_scene = true
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 0.5, 0.5, 0.5)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pom5v"]
+resource_local_to_scene = true
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 0.5, 0.5, 0.5)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 2
 
 [node name="Hud" type="CanvasLayer"]
 
@@ -24,42 +81,57 @@ theme_override_constants/margin_bottom = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HeartManagement" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_constants/separation = 8
+script = ExtResource("1_pom5v")
 
-[node name="Herz1" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Heart" parent="MarginContainer/VBoxContainer/HeartManagement" instance=ExtResource("1_wxbmk")]
 layout_mode = 2
-texture = ExtResource("1_pom5v")
-stretch_mode = 4
 
-[node name="Herz2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Heart2" parent="MarginContainer/VBoxContainer/HeartManagement" instance=ExtResource("1_wxbmk")]
 layout_mode = 2
-texture = ExtResource("1_pom5v")
-stretch_mode = 4
 
-[node name="Herz3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Heart3" parent="MarginContainer/VBoxContainer/HeartManagement" instance=ExtResource("1_wxbmk")]
 layout_mode = 2
-texture = ExtResource("1_pom5v")
-stretch_mode = 4
 
-[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="MaskContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/separator = SubResource("StyleBoxEmpty_pfnlp")
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 8
+script = ExtResource("2_jd13s")
 
-[node name="DisplayMask" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_1x8ju")]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MaskContainer"]
 layout_mode = 2
-texture = ExtResource("2_aaqae")
-text = "Maske 1 (ressss shift) xkkkkkkdd"
+alignment = 1
 
-[node name="DisplayMask2" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_1x8ju")]
+[node name="DisplayMaskUp" parent="MarginContainer/VBoxContainer/MaskContainer/HBoxContainer" instance=ExtResource("1_1x8ju")]
 layout_mode = 2
-texture = ExtResource("3_wxbmk")
-text = "Maske 2 (ressss shift) xkkkkkkdd"
+theme_override_styles/panel = SubResource("StyleBoxFlat_aaqae")
+text = "up"
 
-[node name="DisplayMask3" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_1x8ju")]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MaskContainer"]
 layout_mode = 2
-texture = ExtResource("4_pom5v")
-text = "Maske 3 (ressss shift) xkkkkkkdd"
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="DisplayMaskLeft" parent="MarginContainer/VBoxContainer/MaskContainer/HBoxContainer2" instance=ExtResource("1_1x8ju")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jd13s")
+text = "left"
+
+[node name="DisplayMaskRight" parent="MarginContainer/VBoxContainer/MaskContainer/HBoxContainer2" instance=ExtResource("1_1x8ju")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wxbmk")
+text = "right"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MaskContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="DisplayMaskDown" parent="MarginContainer/VBoxContainer/MaskContainer/HBoxContainer3" instance=ExtResource("1_1x8ju")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pom5v")
+text = "down"
