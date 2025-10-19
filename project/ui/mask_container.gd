@@ -12,6 +12,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+<<<<<<< HEAD
 	if event.is_action_pressed("mask_up") and display_mask_up.enabled:
 		_switch_mask(0)
 	
@@ -22,6 +23,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		_switch_mask(2)
 	
 	if event.is_action_pressed("mask_down") and display_mask_down.enabled:
+=======
+	if event.is_action_pressed("mask_up"):
+		_switch_mask(0)
+	
+	if event.is_action_pressed("mask_left"):
+		_switch_mask(1)
+	
+	if event.is_action_pressed("mask_right"):
+		_switch_mask(2)
+	
+	if event.is_action_pressed("mask_down"):
+>>>>>>> 1f4aac7 (masken switch)
 		_switch_mask(3)
 
 
