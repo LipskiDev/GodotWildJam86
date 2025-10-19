@@ -12,6 +12,8 @@ var switch_time: float = 0.2
 @onready var kaktus_mask_model: Node3D = $KaktusMaskModel
 @onready var movement_mask_model: Node3D = $MovementMaskModel
 
+@onready var stick: Node3D = $"../Stick"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,3 +38,10 @@ func _switch_mask() -> void:
 	tween.tween_property(new_mask_model, "position", Vector3(0.0, 0.0, 0.0), switch_time)
 	
 	current_mask_model = new_mask_model
+	
+	if Globals.current_mask == 1:
+		tween.tween_property(stick, "position", Vector3(0.0, 0.0, 0.9), 0.3)
+		tween.tween_property(stick, "scale", Vector3(1.0, 1.0, 1.0), 0.3)
+	else:
+		stick.position = Vector3(0.0, 0.0, 0.0)
+		stick.scale = Vector3(0.1, 0.1, 0.1)
