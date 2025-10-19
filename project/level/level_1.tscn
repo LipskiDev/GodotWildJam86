@@ -1,0 +1,219 @@
+[gd_scene load_steps=16 format=3 uid="uid://bpagloucg1sce"]
+
+[ext_resource type="PackedScene" uid="uid://di57jl4oe4003" path="res://level/level_template.tscn" id="1_omx5w"]
+[ext_resource type="Material" uid="uid://4px458ycnie7" path="res://level/materials/stone_wall.tres" id="2_lx8gb"]
+[ext_resource type="PackedScene" uid="uid://37ssktu6xoyy" path="res://level/level-utils/stair_new.tscn" id="3_vb5hv"]
+[ext_resource type="PackedScene" uid="uid://b1mywarjpm32d" path="res://entities/objects/fake_jens.tscn" id="4_vndax"]
+[ext_resource type="Material" uid="uid://bs7a41iqvwiyb" path="res://level/materials/rock.tres" id="5_k4ctk"]
+[ext_resource type="PackedScene" uid="uid://dhjmue468flpp" path="res://entities/objects/stone/stone.tscn" id="6_skxlf"]
+[ext_resource type="PackedScene" uid="uid://e7pgxn3fixl8" path="res://entities/objects/fire/fireplace.tscn" id="7_hdc4k"]
+[ext_resource type="PackedScene" uid="uid://lg0rqoxmmrdx" path="res://entities/objects/vase/vase.tscn" id="8_vndax"]
+[ext_resource type="PackedScene" uid="uid://bkde6bj67rxov" path="res://entities/objects/tunnel/tunnel.tscn" id="9_k4ctk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lx8gb"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_moo38"]
+sky_material = SubResource("ProceduralSkyMaterial_lx8gb")
+
+[sub_resource type="Environment" id="Environment_nokfs"]
+background_mode = 2
+sky = SubResource("Sky_moo38")
+ambient_light_color = Color(0.31037983, 0.404985, 0.23082548, 1)
+tonemap_mode = 2
+tonemap_exposure = 0.5
+tonemap_white = 0.5
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.25882354, 0.15294118, 0.60784316, 1)
+fog_light_energy = 0.2
+fog_density = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lx8gb"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lx8gb"]
+material = SubResource("StandardMaterial3D_lx8gb")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_moo38"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Level1" instance=ExtResource("1_omx5w")]
+
+[node name="WorldEnvironment" parent="." index="0"]
+environment = SubResource("Environment_nokfs")
+
+[node name="Player" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.864401, -0.39383078, 7.42902)
+
+[node name="PlayerCamera" parent="." index="2" node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.1738195, 0)
+player = NodePath("../Player")
+distance = 10.0
+angle = -60.0
+sway_amount = 0.1
+
+[node name="FakeJense" type="CSGCombiner3D" parent="environment" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40090132, 0, 1.277438)
+
+[node name="FakeJens" parent="environment/FakeJense" index="0" instance=ExtResource("4_vndax")]
+transform = Transform3D(0.7763655, 0, -0.63028294, 0, 1, 0, 0.63028294, 0, 0.7763655, -10.950376, -0.39735126, -7.5070057)
+
+[node name="FakeJens5" parent="environment/FakeJense" index="1" instance=ExtResource("4_vndax")]
+transform = Transform3D(1.0985414, 0, 0.056630094, 0, 1.1, 0, -0.056630094, 0, 1.0985414, -12.158239, -0.39735126, -5.867527)
+
+[node name="FakeJens6" parent="environment/FakeJense" index="2" instance=ExtResource("4_vndax")]
+transform = Transform3D(0.57725924, 0, 0.816561, 0, 1, 0, -0.816561, 0, 0.57725924, -11.979547, -0.40133524, -4.1512756)
+
+[node name="FakeJens2" parent="environment/FakeJense" index="3" instance=ExtResource("4_vndax")]
+transform = Transform3D(-0.0029722636, 0, -1.2999965, 0, 1.3, 0, 1.2999965, 0, -0.0029722636, -8.01867, -0.39735126, -7.923965)
+
+[node name="FakeJens3" parent="environment/FakeJense" index="4" instance=ExtResource("4_vndax")]
+transform = Transform3D(-0.18743104, 0, -0.35336894, 0, 0.4, 0, 0.35336894, 0, -0.18743104, -7.3451138, -0.55148023, -7.201625)
+
+[node name="FakeJens4" parent="environment/FakeJense" index="5" instance=ExtResource("4_vndax")]
+transform = Transform3D(0.29372984, 0, -0.52318525, 0, 0.6, 0, 0.52318525, 0, 0.29372984, -9.08386, -0.50958097, -8.151956)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="environment" index="1"]
+use_collision = true
+
+[node name="walls" type="CSGCombiner3D" parent="environment/CSGCombiner3D" index="0"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="environment/CSGCombiner3D/walls" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041000366, -1.914882, -6.4675293)
+size = Vector3(31.996002, 3.2158203, 36.22998)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="environment/CSGCombiner3D/walls" index="1"]
+transform = Transform3D(0, 1.0000001, 0, -1.0000001, 0, 0, 0, 0, 1.5684986, -16.549992, 16.590063, -6.4675293)
+size = Vector3(34.44185, 1, 36.22998)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="environment/CSGCombiner3D/walls" index="2"]
+transform = Transform3D(0, 0.7600432, -1.0193242, -1, 0, 0, 0, 0.6498726, 1.1921265, -16.549992, 16.590063, -6.1226873)
+size = Vector3(34.44185, 1, 36.22998)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="environment/CSGCombiner3D/walls" index="3"]
+transform = Transform3D(0, 1.0000001, 4.933158e-15, -1.0000001, 0, 0, 0, -3.5527137e-15, 1.3885605, 5.225791, 8.141571, -5.9837847)
+size = Vector3(34.44185, 1, 36.22998)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="environment/CSGCombiner3D/walls" index="4"]
+transform = Transform3D(0, 0.75746256, 0.90656173, -1.0000001, 0, 0, 0, -0.65287894, 1.0517827, 5.225791, 8.141571, -5.9837847)
+size = Vector3(34.44185, 1, 36.22998)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="environment/CSGCombiner3D/walls" index="5"]
+transform = Transform3D(0, -4.3711392e-08, 1, -1.0000001, 0, 0, 0, -1.0000001, -4.371139e-08, 1.876934, -17.71616, 12.183439)
+size = Vector3(34.44185, 1, 36.22998)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="environment/CSGCombiner3D/walls" index="6"]
+transform = Transform3D(0, -4.3711392e-08, 1, -1.0000001, 0, 0, 0, -1.0000001, -4.371139e-08, -34.027763, -17.71616, 12.183439)
+size = Vector3(34.44185, 1, 36.22998)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="environment/CSGCombiner3D/walls" index="7"]
+transform = Transform3D(0, -4.3711392e-08, 1, -1.0000001, 0, 0, 0, -1.0000001, -4.371139e-08, 2.0648003, -17.471327, 12.183439)
+size = Vector3(34.323353, 1, 36.22998)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="environment/CSGCombiner3D/walls" index="8"]
+transform = Transform3D(0, -4.3711395e-08, 1, -0.8528682, 0.52212656, 2.2822876e-08, -0.52212656, -0.8528682, -3.7280053e-08, 3.6398735, 5.613673, 14.332424)
+size = Vector3(15.334744, 1, 52.196533)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="environment/CSGCombiner3D/walls" index="9"]
+transform = Transform3D(0, -4.3711392e-08, 1, -1.0000001, 0, 0, 0, -1.0000001, -4.371139e-08, 33.854298, -11.947401, 12.183439)
+size = Vector3(45.371204, 1, 36.52417)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="environment/CSGCombiner3D/walls" index="10"]
+transform = Transform3D(0, -4.3711392e-08, -1, -1.0000001, 0, 0, 0, 1.0000001, -4.371139e-08, 0.81311417, 5.2405486, -13.189523)
+size = Vector3(44.09104, 1, 33.883667)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="environment/CSGCombiner3D/walls" index="11"]
+transform = Transform3D(0, -4.3711395e-08, -1, 4.3711392e-08, -1.0000001, 4.3711392e-08, -1.0000001, -4.3711392e-08, 1.9106855e-15, 0.81311417, 24.901531, -13.189523)
+size = Vector3(44.09104, 1, 33.883667)
+material = ExtResource("5_k4ctk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="environment/CSGCombiner3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.035559)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="environment/CSGCombiner3D/StaticBody3D" index="0"]
+transform = Transform3D(35.037243, 0, 0, 0, 13.144299, 0, 0, 0, 1, 0, 4.5861883, 0.8596401)
+mesh = SubResource("BoxMesh_lx8gb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="environment/CSGCombiner3D/StaticBody3D" index="1"]
+transform = Transform3D(35.037243, 0, 0, 0, 13.144299, 0, 0, 0, 1, 0, 4.5861883, 0.8596401)
+shape = SubResource("ConcavePolygonShape3D_moo38")
+
+[node name="StairNew" parent="environment/CSGCombiner3D" index="2" instance=ExtResource("3_vb5hv")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -9.0648, -0.16017532, -4.2674246)
+operation = 2
+polygon = PackedVector2Array(0, 0, 0, 0.75, 2, 0.75, 2, 0.5, 4, 0.5, 4, 0.25, 6, 0.25, 6, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+material = ExtResource("2_lx8gb")
+steps = 3
+step_height = 0.25
+step_width = 2.0
+
+[node name="WallStones" type="CSGCombiner3D" parent="environment/CSGCombiner3D" index="3"]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="environment/CSGCombiner3D/WallStones" index="0"]
+transform = Transform3D(4.6115165, 0, 0, 0, 0.951218, 0, 0, 0, 4.37945, -15.328504, 4.1955185, 1)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="environment/CSGCombiner3D/WallStones" index="1"]
+transform = Transform3D(4.6115165, 0, 0, 0, 0.951218, 0, 0, 0, 4.37945, -15.489257, 5.3822603, -4.9727306)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="environment/CSGCombiner3D/WallStones" index="2"]
+transform = Transform3D(7.0302234, 0, 0, 0, 0.951218, 0, 0, 0, 4.37945, -6.400595, 9.877907, -14.2943125)
+radius = 1.016076
+material = ExtResource("5_k4ctk")
+
+[node name="Stone" parent="stones" index="0" instance=ExtResource("6_skxlf")]
+transform = Transform3D(0.95089996, 0.3094983, 0, -0.3094983, 0.95089996, 0, 0, 0, 1, -14.208723, -0.70062995, 4.227541)
+
+[node name="Stone4" parent="stones" index="1" instance=ExtResource("6_skxlf")]
+transform = Transform3D(0.94940364, -0.31405878, 0, 0.31405878, 0.94940364, 0, 0, 0, 1, -11.453345, -2.5800965, 5.3875766)
+
+[node name="Stone2" parent="stones" index="2" instance=ExtResource("6_skxlf")]
+transform = Transform3D(-0.825282, -0.26861224, -0.49674684, -0.30949834, 0.9509001, 0, 0.4723565, 0.15374228, -0.86789554, -10.270279, -1.0072329, 2.871018)
+
+[node name="Stone3" parent="stones" index="3" instance=ExtResource("6_skxlf")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, -7.4237347, -0.93810487, 3.9117718)
+
+[node name="vase" parent="vases" index="0" instance=ExtResource("8_vndax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8952236, 0, 9.426387)
+
+[node name="vase2" parent="vases" index="1" instance=ExtResource("8_vndax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.772397, 0, 9.426387)
+
+[node name="vase3" parent="vases" index="2" instance=ExtResource("8_vndax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8747807, 0, 8.276558)
+
+[node name="vase9" parent="vases" index="3" instance=ExtResource("8_vndax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.453568, 0, -12.066)
+
+[node name="Fireplace" parent="." index="10" instance=ExtResource("7_hdc4k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.971884, -0.9104176, -4.032181)
+
+[node name="vase" parent="." index="11" instance=ExtResource("8_vndax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6650715, 0, -17.580029)
+
+[node name="Tunnel" parent="." index="12" instance=ExtResource("9_k4ctk")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.9060836, 0, -12.329563)
+door_id = 4
+fog_color = Color(0.99999994, 0.9407637, 0.3108269, 1)
+
+[node name="Tunnel2" parent="." index="13" instance=ExtResource("9_k4ctk")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.9060836, 10.667453, -12.329563)
+fog_color = Color(1, 0.5576762, 0.4814788, 1)

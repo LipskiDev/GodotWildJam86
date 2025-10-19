@@ -117,6 +117,7 @@ func take_damage(_amount: int) -> void:
 		
 func player_died() -> void:
 	if Globals.last_bonfire_scene != "":
+		Globals.player_just_died = true
 		get_tree().change_scene_to_file(Globals.last_bonfire_scene)
 	else:
 		get_tree().reload_current_scene()
