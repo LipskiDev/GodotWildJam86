@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://drvm475mdagfk"]
+[gd_scene load_steps=31 format=4 uid="uid://drvm475mdagfk"]
 
 [ext_resource type="Script" uid="uid://bhgwfchvstiqj" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="Script" uid="uid://c0x7wwsb4q63n" path="res://entities/player/attack.gd" id="2_abrql"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://cmq7ttt0eqanx" path="res://entities/masks/stone_mask_model.tscn" id="5_qiwj3"]
 [ext_resource type="PackedScene" uid="uid://cqsqqtgi5km12" path="res://entities/masks/wood_mask_model.tscn" id="7_bectd"]
 [ext_resource type="PackedScene" uid="uid://d0srxd433wsl6" path="res://entities/masks/movement_mask_model.tscn" id="8_wvtmh"]
+[ext_resource type="Material" uid="uid://cg3utj6oyr1n2" path="res://level/materials/bark.tres" id="9_a1qjk"]
+[ext_resource type="Script" uid="uid://2bug5xnvwiey" path="res://entities/player/stick.gd" id="9_j3ovn"]
+[ext_resource type="Animation" uid="uid://bye00x23stt6k" path="res://stick.res" id="10_j3ovn"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fkugw"]
 height = 1.4609375
@@ -50,6 +53,41 @@ bind/0/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16760641, 0)
 bind/1/name = &"Bone.001"
 bind/1/bone = -1
 bind/1/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6726854, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_afbqv"]
+resource_name = "Stick_Cylinder_002"
+_surfaces = [{
+"aabb": AABB(-0.06863077, -0.012255036, -0.07614473, 0.12663889, 1.5119475, 0.14180085),
+"attribute_data": PackedByteArray("VVVVPwAAQD5VVVU/WFVVPlVVVT+sqio+VVVVP6yqKj5VVVU/AABAPlVVVT9YVVU+qqpKP1hVVT5VVVU/WFVVPqqqSj9YVVU+VVVVP1hVVT6qqko/WFVVPlVVVT9YVVU+qqpKP1hVVT6qqko/AABAPqqqSj9YVVU+qqpKP1hVVT6qqko/AABAPqqqSj8AAEA+qqpKPwAAQD6qqko/rKoqPqqqSj8AAEA+qqpKP6yqKj6qqko/rKoqPqqqSj8AAEA+qqpKPwAAQD6qqko/AABAPqqqSj9YVVU+qqpKP1hVVT5VVVU/rKoqPqqqSj+sqio+qqpKP6yqKj6qqko/rKoqPqqqSj+sqio+qqpKP6yqKj5VVVU/rKoqPlVVVT9YVVU+VVVVP1hVVT5VVVU/AABAPqqqSj8AAEA+qqpKPwAAQD6qqko/WFVVPqqqSj+sqio+qqpKPwAAQD6qqko/AABAPqqqSj+sqio+qqpKP6yqKj6qqko/rKoqPqqqSj8AAEA+qqpKP6yqKj5VVVU/rKoqPlVVVT+sqio+qqpKP6yqKj5VVVU/AABAPlVVVT8AAEA+VVVVP1hVVT5VVVU/WFVVPqqqSj+sqio+VVVVPwAAQD5VVVU/rKoqPqqqSj8AAEA+qqpKP1hVVT5VVVU/AABAPqqqSj8AAEA+VVVVP1hVVT5VVVU/AABAPlVVVT+sqio+VVVVP6yqKj5VVVU/AABAPlVVVT9YVVU+qqpKP1hVVT5VVVU/WFVVPqqqSj8AAEA+qqpKP6yqKj5VVVU/rKoqPlVVVT9YVVU+VVVVPwAAQD5VVVU/AABAPlVVVT8AAEA+VVVVP1hVVT5VVVU/rKoqPlVVVT8AAEA+qqpKPwAAQD6qqko/rKoqPlVVVT+sqio+qqpKP6yqKj5VVVU/rKoqPlVVVT8AAEA+VVVVP6yqKj5VVVU/AABAPlVVVT+sqio+qqpKP6yqKj6qqko/AABAPlVVVT8AAEA+qqpKPwAAQD6qqko/WFVVPqqqSj9YVVU+qqpKPwAAQD5VVVU/rKoqPqqqSj+sqio+qqpKPwAAQD6qqko/WFVVPlVVVT+sqio+VVVVPwAAQD6qqko/WFVVPlVVVT9YVVU+qqpKP1hVVT4="),
+"bone_aabbs": [AABB(-0.06863077, -0.012255036, -0.07614473, 0.12663889, 1.5119475, 0.14180085)],
+"format": 34359745559,
+"index_count": 150,
+"index_data": PackedByteArray("QABBAEIAQABDAEEABgAHAAgABgBEAAcARAAGAEUARABFAEYARwAOAA8ARwAQAA4AHABIAB4AHABJAEgASgBLAEwASgAkAEsAIwBNACUAIwBOAE0AAABPAAIAAABQAE8AFQAXAFEAFQAWABcAEwANABQAEwBSAA0AGQAaABsAGQAYABoAUwBUAB0AUwBVAFQAVgADAFcAVgBYAAMAJgAnACgAWQAgAB8AKQAqACsAKQAsACoAWgAuAFsAAQAEAFwAAQAFAAQAMABdAC8AMAAtAF0AEQBeAF8AEQBgAF4AYQAhAGIAYQAiACEAYwASAGQAZQAyADMANAA1ADEANgA3AGYAZwAMAAsACgBoAAkACgBpAGgAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0A"),
+"lods": [0.104650564, PackedByteArray("AAABAAIAAQADAAIAAQAEAAMAAQAFAAQABgAHAAgABgAJAAcACQAGAAoACgALAAkACgAMAAsADQAOAA8ADQAQAA4AEQASAA4AEwANABQAEwAVAA0AFQAWABcAFQAXABgAGQAYABoAGQAaABsAHAAdAB4AHAAfAB0AHAAgAB8AHAAhACAAHAAiACEAIwAkACUAJgAnACgAKQAqACsAKQAsACoALQAuAC8AMAAtAC8AMQAyADMANAA1ADEANgA3ADQAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0A")],
+"material": ExtResource("9_a1qjk"),
+"primitive": 3,
+"skin_data": PackedByteArray("AAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAD//wAAAAAAAA=="),
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 106,
+"vertex_data": PackedByteArray("WYacvMh3dDyssHK9PtA0PWWyKD+eZD69+TyCvfvyEj7HGQ+9gfn3vA7QlD875jE8HaPnvK5jjj/m9nC7C0SdvP52jT+kMyC9v7z2PIPBpD6IWlm6MHUlPVnJSLzF8Zu97JltPUk29zxOdfo6PtA0PWWyKD+eZD69kUdePb7wLj+CIdS6C0SdvP52jT+kMyC9m7bmvOz1vz8Ym3Y9WyUtvFTu1j4wxA89kUdePb7wLj+CIdS6v7z2PIPBpD6IWlm6EnKoPAXfSD/pVTw9tryUPEvaST94kQI9m7bmvOz1vz8Ym3Y9utRDvXjdOD51Lxc9Hzfpu1RsNT1RYb67JJpEvVNe7j62doY9r5uqvGYgWD9RLEI9EnKoPAXfSD/pVTw9WyUtvFTu1j4wxA89Hzfpu1RsNT1RYb67v7z2PIPBpD6IWlm67JltPUk29zxOdfo6+TyCvfvyEj7HGQ+9JJpEvVNe7j62doY9utRDvXjdOD51Lxc9r5uqvGYgWD9RLEI9VUy6vAzhWT9l5/08Si0HvTiPmD+mfuQ8gfn3vA7QlD875jE8MHUlPVnJSLzF8Zu9PtA0PWWyKD+eZD69WYacvMh3dDyssHK9EnKoPAXfSD/pVTw9tryUPEvaST94kQI9kUdePb7wLj+CIdS6r5uqvGYgWD9RLEI9tryUPEvaST94kQI9EnKoPAXfSD/pVTw9VUy6vAzhWT9l5/08Si0HvTiPmD+mfuQ8m7bmvOz1vz8Ym3Y9tryUPEvaST94kQI9VUy6vAzhWT9l5/08gfn3vA7QlD875jE8m7bmvOz1vz8Ym3Y9Si0HvTiPmD+mfuQ8HaPnvK5jjj/m9nC7m7bmvOz1vz8Ym3Y9C0SdvP52jT+kMyC9m7bmvOz1vz8Ym3Y9utRDvXjdOD51Lxc9WYacvMh3dDyssHK9+TyCvfvyEj7HGQ+9Hzfpu1RsNT1RYb677JltPUk29zxOdfo6WYacvMh3dDyssHK9Hzfpu1RsNT1RYb67MHUlPVnJSLzF8Zu9aAalvIgfyT5oHUW9a6oivVqkUz9Cj7C7So6MvRHA8j7o0o68/EqCO3CqQj9tjkO9ZNDGPLeClz7qY0C9kUdePb7wLj+CIdS6PtA0PWWyKD+eZD69WyUtvFTu1j4wxA89JJpEvVNe7j62doY9So6MvRHA8j7o0o68ZNDGPLeClz7qY0C9/EqCO3CqQj9tjkO9aAalvIgfyT5oHUW9aAalvIgfyT5oHUW9ZNDGPLeClz7qY0C9So6MvRHA8j7o0o68aAalvIgfyT5oHUW9WyUtvFTu1j4wxA89JJpEvVNe7j62doY9So6MvRHA8j7o0o68r5uqvGYgWD9RLEI9a6oivVqkUz9Cj7C7/EqCO3CqQj9tjkO9a6oivVqkUz9Cj7C7HaPnvK5jjj/m9nC7a6oivVqkUz9Cj7C7Si0HvTiPmD+mfuQ8HtFNvLVTkz88SwI9/EqCO3CqQj9tjkO9HtFNvLVTkz88SwI9tlwVO4Ojkj/Ph+Y7kUdePb7wLj+CIdS6HtFNvLVTkz88SwI9a6oivVqkUz9Cj7C7VUy6vAzhWT9l5/08HtFNvLVTkz88SwI9tlwVO4Ojkj/Ph+Y7gfn3vA7QlD875jE8HaPnvK5jjj/m9nC7tlwVO4Ojkj/Ph+Y7C0SdvP52jT+kMyC9tlwVO4Ojkj/Ph+Y7/ALB1f///7/UARE2////v/wCwdX///+//gIPvv///7/UARE2////v9QBETb///+/aP7Vlf///79o/tWV////v2j+1ZX///+/EPXhrv///78Q9eGu////vz/z97j///+/P/P3uP///7/Jsch4////Pyu6rXr///8/K7qtev///z8ruq16////P3bHpIb///8/ys+qf////z/Jsch4////P8mxyHj///8/s6Iufv///z+zoi5+////P7OiLn7///8/9JU8e////z/0lTx7////P/SVPHv///8/9JU8e////z/tGlF9////PzQia4f///8/7RpRff///z+eLjGa////P54uMZr///8/+BtYf////z/4G1h/////P1sGlvb///+/8P9pA////79bBpb2////v2Lf76b///+/Yt/vpv///79i3++m////v3DIwLD///8/cMjAsP///z9wyMCw////P3DIwLD///8/snb8f////z+CXn93////P7J2/H////8/snb8f////z/1BNui////vwEEFJv///+/AQQUm////7/1BNui////v/UE26L///+/TQQ6nv///79NBDqe////vz88cGJ/JtN3PzxwYgYn/Xc/PHBiFSazdz88cGKUJyh4rWyFPHgn3netbIU8difcd61shTyHJ+t3rWyFPGsn0nfxBAHO////v/EEAc7///+/8QQBzv///7/xBAHO////v2j+1ZX///+/aP7Vlf///79o/tWV////vyu6rXr///8/7RpRff///z/tGlF9////P/D/aQP///+/8P9pA////7/w/2kD////v1sGlvb///+/WwaW9v///7/8AsHV////v/wCwdX///+/s6Iufv///z/Jsch4////PzQia4f///8/NCJrh////z80ImuH////P/4CD77///+//gIPvv///7/+Ag++////v54uMZr///8/gl5/d////z+CXn93////P9QBETb///+/snb8f////z92x6SG////P3bHpIb///8/dsekhv///z/4G1h/////P/gbWH////8/ys+qf////z/Kz6p/////PwEEFJv///+/TQQ6nv///78/8/e4////vxD14a7///+/EPXhrv///78=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="Skin" id="Skin_tro0y"]
+resource_name = "Skin"
+bind_count = 1
+bind/0/name = &"Bone"
+bind/0/bone = -1
+bind/0/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.100799836, 0)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_j3ovn"]
+height = 2.0170288
+radius = 0.10888672
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7lij3"]
+_data = {
+&"Attack": ExtResource("10_j3ovn")
+}
 
 [sub_resource type="Animation" id="Animation_8fjmc"]
 length = 0.001
@@ -1137,6 +1175,45 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, -8.881784e-17, 0, 8.881784e-17, 0.1, 
 [node name="MovementMaskModel" parent="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/MaskContainer" instance=ExtResource("8_wvtmh")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, -8.881784e-17, 0, 8.881784e-17, 0.1, -0.5688751, 0.19292995, -2.486632e-08)
 
+[node name="Stick" type="Node3D" parent="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere"]
+transform = Transform3D(0.92401314, 0, -0.3823609, 0, 1, 0, 0.3823609, 0, 0.92401314, -3.8888707e-08, 0, 0.8896699)
+script = ExtResource("9_j3ovn")
+
+[node name="Armature" type="Node3D" parent="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/Stick"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.100799836, 0)
+
+[node name="Skeleton3D" type="Skeleton3D" parent="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/Stick/Armature"]
+bones/0/name = "Bone"
+bones/0/parent = -1
+bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bones/0/enabled = true
+bones/0/position = Vector3(0, 0, 0)
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/0/scale = Vector3(1, 1, 1)
+
+[node name="Cylinder_001" type="MeshInstance3D" parent="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/Stick/Armature/Skeleton3D"]
+transform = Transform3D(1.3999999, 0, 0, 0, 1.4, 0, 0, 0, 1.3999999, 0.05318886, 0, 0.12853622)
+mesh = SubResource("ArrayMesh_afbqv")
+skin = SubResource("Skin_tro0y")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/Stick/Armature/Skeleton3D"]
+bone_name = "Bone"
+bone_idx = 0
+
+[node name="AttackArea" type="Area3D" parent="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/Stick/Armature/Skeleton3D/BoneAttachment3D"]
+transform = Transform3D(1.3999997, 0, 0, 0, 1.4, 0, 0, 0, 1.3999997, 0.05318886, 0, 0.12853622)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/Stick/Armature/Skeleton3D/BoneAttachment3D/AttackArea"]
+transform = Transform3D(1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1, 0, 0.9336349, 0)
+shape = SubResource("CylinderShape3D_j3ovn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/Stick"]
+libraries = {
+&"": SubResource("AnimationLibrary_7lij3")
+}
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RotatableObjects/schleim"]
 libraries = {
 &"": SubResource("AnimationLibrary_vpc44")
@@ -1154,3 +1231,4 @@ rotation_object = NodePath("../RotatableObjects")
 [node name="GroundSmokeTrail" parent="." instance=ExtResource("4_bls4j")]
 
 [connection signal="body_entered" from="RotatableObjects/Attack/Area3D" to="RotatableObjects/Attack" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/Stick/Armature/Skeleton3D/BoneAttachment3D/AttackArea" to="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/Stick" method="_on_attack_area_body_entered"]
