@@ -21,13 +21,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	if event.is_action_pressed("mask_up") and display_mask_up.enabled:
-=======
 	if event.is_action_pressed("mask_up") and Globals.collected_masks[0]:
->>>>>>> efba7fe (stock anfang)
 		_switch_mask(0)
 	
 	if event.is_action_pressed("mask_left") and Globals.collected_masks[1]:
@@ -36,30 +30,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("mask_right") and Globals.collected_masks[2]:
 		_switch_mask(2)
 	
-<<<<<<< HEAD
-	if event.is_action_pressed("mask_down") and display_mask_down.enabled:
-=======
-	if event.is_action_pressed("mask_up"):
-=======
-	if event.is_action_pressed("mask_up") and display_mask_up.enabled:
->>>>>>> 17dc0f3 (masken funktionieren)
-		_switch_mask(0)
-	
-	if event.is_action_pressed("mask_left") and display_mask_left.enabled:
-		_switch_mask(1)
-	
-	if event.is_action_pressed("mask_right") and display_mask_right.enabled:
-		_switch_mask(2)
-	
-<<<<<<< HEAD
-	if event.is_action_pressed("mask_down"):
->>>>>>> 1f4aac7 (masken switch)
-=======
-	if event.is_action_pressed("mask_down") and display_mask_down.enabled:
->>>>>>> 17dc0f3 (masken funktionieren)
-=======
 	if event.is_action_pressed("mask_down") and Globals.collected_masks[3]:
->>>>>>> efba7fe (stock anfang)
 		_switch_mask(3)
 
 
