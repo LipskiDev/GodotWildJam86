@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://dn56nx3e8v73e"]
+[gd_scene load_steps=8 format=4 uid="uid://br0qin6bc42ig"]
 
 [ext_resource type="Texture2D" uid="uid://cmecytwbxep2f" path="res://assets/models/Obelisk_Obelisk.png" id="1_a38sl"]
+[ext_resource type="Script" uid="uid://cti8o3k7nbelv" path="res://entities/objects/obelisk.gd" id="1_uepgr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2x3bc"]
 resource_name = "Stuff"
@@ -76,6 +77,7 @@ shadow_mesh = SubResource("ArrayMesh_2l533")
 points = PackedVector3Array(-2.2138777, -0.22265615, -0.01620078, 0.013156176, -0.2191359, -2.2091837, 0.018352509, -0.22547235, 0.013674021, 0.007959843, -0.22124805, 2.2140174, -0.6649568, 6.96218, 0.65576553, -0.66972005, 6.9600677, 0.6263237, -0.6554303, 6.9551396, -0.6704154, 2.2094455, -0.220544, 0.0011179447, 0.65013194, 6.950211, -0.65049887, 0.6865058, 6.9572515, 0.6531677, 0.63887334, 6.9671082, 0.6670227, -0.033610344, 6.96218, 0.66529083)
 
 [node name="Obelisk" type="StaticBody3D"]
+script = ExtResource("1_uepgr")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3352722, 0, -0.37446737)
