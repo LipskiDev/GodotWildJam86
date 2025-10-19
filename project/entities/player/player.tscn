@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://drvm475mdagfk"]
+[gd_scene load_steps=24 format=4 uid="uid://drvm475mdagfk"]
 
 [ext_resource type="Script" uid="uid://bhgwfchvstiqj" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="Script" uid="uid://c0x7wwsb4q63n" path="res://entities/player/attack.gd" id="2_abrql"]
