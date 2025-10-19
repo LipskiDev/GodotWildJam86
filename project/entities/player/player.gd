@@ -138,7 +138,7 @@ func heal(amount: int) -> void:
 
 
 func show_you_died_screen() -> void:
-	$AnimationPlayer.play("youdied")
+	$AnimationPlayer.play("YouDied")
 
 
 func player_died() -> void:
@@ -146,4 +146,4 @@ func player_died() -> void:
 		Globals.player_just_died = true
 		get_tree().change_scene_to_file(Globals.last_bonfire_scene)
 	else:
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://level/level_1.tscn")

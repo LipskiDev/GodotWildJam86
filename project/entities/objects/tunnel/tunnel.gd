@@ -11,7 +11,6 @@ func _ready() -> void:
 		
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	print("HELLO")
 	if body.is_in_group("Player"):
 		if next_scene != "":
 			Globals.next_door_id = door_id

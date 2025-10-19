@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b44p5f3m1qiti"]
+[gd_scene load_steps=17 format=3 uid="uid://c61d4ujst1otw"]
 
 [ext_resource type="PackedScene" uid="uid://di57jl4oe4003" path="res://level/level_template.tscn" id="1_ypwww"]
 [ext_resource type="Material" uid="uid://c8wk787ymea7l" path="res://level/materials/moss.tres" id="2_f0ovp"]
@@ -572,6 +572,7 @@ fog_color = Color(4.0713545e-07, 0.739634, 0.8438099, 1)
 [node name="Tunnel2" parent="environment" index="3" instance=ExtResource("8_07kww")]
 transform = Transform3D(0.6999936, 0, 0.0029932302, 0, 0.70000005, 0, -0.0029932302, 0, 0.6999936, 26.244637, 0.20244437, -65.599365)
 door_id = 3
+next_scene = "res://level/level_5.tscn"
 fog_color = Color(1, 0, 0, 1)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="environment" index="4"]

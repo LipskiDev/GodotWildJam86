@@ -1,15 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://cxmo7adunuejo"]
+[gd_scene load_steps=17 format=3 uid="uid://bpagloucg1sce"]
 
-[ext_resource type="PackedScene" path="res://level/level_template.tscn" id="1_omx5w"]
+[ext_resource type="PackedScene" uid="uid://di57jl4oe4003" path="res://level/level_template.tscn" id="1_omx5w"]
 [ext_resource type="Material" uid="uid://4px458ycnie7" path="res://level/materials/stone_wall.tres" id="2_lx8gb"]
 [ext_resource type="PackedScene" uid="uid://37ssktu6xoyy" path="res://level/level-utils/stair_new.tscn" id="3_vb5hv"]
-[ext_resource type="PackedScene" path="res://entities/objects/fake_jens.tscn" id="4_vndax"]
+[ext_resource type="PackedScene" uid="uid://b1mywarjpm32d" path="res://entities/objects/fake_jens.tscn" id="4_vndax"]
 [ext_resource type="Material" uid="uid://bs7a41iqvwiyb" path="res://level/materials/rock.tres" id="5_k4ctk"]
 [ext_resource type="PackedScene" uid="uid://dhjmue468flpp" path="res://entities/objects/stone/stone.tscn" id="6_skxlf"]
 [ext_resource type="PackedScene" uid="uid://e7pgxn3fixl8" path="res://entities/objects/fire/fireplace.tscn" id="7_hdc4k"]
 [ext_resource type="PackedScene" uid="uid://lg0rqoxmmrdx" path="res://entities/objects/vase/vase.tscn" id="8_vndax"]
 [ext_resource type="PackedScene" uid="uid://bkde6bj67rxov" path="res://entities/objects/tunnel/tunnel.tscn" id="9_k4ctk"]
-[ext_resource type="PackedScene" path="res://entities/objects/waysign.tscn" id="10_skxlf"]
+[ext_resource type="PackedScene" uid="uid://c04frxjk0bv53" path="res://entities/objects/waysign.tscn" id="10_skxlf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lx8gb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -291,6 +291,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6650715, 0, -17.580029)
 [node name="DesertTunnel" parent="." index="12" instance=ExtResource("9_k4ctk")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.9060836, -0.1850965, -12.329563)
 door_id = 4
+next_scene = "res://level/level_4.tscn"
 fog_color = Color(0.99999994, 0.9407637, 0.3108269, 1)
 
 [node name="EndTunnel" parent="." index="13" instance=ExtResource("9_k4ctk")]

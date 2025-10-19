@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d4flbv8c15tmm" path="res://entities/player/ground_smoke_trail.tscn" id="4_bls4j"]
 [ext_resource type="PackedScene" uid="uid://cmq7ttt0eqanx" path="res://entities/masks/stone_mask_model.tscn" id="5_qiwj3"]
 [ext_resource type="PackedScene" uid="uid://cqsqqtgi5km12" path="res://entities/masks/wood_mask_model.tscn" id="7_bectd"]
+[ext_resource type="Texture2D" uid="uid://ctexvjejaj3b1" path="res://assets/textures/youdiedscreen.png" id="8_26q78"]
 [ext_resource type="PackedScene" uid="uid://d0srxd433wsl6" path="res://entities/masks/movement_mask_model.tscn" id="8_wvtmh"]
 [ext_resource type="Material" uid="uid://cg3utj6oyr1n2" path="res://level/materials/bark.tres" id="9_a1qjk"]
 [ext_resource type="Script" path="res://entities/player/stick.gd" id="9_j3ovn"]
@@ -725,6 +726,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("YouDied:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_yqrof"]
 resource_name = "credits"
@@ -780,9 +793,40 @@ tracks/3/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_b2kln"]
+resource_name = "YouDied"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YouDied:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"player_died"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b2kln"]
 _data = {
 &"RESET": SubResource("Animation_3wlsy"),
+&"YouDied": SubResource("Animation_b2kln"),
 &"credits": SubResource("Animation_yqrof")
 }
 
@@ -924,6 +968,7 @@ libraries = {
 
 [node name="TextureRect" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0)
+z_index = 100
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -933,6 +978,7 @@ texture = SubResource("CanvasTexture_yqrof")
 
 [node name="ThanksForPlayingRect" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0)
+z_index = 100
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -943,6 +989,7 @@ texture = ExtResource("9_wvtmh")
 
 [node name="MadeBy" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0)
+z_index = 100
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -950,6 +997,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_7thud")
+
+[node name="YouDied" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+top_level = true
+z_index = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_26q78")
 
 [connection signal="body_entered" from="RotatableObjects/Attack/Area3D" to="RotatableObjects/Attack" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/Stick/Armature/Skeleton3D/BoneAttachment3D/AttackArea" to="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/Stick" method="_on_attack_area_body_entered"]

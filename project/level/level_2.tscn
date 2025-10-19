@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://5daaqhjouyn3"]
 
-[ext_resource type="PackedScene" path="res://level/level_template.tscn" id="1_suhml"]
+[ext_resource type="PackedScene" uid="uid://di57jl4oe4003" path="res://level/level_template.tscn" id="1_suhml"]
 [ext_resource type="PackedScene" uid="uid://37ssktu6xoyy" path="res://level/level-utils/stair_new.tscn" id="3_dxks8"]
 [ext_resource type="Material" uid="uid://c8wk787ymea7l" path="res://level/materials/moss.tres" id="3_fvot5"]
 [ext_resource type="PackedScene" uid="uid://bkde6bj67rxov" path="res://entities/objects/tunnel/tunnel.tscn" id="4_vl510"]
@@ -813,8 +813,9 @@ next_scene = "res://level/level_1.tscn"
 fog_color = Color(1, 1, 1, 1)
 
 [node name="Tunnel2" parent="." index="13" instance=ExtResource("4_vl510")]
-transform = Transform3D(5.9604645e-08, 0, 0.69999987, 0, 0.7, 0, -0.69999987, 0, 5.9604645e-08, 39.416817, -0.09513891, -1.2720569)
+transform = Transform3D(1.5912889e-09, 0, -0.69999987, 0, 0.70000005, 0, 0.69999987, 0, 1.5912889e-09, 39.416817, -0.09513891, -1.2720569)
 door_id = 2
+next_scene = "res://level/level_3.tscn"
 fog_color = Color(0.15294118, 0.3882353, 0, 1)
 
 [node name="Fireplace" parent="." index="14" instance=ExtResource("7_fvot5")]
