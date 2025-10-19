@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://di57jl4oe4003"]
+
+[ext_resource type="PackedScene" uid="uid://drvm475mdagfk" path="res://entities/player/player.tscn" id="1_f16jj"]
+[ext_resource type="PackedScene" uid="uid://cv7v8afb11jcn" path="res://entities/player/player_camera.tscn" id="2_8s6kw"]
+[ext_resource type="PackedScene" uid="uid://y3ecl1gcn72n" path="res://ui/HUD.tscn" id="4_2b74v"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_grku6"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_s3kxx"]
+sky_material = SubResource("ProceduralSkyMaterial_grku6")
+
+[sub_resource type="Environment" id="Environment_5mv6l"]
+background_mode = 2
+sky = SubResource("Sky_s3kxx")
+ambient_light_color = Color(0.31037983, 0.404985, 0.23082548, 1)
+tonemap_mode = 2
+tonemap_exposure = 0.5
+tonemap_white = 0.5
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.25882354, 0.15294118, 0.60784316, 1)
+fog_light_energy = 0.2
+fog_density = 0.05
+
+[node name="LevelTemplate" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5mv6l")
+
+[node name="Player" parent="." instance=ExtResource("1_f16jj")]
+max_jumps = 2
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014289856, 1.4829588, 0)
+light_color = Color(0.97763807, 0.7887983, 0.22394401, 1)
+omni_range = 8.0
+omni_attenuation = 0.4
+
+[node name="PlayerCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_8s6kw")]
+player = NodePath("")
+distance = null
+angle = null
+sway_amount = null
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+
+[node name="environment" type="Node" parent="."]
+
+[node name="stones" type="Node" parent="."]
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="vases" type="Node" parent="."]
+
+[node name="grass" type="Node" parent="."]
+
+[node name="Hud" parent="." instance=ExtResource("4_2b74v")]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1mywarjpm32d"]
+
+[ext_resource type="Material" uid="uid://bs7a41iqvwiyb" path="res://level/materials/rock.tres" id="1_l2jaj"]
+
+[node name="FakeJens" type="CSGCombiner3D"]
+transform = Transform3D(0.7763655, 0, -0.63028294, 0, 1, 0, 0.63028294, 0, 0.7763655, 0, 0, 0)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+material = ExtResource("1_l2jaj")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08779812, -0.20918769, 0.54187393)
+radius = 0.11484807
+material = ExtResource("1_l2jaj")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37812233, -0.18362948, -0.3592167)
+radius = 0.1172998
+material = ExtResource("1_l2jaj")

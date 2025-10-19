@@ -326,16 +326,6 @@ shape = SubResource("ConvexPolygonShape3D_pjcep")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48900962, 0.06293595)
 shape = SubResource("ConvexPolygonShape3D_mxyc0")
 
-[node name="EyeLeft" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6757395, 2.1905603, 0.39947468)
-visible = false
-light_color = Color(0.76987535, 0.13204041, 0.25496706, 1)
-
-[node name="EyeRight" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6465012, 2.1890097, -0.40087295)
-visible = false
-light_color = Color(0.76987535, 0.13204041, 0.25496706, 1)
-
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
 transform = Transform3D(-1, 0, -3.2584137e-07, 0, 1, 0, 3.2584137e-07, 0, -1, 0, 0.48900962, -0.07832694)
 shape = SubResource("ConvexPolygonShape3D_o7flf")
