@@ -30,6 +30,7 @@ var in_air_last_frame: bool = false
 
 func _ready() -> void:
 	Globals.teleport_player_to.connect(teleport_player)
+	Globals.play_credits.connect(play_credits)
 
 
 func _physics_process(delta: float) -> void:
@@ -114,6 +115,12 @@ func _physics_process(delta: float) -> void:
 
 func teleport_player(pos: Vector3) -> void:
 	global_position = pos
+	
+func play_credits() -> void:
+	$AnimationPlayer.play("credits")
+	
+func end_game() -> void:
+	get_tree().quit()
 
 
 func take_damage(_amount: int) -> void:

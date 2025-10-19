@@ -11,7 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://cqsqqtgi5km12" path="res://entities/masks/wood_mask_model.tscn" id="7_bectd"]
 [ext_resource type="PackedScene" uid="uid://d0srxd433wsl6" path="res://entities/masks/movement_mask_model.tscn" id="8_wvtmh"]
 [ext_resource type="Material" uid="uid://cg3utj6oyr1n2" path="res://level/materials/bark.tres" id="9_a1qjk"]
-[ext_resource type="Script" path="res://entities/player/stick.gd" id="9_j3ovn"]
+[ext_resource type="Script" uid="uid://2bug5xnvwiey" path="res://entities/player/stick.gd" id="9_j3ovn"]
+[ext_resource type="Texture2D" uid="uid://dr58xeybv8525" path="res://assets/textures/thanksforplaying.png" id="9_wvtmh"]
+[ext_resource type="Texture2D" uid="uid://c6qwkety3udpl" path="res://assets/textures/madebyscreen.png" id="10_7thud"]
 [ext_resource type="Animation" uid="uid://dagye53ftq8gd" path="res://stick.res" id="10_j3ovn"]
 [ext_resource type="Animation" uid="uid://dhjg1qa0yuvlv" path="res://stone_smash.res" id="12_afbqv"]
 
@@ -685,6 +687,107 @@ _data = {
 height = 1.331543
 radius = 0.7426758
 
+[sub_resource type="Animation" id="Animation_yqrof"]
+resource_name = "credits"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ThanksForPlayingRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.01, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MadeBy:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end_game"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3wlsy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ThanksForPlayingRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MadeBy:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b2kln"]
+_data = {
+&"RESET": SubResource("Animation_3wlsy"),
+&"credits": SubResource("Animation_yqrof")
+}
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yqrof"]
+
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 floor_max_angle = 1.2217305
 script = ExtResource("1_symyc")
@@ -813,6 +916,40 @@ player = NodePath("..")
 rotation_object = NodePath("../RotatableObjects")
 
 [node name="GroundSmokeTrail" parent="." instance=ExtResource("4_bls4j")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_b2kln")
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_yqrof")
+
+[node name="ThanksForPlayingRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_wvtmh")
+
+[node name="MadeBy" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_7thud")
 
 [connection signal="body_entered" from="RotatableObjects/Attack/Area3D" to="RotatableObjects/Attack" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/Stick/Armature/Skeleton3D/BoneAttachment3D/AttackArea" to="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/Stick" method="_on_attack_area_body_entered"]

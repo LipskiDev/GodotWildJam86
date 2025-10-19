@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://bjhti4wvqv0f4"]
 
-[ext_resource type="PackedScene" path="res://level/level_template.tscn" id="1_3hpiv"]
+[ext_resource type="PackedScene" uid="uid://di57jl4oe4003" path="res://level/level_template.tscn" id="1_3hpiv"]
 [ext_resource type="Material" uid="uid://cvpbv3ebq45m5" path="res://level/materials/sand.tres" id="2_2loia"]
 [ext_resource type="PackedScene" uid="uid://br0qin6bc42ig" path="res://entities/objects/obelisk.tscn" id="3_2yv8n"]
 [ext_resource type="PackedScene" uid="uid://bkde6bj67rxov" path="res://entities/objects/tunnel/tunnel.tscn" id="3_t4xmy"]
