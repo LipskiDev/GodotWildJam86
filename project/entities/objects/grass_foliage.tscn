@@ -110,7 +110,7 @@ shader_parameter/noise_tex = SubResource("NoiseTexture2D_iovlq")
 shader_parameter/wind_speed = 0.1
 shader_parameter/wind_strength = 0.5
 shader_parameter/player_pos = Vector3(0, 0, 0)
-shader_parameter/min_distance = 2.0
+shader_parameter/min_distance = 3.5
 shader_parameter/strength = 0.2
 
 [sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_jci4i"]

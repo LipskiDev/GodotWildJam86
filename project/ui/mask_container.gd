@@ -13,28 +13,55 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("mask_up"):
-		display_mask_up.selected = true
-		display_mask_left.selected = false
-		display_mask_right.selected = false
-		display_mask_down.selected = false
+		_switch_mask(0)
 	
 	if event.is_action_pressed("mask_left"):
-		display_mask_up.selected = false
-		display_mask_left.selected = true
-		display_mask_right.selected = false
-		display_mask_down.selected = false
+		_switch_mask(1)
 	
 	if event.is_action_pressed("mask_right"):
-		display_mask_up.selected = false
-		display_mask_left.selected = false
-		display_mask_right.selected = true
-		display_mask_down.selected = false
+		_switch_mask(2)
 	
 	if event.is_action_pressed("mask_down"):
-		display_mask_up.selected = false
-		display_mask_left.selected = false
-		display_mask_right.selected = false
-		display_mask_down.selected = true
+		_switch_mask(3)
+
+
+func _switch_mask(n: int) -> void:
+	if n == Globals.current_mask:
+		return
+	
+	Globals.current_mask = n
+	
+	match n:
+		0:
+			if display_mask_up.enabled == false:
+				return
+			display_mask_up.selected = true
+			display_mask_left.selected = false
+			display_mask_right.selected = false
+			display_mask_down.selected = false
+		1:
+			if display_mask_left.enabled == false:
+				return
+			display_mask_up.selected = false
+			display_mask_left.selected = true
+			display_mask_right.selected = false
+			display_mask_down.selected = false
+		2:
+			if display_mask_right.enabled == false:
+				return
+			display_mask_up.selected = false
+			display_mask_left.selected = false
+			display_mask_right.selected = true
+			display_mask_down.selected = false
+		3:
+			if display_mask_down.enabled == false:
+				return
+			display_mask_up.selected = false
+			display_mask_left.selected = false
+			display_mask_right.selected = false
+			display_mask_down.selected = true
+	
+	Globals.mask_switched.emit()
 
 
 func _mask_collected(n: int) -> void:
