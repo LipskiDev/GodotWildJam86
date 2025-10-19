@@ -7,14 +7,16 @@ var tween: Tween
 var switch_time: float = 0.2
 
 
-@onready var kaktus_mask_model: Node3D = $KaktusMaskModel
 @onready var stone_mask_model: Node3D = $StoneMaskModel
+@onready var wood_mask_model: Node3D = $WoodMaskModel
+@onready var kaktus_mask_model: Node3D = $KaktusMaskModel
+@onready var movement_mask_model: Node3D = $MovementMaskModel
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.mask_switched.connect(_switch_mask)
-	mask_models = [stone_mask_model, kaktus_mask_model, kaktus_mask_model, kaktus_mask_model]
+	mask_models = [stone_mask_model, wood_mask_model, kaktus_mask_model, movement_mask_model]
 
 
 func _switch_mask() -> void:

@@ -31,6 +31,7 @@ func _ready() -> void:
 	Globals.teleport_player_to.connect(teleport_player)
 
 func _physics_process(delta: float) -> void:
+	max_jumps = 2 if Globals.current_mask == 3 else 1
 	# Add the gravity. and coyote time
 	if not is_on_floor():
 		velocity += get_gravity() * delta

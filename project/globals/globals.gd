@@ -18,7 +18,6 @@ signal mask_collected(n: int)
 signal mask_switched
 
 
-
 var is_bonfire_lit: Array[bool] = [false, false, false, false, false, false]
 var last_bonfire_scene: String = ""
 var player_just_died: bool = false

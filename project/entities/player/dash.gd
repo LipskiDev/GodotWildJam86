@@ -24,7 +24,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("dash") and (Time.get_ticks_msec() - last_dash_time) > dash_spam_delay_ms:
+	if event.is_action_pressed("dash") and (Time.get_ticks_msec() - last_dash_time) > dash_spam_delay_ms and Globals.current_mask == 3:
 		last_dash_time = Time.get_ticks_msec()
 		if charges > 0:
 			dash_cur = true

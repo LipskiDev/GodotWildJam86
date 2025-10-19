@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://y3ecl1gcn72n"]
+[gd_scene load_steps=12 format=3 uid="uid://y3ecl1gcn72n"]
 
 [ext_resource type="PackedScene" uid="uid://brx4i2bpn4rrp" path="res://ui/Display_mask.tscn" id="1_1x8ju"]
 [ext_resource type="Script" uid="uid://bppau8auxrbst" path="res://ui/heart_management.gd" id="1_pom5v"]
 [ext_resource type="PackedScene" uid="uid://po84pmft2rgq" path="res://ui/heart.tscn" id="1_wxbmk"]
 [ext_resource type="Script" uid="uid://ct75erd1k5nf" path="res://ui/mask_container.gd" id="2_jd13s"]
+[ext_resource type="Texture2D" uid="uid://b4a6vvcp77yr8" path="res://assets/textures/maske-stone.png" id="5_3q2by"]
+[ext_resource type="Texture2D" uid="uid://b5anvtbu0a25q" path="res://assets/textures/maske-holz.png" id="6_tvtyy"]
+[ext_resource type="Texture2D" uid="uid://2ar35egwcbi0" path="res://assets/textures/maske-movement.png" id="7_li43i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaqae"]
 resource_local_to_scene = true
@@ -110,6 +113,7 @@ alignment = 1
 [node name="DisplayMaskUp" parent="MarginContainer/VBoxContainer/MaskContainer/HBoxContainer" instance=ExtResource("1_1x8ju")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_aaqae")
+texture = ExtResource("5_3q2by")
 text = "up"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MaskContainer"]
@@ -120,6 +124,7 @@ alignment = 1
 [node name="DisplayMaskLeft" parent="MarginContainer/VBoxContainer/MaskContainer/HBoxContainer2" instance=ExtResource("1_1x8ju")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jd13s")
+texture = ExtResource("6_tvtyy")
 text = "left"
 
 [node name="DisplayMaskRight" parent="MarginContainer/VBoxContainer/MaskContainer/HBoxContainer2" instance=ExtResource("1_1x8ju")]
@@ -134,4 +139,5 @@ alignment = 1
 [node name="DisplayMaskDown" parent="MarginContainer/VBoxContainer/MaskContainer/HBoxContainer3" instance=ExtResource("1_1x8ju")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_pom5v")
+texture = ExtResource("7_li43i")
 text = "down"
