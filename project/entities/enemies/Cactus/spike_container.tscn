@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsx36bwi6d2au"]
+
+[ext_resource type="Script" uid="uid://dvv18pxwjwcuf" path="res://entities/enemies/Cactus/spike_container.gd" id="1_7eei2"]
+
+[node name="SpikeContainer" type="Node"]
+script = ExtResource("1_7eei2")
