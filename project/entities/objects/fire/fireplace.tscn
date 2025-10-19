@@ -225,6 +225,9 @@ shape = SubResource("CapsuleShape3D_743rl")
 
 [node name="HealTimer" type="Timer" parent="."]
 
+[node name="TeleportPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8044125, 1.6824055, 1.13814)
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
 [connection signal="timeout" from="DmgTimer" to="." method="_on_dmg_timer_timeout"]

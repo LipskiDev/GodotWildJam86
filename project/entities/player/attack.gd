@@ -23,7 +23,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		return
 	
 	if body.has_method("take_damage"):
-		body.take_damage(10)
+		body.take_damage(1)
 	
 	if body.has_method("rock_smash"):
 		body.rock_smash()

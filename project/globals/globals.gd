@@ -11,3 +11,10 @@ signal mask_collected(n: int)
 
 @warning_ignore("unused_signal")
 signal shoot_spike(pos: Vector3, dir: Vector3)
+
+@warning_ignore("unused_signal")
+signal teleport_player_to(pos: Vector3)
+
+var is_bonfire_lit: Array[bool] = [false, false, false, false, false, false]
+
+var last_bonfire_scene: String = ""
