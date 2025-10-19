@@ -1,6 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://bpagloucg1sce"]
+[gd_scene load_steps=18 format=3 uid="uid://bpagloucg1sce"]
 
-[ext_resource type="PackedScene" uid="uid://di57jl4oe4003" path="res://level/level_template.tscn" id="1_omx5w"]
+[ext_resource type="PackedScene" uid="uid://c6a4230h2w5fl" path="res://level/level_template.tscn" id="1_omx5w"]
 [ext_resource type="Material" uid="uid://4px458ycnie7" path="res://level/materials/stone_wall.tres" id="2_lx8gb"]
 [ext_resource type="PackedScene" uid="uid://37ssktu6xoyy" path="res://level/level-utils/stair_new.tscn" id="3_vb5hv"]
 [ext_resource type="PackedScene" uid="uid://b1mywarjpm32d" path="res://entities/objects/fake_jens.tscn" id="4_vndax"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://lg0rqoxmmrdx" path="res://entities/objects/vase/vase.tscn" id="8_vndax"]
 [ext_resource type="PackedScene" uid="uid://bkde6bj67rxov" path="res://entities/objects/tunnel/tunnel.tscn" id="9_k4ctk"]
 [ext_resource type="PackedScene" uid="uid://c04frxjk0bv53" path="res://entities/objects/waysign.tscn" id="10_skxlf"]
+[ext_resource type="PackedScene" uid="uid://b75uap3o3blr" path="res://entities/objects/end_tunnel/end_tunnel.tscn" id="11_hdc4k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lx8gb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -48,6 +49,9 @@ environment = SubResource("Environment_nokfs")
 
 [node name="Player" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.154255, -0.33966255, 8.04488)
+
+[node name="OmniLight3D" parent="Player" index="9"]
+light_color = Color(0.97763807, 0.7887983, 0.22394401, 1)
 
 [node name="PlayerCamera" parent="." index="2" node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.1738195, 0)
@@ -294,22 +298,20 @@ door_id = 4
 next_scene = "res://level/level_4.tscn"
 fog_color = Color(0.99999994, 0.9407637, 0.3108269, 1)
 
-[node name="EndTunnel" parent="." index="13" instance=ExtResource("9_k4ctk")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.9060836, 6.769376, -12.329563)
-door_id = 6
-fog_color = Color(1, 0.5568628, 1, 1)
-
-[node name="BallonTunnel" parent="." index="14" instance=ExtResource("9_k4ctk")]
+[node name="BallonTunnel" parent="." index="13" instance=ExtResource("9_k4ctk")]
 transform = Transform3D(-3.059797e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.059797e-08, 4.2485476, 15.215551, 0.43596172)
 door_id = 5
 next_scene = "res://level/level_5.tscn"
 fog_color = Color(1, 0.5576762, 0.4814788, 1)
 
-[node name="JensTunnel" parent="." index="15" instance=ExtResource("9_k4ctk")]
+[node name="JensTunnel" parent="." index="14" instance=ExtResource("9_k4ctk")]
 transform = Transform3D(-3.059797e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.059797e-08, 4.2446623, -0.30057073, 1.2104602)
 door_id = 1
 next_scene = "res://level/level_2.tscn"
 fog_color = Color(0.44705883, 0.7607843, 0.7019608, 1)
 
-[node name="Waysign" parent="." index="16" instance=ExtResource("10_skxlf")]
+[node name="Waysign" parent="." index="15" instance=ExtResource("10_skxlf")]
 transform = Transform3D(-0.8816251, 0, 0.47195065, 0, 1, 0, -0.47195065, 0, -0.8816251, 2.8137074, -1.1976967, 4.7922983)
+
+[node name="Tunnel" parent="." index="17" instance=ExtResource("11_hdc4k")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.0541506, 7.062166, -11.06954)

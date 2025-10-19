@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://bjhti4wvqv0f4"]
 
-[ext_resource type="PackedScene" uid="uid://di57jl4oe4003" path="res://level/level_template.tscn" id="1_3hpiv"]
+[ext_resource type="PackedScene" uid="uid://c6a4230h2w5fl" path="res://level/level_template.tscn" id="1_3hpiv"]
 [ext_resource type="Material" uid="uid://cvpbv3ebq45m5" path="res://level/materials/sand.tres" id="2_2loia"]
 [ext_resource type="PackedScene" uid="uid://br0qin6bc42ig" path="res://entities/objects/obelisk.tscn" id="3_2yv8n"]
 [ext_resource type="PackedScene" uid="uid://bkde6bj67rxov" path="res://entities/objects/tunnel/tunnel.tscn" id="3_t4xmy"]
@@ -658,7 +658,7 @@ transform = Transform3D(-0.69268477, 0, -0.7212407, 0, 1, 0, 0.7212407, 0, -0.69
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.153814, -0.18687847, 2.4644196)
 
 [node name="Tunnel" parent="stones" index="180" instance=ExtResource("3_t4xmy")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.41506475, 6)
+transform = Transform3D(-0.7, 0, -6.119594e-08, 0, 0.7, 0, 6.119594e-08, 0, -0.7, 0, -0.41506475, 6)
 door_id = 4
 next_scene = "res://level/level_1.tscn"
 fog_color = Color(1, 1, 1, 1)
@@ -688,7 +688,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -1.162574, -22.676903)
 area_material = SubResource("StandardMaterial3D_84t8h")
 
 [node name="Fireplace" parent="stones" index="187" instance=ExtResource("7_84t8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8370047, 0, -2.899803)
+transform = Transform3D(-0.21753, 0, -0.97605366, 0, 1, 0, 0.97605366, 0, -0.21753, 5.8370047, 0, -2.899803)
 bonfire_id = 4
 
 [node name="Well" parent="stones" index="188" instance=ExtResource("8_b26y2")]
