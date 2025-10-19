@@ -13,7 +13,10 @@ signal shoot_spike(pos: Vector3, dir: Vector3)
 signal teleport_player_to(pos: Vector3)
 
 @warning_ignore("unused_signal")
+signal play_credits
+
 signal mask_collected(n: int)
+
 @warning_ignore("unused_signal")
 signal mask_switched
 
