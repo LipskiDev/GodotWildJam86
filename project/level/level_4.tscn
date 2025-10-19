@@ -1,0 +1,779 @@
+[gd_scene load_steps=20 format=3 uid="uid://bjhti4wvqv0f4"]
+
+[ext_resource type="PackedScene" path="res://level/level_template.tscn" id="1_3hpiv"]
+[ext_resource type="Material" uid="uid://cvpbv3ebq45m5" path="res://level/materials/sand.tres" id="2_2loia"]
+[ext_resource type="PackedScene" uid="uid://br0qin6bc42ig" path="res://entities/objects/obelisk.tscn" id="3_2yv8n"]
+[ext_resource type="PackedScene" uid="uid://bkde6bj67rxov" path="res://entities/objects/tunnel/tunnel.tscn" id="3_t4xmy"]
+[ext_resource type="PackedScene" uid="uid://c2s4hhenbmpyb" path="res://entities/objects/cactus_still/cactus_still.tscn" id="4_t4xmy"]
+[ext_resource type="PackedScene" uid="uid://ddmdaqq7hjd4t" path="res://entities/objects/cactus_small/cactus_small.tscn" id="5_7o5yd"]
+[ext_resource type="PackedScene" uid="uid://dkul0s31xums5" path="res://entities/enemies/Cactus/cactus.tscn" id="6_5xp6b"]
+[ext_resource type="PackedScene" uid="uid://e7pgxn3fixl8" path="res://entities/objects/fire/fireplace.tscn" id="7_84t8h"]
+[ext_resource type="PackedScene" uid="uid://bsx36bwi6d2au" path="res://entities/enemies/Cactus/spike_container.tscn" id="7_ewxm4"]
+[ext_resource type="PackedScene" uid="uid://cevsm80tnqw1f" path="res://entities/objects/well/well.tscn" id="8_b26y2"]
+[ext_resource type="PackedScene" uid="uid://bvcv2kgodv0ic" path="res://entities/objects/fence/fence.tscn" id="10_x6ytt"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_84t8h"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_x6ytt"]
+sky_material = SubResource("ProceduralSkyMaterial_84t8h")
+
+[sub_resource type="Environment" id="Environment_b26y2"]
+background_mode = 2
+sky = SubResource("Sky_x6ytt")
+ambient_light_color = Color(0.40506414, 0.37952605, 9.62615e-08, 1)
+tonemap_mode = 2
+tonemap_exposure = 0.5
+tonemap_white = 0.5
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.8, 0.92156863, 0.48235294, 1)
+fog_light_energy = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lx8gb"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2yv8n"]
+material = SubResource("StandardMaterial3D_lx8gb")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_84t8h"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yv8n"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_84t8h"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+
+[node name="LevelTemplate" instance=ExtResource("1_3hpiv")]
+
+[node name="WorldEnvironment" parent="." index="0"]
+environment = SubResource("Environment_b26y2")
+
+[node name="Player" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.1008148)
+
+[node name="PlayerCamera" parent="." index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../Player")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="environment" index="0"]
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="environment/CSGCombiner3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0290527, 0)
+radius = 37.07373
+height = 0.91259766
+sides = 16
+material = ExtResource("2_2loia")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="environment/CSGCombiner3D" index="1"]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="environment/CSGCombiner3D/CSGCombiner3D" index="0"]
+radius = 37.768356
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="environment/CSGCombiner3D/CSGCombiner3D" index="1"]
+operation = 2
+radius = 36.38606
+
+[node name="CSGBox3D" type="CSGBox3D" parent="environment/CSGCombiner3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.6902765, -0.7235457, 0, 0.7235457, 0.6902765, -1.0320892, 6.4524508, 14.747895)
+size = Vector3(74.26706, 20.068848, 1)
+material = ExtResource("2_2loia")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="environment/CSGCombiner3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.7730846)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="environment/CSGCombiner3D/StaticBody3D" index="0"]
+transform = Transform3D(71.77148, 0, 0, 0, 13.144299, 0, 0, 0, 1, -0.0038895607, 4.5708084, 0.8522911)
+mesh = SubResource("BoxMesh_2yv8n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="environment/CSGCombiner3D/StaticBody3D" index="1"]
+transform = Transform3D(99.316414, 0, 0, 0, 13.144299, 0, 0, 0, 1, 0, 4.5861883, 0.8596401)
+shape = SubResource("ConcavePolygonShape3D_84t8h")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="environment/CSGCombiner3D" index="4"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -31.861568, 0, -16.16971)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="environment/CSGCombiner3D/StaticBody3D2" index="0"]
+transform = Transform3D(71.77148, 0, 0, 0, 13.144299, 0, 0, 0, 1, -0.0038895607, 4.5708084, 0.8522911)
+mesh = SubResource("BoxMesh_2yv8n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="environment/CSGCombiner3D/StaticBody3D2" index="1"]
+transform = Transform3D(99.316414, 0, 0, 0, 13.144299, 0, 0, 0, 1, 0, 4.5861883, 0.8596401)
+shape = SubResource("ConcavePolygonShape3D_84t8h")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="environment/CSGCombiner3D" index="5"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 32.391922, 0, -16.16971)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="environment/CSGCombiner3D/StaticBody3D3" index="0"]
+transform = Transform3D(71.77148, 0, 0, 0, 13.144299, 0, 0, 0, 1, -0.0038895607, 4.5708084, 0.8522911)
+mesh = SubResource("BoxMesh_2yv8n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="environment/CSGCombiner3D/StaticBody3D3" index="1"]
+transform = Transform3D(99.316414, 0, 0, 0, 13.144299, 0, 0, 0, 1, 0, 4.5861883, 0.8596401)
+shape = SubResource("ConcavePolygonShape3D_84t8h")
+
+[node name="CactusStill" parent="stones" index="0" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(0.7525643, 0, -0.65851873, 0, 1, 0, 0.65851873, 0, 0.7525643, -4.522989, 0.10565913, -2.5276742)
+
+[node name="CactusStill7" parent="stones" index="1" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(-0.9793748, 0, -0.20205234, 0, 1, 0, 0.20205234, 0, -0.9793748, -17.490335, 0.10565817, -0.44412327)
+
+[node name="CactusStill8" parent="stones" index="2" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(-0.9790811, 0, -0.20347089, 0, 1, 0, 0.20347089, 0, -0.9790811, -26.246265, 0.10565817, -8.989972)
+
+[node name="CactusStill9" parent="stones" index="3" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(0.7202485, 0, -0.6937162, 0, 1, 0, 0.6937162, 0, 0.7202485, -25.822063, 0.10565817, -3.0996513)
+
+[node name="CactusStill10" parent="stones" index="4" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(0.6648785, 0, -0.7469517, 0, 1, 0, 0.7469517, 0, 0.6648785, -13.382802, 0.10565817, -5.543049)
+
+[node name="CactusStill11" parent="stones" index="5" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(0.19847849, 0, -0.9801054, 0, 1, 0, 0.9801054, 0, 0.19847849, -19.065996, 0.10565817, -19.500217)
+
+[node name="CactusStill12" parent="stones" index="6" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(0.41183248, 0, -0.91125965, 0, 1, 0, 0.91125965, 0, 0.41183248, -20.152842, 0.10565722, -10.812425)
+
+[node name="CactusStill13" parent="stones" index="7" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(-0.6036117, 0, -0.7972785, 0, 1, 0, 0.7972785, 0, -0.6036117, -12.905814, 0.10565722, -16.518015)
+
+[node name="CactusStill14" parent="stones" index="8" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(0.19476505, 0, -0.98085004, 0, 1, 0, 0.98085004, 0, 0.19476505, -13.844745, 0.10565817, -27.499544)
+
+[node name="CactusStill2" parent="stones" index="9" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(-0.3596712, 0, -0.93307924, 0, 1, 0, 0.93307924, 0, -0.3596712, 7.5819902, 0.105659604, -27.60205)
+
+[node name="CactusStill3" parent="stones" index="10" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(0.6222415, 0, -0.7828255, 0, 1, 0, 0.7828255, 0, 0.6222415, 7.352547, 0.105659604, -6.5643024)
+
+[node name="CactusStill19" parent="stones" index="11" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(-0.99989945, 0, -0.014189035, 0, 1, 0, 0.014189035, 0, -0.99989945, 13.411348, 0.105659604, -1.0558233)
+
+[node name="CactusStill20" parent="stones" index="12" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(0.36906555, 0, -0.9294034, 0, 1, 0, 0.9294034, 0, 0.36906555, 23.781044, 0.105659604, -3.5703747)
+
+[node name="CactusStill21" parent="stones" index="13" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(-0.92306936, 0, 0.38463378, 0, 1, 0, -0.38463378, 0, -0.92306936, 23.781044, 1.1737872, -8.91228)
+
+[node name="CactusStill4" parent="stones" index="14" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(-0.3102616, 0, 0.9506515, 0, 1, 0, -0.9506515, 0, -0.3102616, -6.4777303, 0.21131921, -16.749996)
+
+[node name="CactusStill5" parent="stones" index="15" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(0.050976515, 0, 0.9987001, 0, 1, 0, -0.9987001, 0, 0.050976515, 3.9631174, 0.21131921, -17.004637)
+
+[node name="CactusStill15" parent="stones" index="16" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(-0.6048635, 0, -0.7963295, 0, 1, 0, 0.7963295, 0, -0.6048635, 15.231668, 0.21131825, -20.931133)
+
+[node name="CactusStill16" parent="stones" index="17" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(0.1537103, 0, 0.98811615, 0, 1, 0, -0.98811615, 0, 0.1537103, 10.610085, 0.21131921, -14.430701)
+
+[node name="CactusStill17" parent="stones" index="18" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(-0.7412735, 0, 0.6712035, 0, 1, 0, -0.6712035, 0, -0.7412735, 23.684416, 0.21131921, -15.528783)
+
+[node name="CactusStill18" parent="stones" index="19" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(-0.7412735, 0, 0.6712035, 0, 1, 0, -0.6712035, 0, -0.7412735, 15.644709, 0.21132016, -10.017718)
+
+[node name="CactusSmall" parent="stones" index="20" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8993053, -0.37375695, -5.7533455)
+
+[node name="CactusSmall2" parent="stones" index="21" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0943203, -0.37375695, -10.243416)
+
+[node name="CactusSmall25" parent="stones" index="22" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1354136, -0.37375695, -13.41322)
+
+[node name="CactusSmall26" parent="stones" index="23" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14391708, -0.3737579, -16.715408)
+
+[node name="CactusSmall27" parent="stones" index="24" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7353177, -0.3737579, -19.248695)
+
+[node name="CactusSmall28" parent="stones" index="25" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0977397, -0.3737579, -23.986984)
+
+[node name="CactusSmall29" parent="stones" index="26" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5709176, -0.3737579, -23.451216)
+
+[node name="CactusSmall30" parent="stones" index="27" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6481786, -0.3737579, -30.024467)
+
+[node name="CactusSmall32" parent="stones" index="28" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6481786, -0.3737579, -28.024467)
+
+[node name="CactusSmall33" parent="stones" index="29" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4842443, -0.3737579, -30.929775)
+
+[node name="CactusSmall34" parent="stones" index="30" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1725302, -0.3737579, -31.403576)
+
+[node name="CactusSmall35" parent="stones" index="31" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41244364, -0.3737579, -29.015755)
+
+[node name="CactusSmall36" parent="stones" index="32" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.588434, -0.3737579, -26.642384)
+
+[node name="CactusSmall37" parent="stones" index="33" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.427027, -0.3737579, -31.2289)
+
+[node name="CactusSmall38" parent="stones" index="34" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.908353, -0.37375885, -32.96749)
+
+[node name="CactusSmall39" parent="stones" index="35" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.908353, -0.37375885, -31.967491)
+
+[node name="CactusSmall40" parent="stones" index="36" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2255807, -0.37375885, -24.889174)
+
+[node name="CactusSmall41" parent="stones" index="37" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24051857, -0.37375885, -25.218372)
+
+[node name="CactusSmall42" parent="stones" index="38" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24051857, -0.37375885, -25.218372)
+
+[node name="CactusSmall43" parent="stones" index="39" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4157815, -0.37375885, -32.924706)
+
+[node name="CactusSmall44" parent="stones" index="40" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5402703, -0.37375885, -34.25747)
+
+[node name="CactusSmall45" parent="stones" index="41" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9499803, -0.37375885, -32.44876)
+
+[node name="CactusSmall46" parent="stones" index="42" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9499803, -0.37375885, -22.448761)
+
+[node name="CactusSmall47" parent="stones" index="43" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5616326, -0.37375885, -21.412016)
+
+[node name="CactusSmall48" parent="stones" index="44" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1241555, -0.37375885, -20.85705)
+
+[node name="CactusSmall49" parent="stones" index="45" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.683228, -0.37375885, -16.67907)
+
+[node name="CactusSmall50" parent="stones" index="46" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.021189, -0.37375885, -17.321295)
+
+[node name="CactusSmall51" parent="stones" index="47" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.465462, -0.37375885, -15.1746435)
+
+[node name="CactusSmall52" parent="stones" index="48" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5958762, -0.37375885, -20.351002)
+
+[node name="CactusSmall53" parent="stones" index="49" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.145492, -0.37375885, -27.030785)
+
+[node name="CactusSmall54" parent="stones" index="50" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.259496, -0.3737579, -32.928734)
+
+[node name="CactusSmall31" parent="stones" index="51" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6481786, -0.3737579, -26.024467)
+
+[node name="CactusSmall3" parent="stones" index="52" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.980272, -0.37375695, 3.454784)
+
+[node name="CactusSmall4" parent="stones" index="53" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.48201, -0.37375695, -1.7515066)
+
+[node name="CactusSmall5" parent="stones" index="54" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.593643, -0.37375695, -12.493987)
+
+[node name="CactusSmall6" parent="stones" index="55" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.111784, -0.37375695, -13.407174)
+
+[node name="CactusSmall7" parent="stones" index="56" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5194993, -0.37375695, -11.141099)
+
+[node name="CactusSmall8" parent="stones" index="57" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008513927, -0.37375695, -8.136579)
+
+[node name="CactusSmall9" parent="stones" index="58" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3854237, -0.37375695, -9.625096)
+
+[node name="CactusSmall10" parent="stones" index="59" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.569793, -0.37375695, -9.034488)
+
+[node name="CactusSmall11" parent="stones" index="60" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5732746, -0.37375695, -3.382532)
+
+[node name="CactusSmall12" parent="stones" index="61" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.120042, -0.37375695, -0.9201324)
+
+[node name="CactusSmall13" parent="stones" index="62" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.894579, -0.37375695, 2.0192425)
+
+[node name="CactusSmall14" parent="stones" index="63" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1900845, -0.37375695, 0.6752341)
+
+[node name="CactusSmall15" parent="stones" index="64" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9027185, -0.37375695, -15.511785)
+
+[node name="CactusSmall59" parent="stones" index="65" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.747573, -0.37375695, -13.438491)
+
+[node name="CactusSmall107" parent="stones" index="66" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.413024, -0.373756, -10.384785)
+
+[node name="CactusSmall108" parent="stones" index="67" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.18649, -0.373756, -7.8719974)
+
+[node name="CactusSmall109" parent="stones" index="68" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.532145, -0.373756, -4.6414533)
+
+[node name="CactusSmall111" parent="stones" index="69" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.738824, -0.373756, -1.7627757)
+
+[node name="CactusSmall112" parent="stones" index="70" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.188403, -0.373756, 0.5109961)
+
+[node name="CactusSmall113" parent="stones" index="71" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.780184, -0.37375575, 3.0852273)
+
+[node name="CactusSmall117" parent="stones" index="72" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.537632, -0.37375575, 4.986087)
+
+[node name="CactusSmall118" parent="stones" index="73" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.597374, -0.37375575, -0.27826786)
+
+[node name="CactusSmall119" parent="stones" index="74" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.597374, -0.37375575, -0.27826786)
+
+[node name="CactusSmall120" parent="stones" index="75" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.406384, -0.37375575, 2.7163901)
+
+[node name="CactusSmall121" parent="stones" index="76" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.67032, -0.3737567, -0.030570745)
+
+[node name="CactusSmall122" parent="stones" index="77" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.481655, -0.37375575, 2.6928372)
+
+[node name="CactusSmall123" parent="stones" index="78" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.164803, -0.3737548, 4.6532965)
+
+[node name="CactusSmall124" parent="stones" index="79" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.496223, -0.3737548, -2.318687)
+
+[node name="CactusSmall125" parent="stones" index="80" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.71355, -0.3737548, -5.004137)
+
+[node name="CactusSmall126" parent="stones" index="81" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.71355, -0.3737548, -7.004137)
+
+[node name="CactusSmall127" parent="stones" index="82" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.71355, -0.3737548, -7.004137)
+
+[node name="CactusSmall128" parent="stones" index="83" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.830853, -0.3737548, -5.8251143)
+
+[node name="CactusSmall129" parent="stones" index="84" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.037006, -0.3737548, -2.5808806)
+
+[node name="CactusSmall130" parent="stones" index="85" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.766544, -0.3737548, -8.507973)
+
+[node name="CactusSmall131" parent="stones" index="86" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.824647, -0.3737548, -12.372036)
+
+[node name="CactusSmall132" parent="stones" index="87" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.824646, -0.3737548, -13.372036)
+
+[node name="CactusSmall133" parent="stones" index="88" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.824646, -0.3737548, -13.372036)
+
+[node name="CactusSmall134" parent="stones" index="89" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.501417, -0.3737548, -13.6344)
+
+[node name="CactusSmall135" parent="stones" index="90" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.96981, -0.3737548, -11.398751)
+
+[node name="CactusSmall136" parent="stones" index="91" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.376762, -0.3737548, -11.595965)
+
+[node name="CactusSmall137" parent="stones" index="92" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.748497, -0.3737548, -15.045007)
+
+[node name="CactusSmall138" parent="stones" index="93" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.956041, -0.3737548, -18.328709)
+
+[node name="CactusSmall139" parent="stones" index="94" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.658747, -0.3737548, -18.00283)
+
+[node name="CactusSmall140" parent="stones" index="95" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.120676, -0.37375385, -23.086418)
+
+[node name="CactusSmall141" parent="stones" index="96" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.696683, -0.37375385, -23.132359)
+
+[node name="CactusSmall142" parent="stones" index="97" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.696683, -0.37375385, -23.132359)
+
+[node name="CactusSmall143" parent="stones" index="98" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.285427, -0.37375385, -18.506569)
+
+[node name="CactusSmall144" parent="stones" index="99" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.016663, -0.37375385, -18.70458)
+
+[node name="CactusSmall145" parent="stones" index="100" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.016663, -0.37375385, -17.70458)
+
+[node name="CactusSmall146" parent="stones" index="101" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.118454, -0.37375385, -19.854752)
+
+[node name="CactusSmall147" parent="stones" index="102" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.933975, -0.37375385, -22.585928)
+
+[node name="CactusSmall148" parent="stones" index="103" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.079295, -0.37375385, -21.921068)
+
+[node name="CactusSmall149" parent="stones" index="104" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.079295, -0.37375385, -25.921068)
+
+[node name="CactusSmall150" parent="stones" index="105" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.861959, -0.3737529, -30.462278)
+
+[node name="CactusSmall153" parent="stones" index="106" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.406164, -0.37375385, -29.93366)
+
+[node name="CactusSmall154" parent="stones" index="107" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.406164, -0.37375385, -29.93366)
+
+[node name="CactusSmall151" parent="stones" index="108" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.13086, -0.37375385, -26.08186)
+
+[node name="CactusSmall152" parent="stones" index="109" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.312183, -0.37375385, -26.85641)
+
+[node name="CactusSmall114" parent="stones" index="110" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.072718, -0.373756, 1.9188402)
+
+[node name="CactusSmall115" parent="stones" index="111" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.902185, -0.373756, 5.50041)
+
+[node name="CactusSmall116" parent="stones" index="112" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.902185, -0.373756, 5.50041)
+
+[node name="CactusSmall16" parent="stones" index="113" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.893408, -0.37375695, -18.565037)
+
+[node name="CactusSmall17" parent="stones" index="114" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6276727, -0.37375695, -16.14221)
+
+[node name="CactusSmall18" parent="stones" index="115" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.117659, -0.37375695, -0.13759422)
+
+[node name="CactusSmall155" parent="stones" index="116" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4617267, -0.37375695, -0.34109592)
+
+[node name="CactusSmall156" parent="stones" index="117" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.235752, -0.37375647, -4.2944856)
+
+[node name="CactusSmall157" parent="stones" index="118" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47017, -0.373756, 1.3692083)
+
+[node name="CactusSmall158" parent="stones" index="119" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0213952, -0.373756, -7.53658)
+
+[node name="CactusSmall159" parent="stones" index="120" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0213952, -0.373756, -7.53658)
+
+[node name="CactusSmall19" parent="stones" index="121" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.769303, -0.37375695, -1.5878675)
+
+[node name="CactusSmall56" parent="stones" index="122" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.004513, -0.37375695, -4.5457783)
+
+[node name="CactusSmall57" parent="stones" index="123" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.004513, -0.37375695, -4.5457783)
+
+[node name="CactusSmall58" parent="stones" index="124" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.05853, -0.37375695, -5.352372)
+
+[node name="CactusSmall60" parent="stones" index="125" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.560102, -0.37375695, -3.0137916)
+
+[node name="CactusSmall61" parent="stones" index="126" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.484768, -0.37375695, -2.3255267)
+
+[node name="CactusSmall62" parent="stones" index="127" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.08216, -0.37375695, -0.4177214)
+
+[node name="CactusSmall63" parent="stones" index="128" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.982398, -0.37375742, 2.4765468)
+
+[node name="CactusSmall64" parent="stones" index="129" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.794379, -0.37375742, 3.8954527)
+
+[node name="CactusSmall65" parent="stones" index="130" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.794379, -0.37375742, 3.8954527)
+
+[node name="CactusSmall66" parent="stones" index="131" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.643196, -0.37375742, 3.4091551)
+
+[node name="CactusSmall67" parent="stones" index="132" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.607315, -0.37375647, 0.8359883)
+
+[node name="CactusSmall68" parent="stones" index="133" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.334806, -0.37375647, -3.0034425)
+
+[node name="CactusSmall69" parent="stones" index="134" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.36809, -0.37375647, -0.8491471)
+
+[node name="CactusSmall70" parent="stones" index="135" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.349306, -0.37375647, 0.8741038)
+
+[node name="CactusSmall71" parent="stones" index="136" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.180866, -0.37375647, -5.024637)
+
+[node name="CactusSmall72" parent="stones" index="137" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.099226, -0.37375647, -6.070462)
+
+[node name="CactusSmall73" parent="stones" index="138" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.738771, -0.37375647, -6.9570208)
+
+[node name="CactusSmall74" parent="stones" index="139" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.037151, -0.37375647, -8.157092)
+
+[node name="CactusSmall75" parent="stones" index="140" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.082376, -0.37375647, -9.009743)
+
+[node name="CactusSmall76" parent="stones" index="141" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.289537, -0.37375647, -11.44731)
+
+[node name="CactusSmall77" parent="stones" index="142" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.277952, -0.37375647, -13.312507)
+
+[node name="CactusSmall78" parent="stones" index="143" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.283798, -0.37375647, -15.850028)
+
+[node name="CactusSmall79" parent="stones" index="144" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.922302, -0.37375647, -16.521038)
+
+[node name="CactusSmall80" parent="stones" index="145" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.17509, -0.37375647, -17.843765)
+
+[node name="CactusSmall81" parent="stones" index="146" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.91723, -0.37375647, -18.39413)
+
+[node name="CactusSmall82" parent="stones" index="147" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.91723, -0.37375647, -20.39413)
+
+[node name="CactusSmall83" parent="stones" index="148" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.604586, -0.37375647, -22.989183)
+
+[node name="CactusSmall84" parent="stones" index="149" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.916373, -0.37375647, -26.695541)
+
+[node name="CactusSmall85" parent="stones" index="150" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.304599, -0.37375647, -29.28056)
+
+[node name="CactusSmall86" parent="stones" index="151" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.057686, -0.37375742, -27.012405)
+
+[node name="CactusSmall87" parent="stones" index="152" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.048952, -0.37375742, -28.920807)
+
+[node name="CactusSmall88" parent="stones" index="153" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.588543, -0.37375742, -24.705597)
+
+[node name="CactusSmall89" parent="stones" index="154" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.428848, -0.37375742, -21.001436)
+
+[node name="CactusSmall90" parent="stones" index="155" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.942408, -0.37375742, -24.220566)
+
+[node name="CactusSmall91" parent="stones" index="156" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.271374, -0.37375742, -25.434254)
+
+[node name="CactusSmall92" parent="stones" index="157" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.875141, -0.37375742, -13.802925)
+
+[node name="CactusSmall96" parent="stones" index="158" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.259895, -0.37375742, -12.08298)
+
+[node name="CactusSmall97" parent="stones" index="159" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.609991, -0.37375742, -14.1647415)
+
+[node name="CactusSmall98" parent="stones" index="160" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.924124, -0.37375742, -17.850578)
+
+[node name="CactusSmall99" parent="stones" index="161" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.83136, -0.37375742, -9.671364)
+
+[node name="CactusSmall100" parent="stones" index="162" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.322935, -0.37375742, -8.702246)
+
+[node name="CactusSmall101" parent="stones" index="163" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.250051, -0.37375742, -3.793479)
+
+[node name="CactusSmall102" parent="stones" index="164" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.461288, -0.37375742, -0.8087654)
+
+[node name="CactusSmall104" parent="stones" index="165" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.070583, -0.37375742, 2.3413548)
+
+[node name="CactusSmall110" parent="stones" index="166" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.738672, -0.030387878, 4.810551)
+
+[node name="CactusSmall103" parent="stones" index="167" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.761538, -0.37375742, -7.14239)
+
+[node name="CactusSmall105" parent="stones" index="168" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.17285, -14.405496, 0.14162064)
+
+[node name="CactusSmall106" parent="stones" index="169" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.17285, -14.405496, 0.14162064)
+
+[node name="CactusSmall93" parent="stones" index="170" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.375315, -0.37375742, -21.418623)
+
+[node name="CactusSmall94" parent="stones" index="171" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.085697, -0.37375742, -19.298235)
+
+[node name="CactusSmall95" parent="stones" index="172" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.085697, -0.37375742, -19.298235)
+
+[node name="CactusSmall22" parent="stones" index="173" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.174849, -0.3737579, -3.6750066)
+
+[node name="CactusSmall23" parent="stones" index="174" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5879436, -0.37375695, -3.9673069)
+
+[node name="CactusSmall24" parent="stones" index="175" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36724997, -0.37375695, -5.025261)
+
+[node name="CactusSmall20" parent="stones" index="176" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1094365, -0.37375695, 1.1059067)
+
+[node name="CactusSmall21" parent="stones" index="177" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.60984, -0.37375695, 1.0285962)
+
+[node name="CactusStill6" parent="stones" index="178" instance=ExtResource("4_t4xmy")]
+transform = Transform3D(-0.69268477, 0, -0.7212407, 0, 1, 0, 0.7212407, 0, -0.69268477, -8.582649, 0.21131825, -7.423872)
+
+[node name="CactusSmall55" parent="stones" index="179" instance=ExtResource("5_7o5yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.153814, -0.18687847, 2.4644196)
+
+[node name="Tunnel" parent="stones" index="180" instance=ExtResource("3_t4xmy")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.41506475, 6)
+door_id = 4
+next_scene = "res://level/level_1.tscn"
+fog_color = Color(1, 1, 1, 1)
+
+[node name="Obelisk" parent="stones" index="181" instance=ExtResource("3_2yv8n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -1.162574, 1.67)
+area_material = SubResource("StandardMaterial3D_2yv8n")
+
+[node name="Obelisk2" parent="stones" index="182" instance=ExtResource("3_2yv8n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -1.162574, 1.6704519)
+area_material = SubResource("StandardMaterial3D_84t8h")
+
+[node name="Obelisk3" parent="stones" index="183" instance=ExtResource("3_2yv8n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -1.162574, -10.331032)
+area_material = SubResource("StandardMaterial3D_2yv8n")
+
+[node name="Obelisk4" parent="stones" index="184" instance=ExtResource("3_2yv8n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -1.162574, -10.331032)
+area_material = SubResource("StandardMaterial3D_84t8h")
+
+[node name="Obelisk5" parent="stones" index="185" instance=ExtResource("3_2yv8n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -1.162574, -22.676903)
+area_material = SubResource("StandardMaterial3D_2yv8n")
+
+[node name="Obelisk6" parent="stones" index="186" instance=ExtResource("3_2yv8n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -1.162574, -22.676903)
+area_material = SubResource("StandardMaterial3D_84t8h")
+
+[node name="Fireplace" parent="stones" index="187" instance=ExtResource("7_84t8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8370047, 0, -2.899803)
+bonfire_id = 4
+
+[node name="Well" parent="stones" index="188" instance=ExtResource("8_b26y2")]
+transform = Transform3D(0.6419583, 0, 0.76673955, 0, 1, 0, -0.76673955, 0, 0.6419583, 3.5904446, -0.5478078, -6.265009)
+
+[node name="Cactus" parent="enemies" index="0" instance=ExtResource("6_5xp6b")]
+transform = Transform3D(0.01914511, 0, -0.9998167, 0, 1, 0, 0.9998167, 0, 0.01914511, 0, -0.45804977, -33)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="enemies/Cactus" index="10"]
+transform = Transform3D(0.019145107, -0.514016, 0.8575669, -2.7939677e-09, 0.8577242, 0.5141101, -0.9998167, -0.0098426975, 0.01642122, 3.7333603, 3.4012868, 0.07148898)
+light_color = Color(1, 0, 0, 1)
+light_energy = 11.408
+spot_range = 4.859499
+spot_angle = 25.083403
+
+[node name="SpikeContainer" parent="enemies" index="1" instance=ExtResource("7_ewxm4")]
+
+[node name="Fence" parent="." index="10" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.4910345, 0.2847973, -8.843374)
+
+[node name="Fence2" parent="." index="11" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.794456, 0.2847973, -8.843374)
+
+[node name="Fence3" parent="." index="12" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 10.1593075, 0.2847973, -8.843374)
+
+[node name="Fence4" parent="." index="13" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 10.1593075, 0.2847973, -7.4866757)
+
+[node name="Fence9" parent="." index="14" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 10.1593075, 0.2847973, -6.131996)
+
+[node name="Fence10" parent="." index="15" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 10.1593075, 0.2847973, -4.775297)
+
+[node name="Fence11" parent="." index="16" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 10.1593075, 0.2847973, -3.4785633)
+
+[node name="Fence12" parent="." index="17" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 10.1593075, 0.2847973, -2.1218643)
+
+[node name="Fence13" parent="." index="18" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 10.157558, 0.2847973, -0.6323519)
+
+[node name="Fence14" parent="." index="19" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 8.800861, 0.2847973, -0.6323519)
+
+[node name="Fence15" parent="." index="20" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 7.446181, 0.2847973, -0.6323519)
+
+[node name="Fence16" parent="." index="21" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 6.089482, 0.2847973, -0.6323519)
+
+[node name="Fence17" parent="." index="22" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 4.792748, 0.2847973, -0.6323519)
+
+[node name="Fence18" parent="." index="23" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 3.436049, 0.2847973, -0.6323519)
+
+[node name="Fence19" parent="." index="24" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 2.1162002, 0.2847973, -0.5632911)
+
+[node name="Fence20" parent="." index="25" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 2.1162002, 0.2847973, 0.793406)
+
+[node name="Fence21" parent="." index="26" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 2.1162002, 0.2847973, 2.1480865)
+
+[node name="Fence22" parent="." index="27" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 2.1162002, 0.2847973, 3.5047855)
+
+[node name="Fence23" parent="." index="28" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 2.1162002, 0.2847973, 4.8015194)
+
+[node name="Fence24" parent="." index="29" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 2.1162002, 0.2847973, 6.1582184)
+
+[node name="Fence5" parent="." index="30" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.1588578, 0.2847973, -8.843374)
+
+[node name="Fence6" parent="." index="31" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.462278, 0.2847973, -8.843374)
+
+[node name="Fence7" parent="." index="32" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.8271303, 0.2847973, -8.843374)
+
+[node name="Fence8" parent="." index="33" instance=ExtResource("10_x6ytt")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.1305494, 0.2847973, -8.843374)
