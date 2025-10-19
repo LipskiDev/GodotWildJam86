@@ -54,6 +54,29 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Arr
 agent_height = 1.0
 agent_radius = 0.6
 
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lo87i"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("14_jmfkj")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("15_ogcmd")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_su1bj"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("14_jmfkj")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("15_ogcmd")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2bj2"]
 resource_local_to_scene = true
 albedo_texture = ExtResource("14_jmfkj")
@@ -363,7 +386,7 @@ polygon = PackedVector2Array(0, 0, 0, 0.91, 0.5, 0.91, 0.5, 0.78, 1, 0.78, 1, 0.
 mode = 1
 spin_degrees = 90.0
 spin_sides = 3
-material = SubResource("StandardMaterial3D_rwxkg")
+material = SubResource("StandardMaterial3D_shalb")
 steps = 7
 step_height = 0.13
 
