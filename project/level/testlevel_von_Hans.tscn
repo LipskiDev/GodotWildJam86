@@ -1,0 +1,69 @@
+[gd_scene load_steps=13 format=3 uid="uid://ccbiouasmh015"]
+
+[ext_resource type="PackedScene" uid="uid://drvm475mdagfk" path="res://entities/player/player.tscn" id="1_ikjdh"]
+[ext_resource type="PackedScene" uid="uid://cv7v8afb11jcn" path="res://entities/player/player_camera.tscn" id="2_uwcow"]
+[ext_resource type="Material" uid="uid://c8wk787ymea7l" path="res://level/materials/moss.tres" id="3_n0wh0"]
+[ext_resource type="PackedScene" uid="uid://dhjmue468flpp" path="res://entities/objects/stone/stone.tscn" id="4_8mjo8"]
+[ext_resource type="PackedScene" uid="uid://bgr5gnctvwvoy" path="res://entities/enemies/tree_enemy_rigged.tscn" id="5_vjw4y"]
+[ext_resource type="PackedScene" uid="uid://m34aoulp4i4o" path="res://entities/masks/kaktus_mask.tscn" id="6_fchwp"]
+[ext_resource type="PackedScene" uid="uid://bqnncq8sfq0op" path="res://entities/masks/stone_mask.tscn" id="7_kq7fk"]
+[ext_resource type="Script" uid="uid://dvv18pxwjwcuf" path="res://entities/enemies/Cactus/spike_container.gd" id="8_n0wh0"]
+[ext_resource type="PackedScene" uid="uid://dkul0s31xums5" path="res://entities/enemies/Cactus/cactus.tscn" id="8_uwcow"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qtsvt"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_jt31d"]
+sky_material = SubResource("ProceduralSkyMaterial_qtsvt")
+
+[sub_resource type="Environment" id="Environment_uv3sv"]
+background_mode = 2
+sky = SubResource("Sky_jt31d")
+tonemap_mode = 2
+
+[node name="Test" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uv3sv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_ikjdh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1830492, 0, 0)
+max_jumps = 2
+
+[node name="PlayerCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_uwcow")]
+player = NodePath("../Player")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5625, -5.034424, 1.2783203)
+use_collision = true
+size = Vector3(36.125, 10.068848, 35.55664)
+material = ExtResource("3_n0wh0")
+
+[node name="Stone" parent="." instance=ExtResource("4_8mjo8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.578949, -0.0014240742, 13.915907)
+
+[node name="tree_enemy_rigged" parent="." instance=ExtResource("5_vjw4y")]
+transform = Transform3D(-0.8660254, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, -0.8660254, -6.20571, 0, 0)
+
+[node name="KaktusMask" parent="." instance=ExtResource("6_fchwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="StoneMask" parent="." instance=ExtResource("7_kq7fk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Fireplace" parent="." instance=ExtResource("6_fchwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.917416, 0, -11.255405)
+
+[node name="SpikeContainer" type="Node" parent="."]
+script = ExtResource("8_n0wh0")
+
+[node name="Cactus" parent="." instance=ExtResource("8_uwcow")]
+transform = Transform3D(-0.031079337, 0, -0.9995169, 0, 1, 0, 0.9995169, 0, -0.031079337, -19.641733, 0, -13.132986)

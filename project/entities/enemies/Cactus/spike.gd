@@ -1,11 +1,17 @@
 extends Area3D
 
+var speed: int = 5
+var direction: Vector3 = Vector3.FORWARD
+
+	
 func _ready() -> void:
 	$LifeTimer.wait_time = 5.0
 	$LifeTimer.start()
+	look_at(global_position + direction)
+	rotation.y += PI/2
 
-func _process(_delta: float) -> void:
-	pass
+func _process(delta: float) -> void:
+	position += direction * speed * delta
 	
 
 func _on_body_entered(body: Node3D) -> void:
