@@ -17,7 +17,8 @@ func _ready() -> void:
 			if Globals.player_just_died:
 				Globals.teleport_player_to.emit($TeleportPoint.global_position)
 				Globals.player_just_died = false
-	
+
+
 func _process(_delta: float) -> void:
 	pass
 	
