@@ -380,6 +380,7 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BoneAttachment3D/DamageArea"]
+transform = Transform3D(0.97959465, -0.20030054, -0.016580114, 0.20050494, 0.96821904, 0.14949909, -0.013891568, -0.14977296, 0.98862314, 0.015993983, -0.12522495, -0.15704134)
 shape = SubResource("CylinderShape3D_b4yqb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -390,6 +391,7 @@ shape = SubResource("CylinderShape3D_sewl5")
 libraries = {
 &"": SubResource("AnimationLibrary_ofeuc")
 }
+speed_scale = 0.7
 
 [node name="DetectionArea" type="Area3D" parent="."]
 monitorable = false
