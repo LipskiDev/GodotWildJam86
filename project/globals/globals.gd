@@ -15,3 +15,10 @@ signal mask_collected(n: int)
 signal mask_switched
 
 var current_mask: int = -1
+
+@warning_ignore("unused_signal")
+signal teleport_player_to(pos: Vector3)
+
+var is_bonfire_lit: Array[bool] = [false, false, false, false, false, false]
+
+var last_bonfire_scene: String = ""

@@ -27,6 +27,8 @@ var in_air_last_frame: bool = false
 @onready var rotatable_objects: Node3D = %RotatableObjects
 @onready var animation_player: AnimationPlayer = $RotatableObjects/schleim/AnimationPlayer
 
+func _ready() -> void:
+	Globals.teleport_player_to.connect(teleport_player)
 
 func _physics_process(delta: float) -> void:
 	max_jumps = 2 if Globals.current_mask == 3 else 1
@@ -104,13 +106,21 @@ func _physics_process(delta: float) -> void:
 				velocity.y = BOUNCE_IMPULSE
 				break
 
+func teleport_player(pos: Vector3) -> void:
+	global_position = pos
 
 func take_damage(_amount: int) -> void:
 	health -= 1
 	Globals.damage_taken.emit()
 	if health <= 0:
 		Globals.player_died.emit()
-
+		player_died()
+		
+func player_died() -> void:
+	if Globals.last_bonfire_scene != "":
+		get_tree().change_scene_to_file(Globals.last_bonfire_scene)
+	else:
+		get_tree().reload_current_scene()
 
 func switch_mask() -> void:
 	pass

@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-var health: int = 100
+var health: int = 3
 var player: Player = null
 var attack_time: float = 0.5
 var time: float = 0.0
