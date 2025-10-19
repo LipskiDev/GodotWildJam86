@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://drvm475mdagfk"]
+[gd_scene load_steps=39 format=4 uid="uid://drvm475mdagfk"]
 
 [ext_resource type="Script" uid="uid://bhgwfchvstiqj" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="Script" uid="uid://c0x7wwsb4q63n" path="res://entities/player/attack.gd" id="2_abrql"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ctexvjejaj3b1" path="res://assets/textures/youdiedscreen.png" id="8_26q78"]
 [ext_resource type="PackedScene" uid="uid://d0srxd433wsl6" path="res://entities/masks/movement_mask_model.tscn" id="8_wvtmh"]
 [ext_resource type="Material" uid="uid://cg3utj6oyr1n2" path="res://level/materials/bark.tres" id="9_a1qjk"]
-[ext_resource type="Script" uid="uid://2bug5xnvwiey" path="res://entities/player/stick.gd" id="9_j3ovn"]
+[ext_resource type="Script" path="res://entities/player/stick.gd" id="9_j3ovn"]
 [ext_resource type="Texture2D" uid="uid://dr58xeybv8525" path="res://assets/textures/thanksforplaying.png" id="9_wvtmh"]
 [ext_resource type="Texture2D" uid="uid://c6qwkety3udpl" path="res://assets/textures/madebyscreen.png" id="10_7thud"]
 [ext_resource type="Animation" uid="uid://dagye53ftq8gd" path="res://stick.res" id="10_j3ovn"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://di57jl4oe4003"]
+[gd_scene load_steps=7 format=3 uid="uid://c6a4230h2w5fl"]
 
 [ext_resource type="Script" uid="uid://bbfagk3s5dex0" path="res://level/level_template.gd" id="1_8s6kw"]
 [ext_resource type="PackedScene" uid="uid://drvm475mdagfk" path="res://entities/player/player.tscn" id="1_f16jj"]
@@ -37,7 +37,7 @@ max_jumps = 2
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014289856, 1.4829588, 0)
-light_color = Color(0.97763807, 0.7887983, 0.22394401, 1)
+light_color = Color(0.5035076, 0.65985376, 0.21841085, 1)
 omni_range = 8.0
 omni_attenuation = 0.4
 

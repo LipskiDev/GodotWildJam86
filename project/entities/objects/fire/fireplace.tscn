@@ -187,6 +187,7 @@ radius = 0.7
 height = 1.5
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_x53d5"]
+height = 2.3374023
 radius = 5.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_743rl"]
@@ -212,7 +213,7 @@ shape = SubResource("CapsuleShape3D_hb64d")
 [node name="DetectionArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0877932, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91909206, 0)
 shape = SubResource("CylinderShape3D_x53d5")
 
 [node name="DamageArea" type="Area3D" parent="."]
