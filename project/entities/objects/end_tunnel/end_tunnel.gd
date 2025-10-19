@@ -4,15 +4,30 @@ extends Node3D
 @export var next_scene: String = ""
 @export var fog_color: Color
 
+var is_enabled : bool = false
+
 func _ready() -> void:
-	if Globals.next_door_id != -1 and Globals.next_door_id == door_id:
-		Globals.teleport_player_to.emit($TeleportationPoint.global_position)
 	$Fog.get_active_material(0).set_shader_parameter("fog_tint", fog_color)
 		
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("Player"):
-		if next_scene != "":
-			Globals.next_door_id = door_id
-			get_tree().change_scene_to_file(next_scene)
+	if body.is_in_group("Player") and is_enabled:
+		Globals.play_credits.emit()
+		
+func enable_tunnel() -> void:
+	is_enabled = true
+
+
+func _on_area_3d_2_body_entered(body: Node3D) -> void:
+	if is_enabled:
+		return
+	if !body.is_in_group("Player"):
+		return
+	var has_all_masks: bool = true
+	for b in Globals.collected_masks:
+		if !b:
+			has_all_masks = false
+	
+	if has_all_masks:
+		$AnimationPlayer.play("unlock_tunnel")

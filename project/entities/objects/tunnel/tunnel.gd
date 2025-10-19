@@ -10,12 +10,9 @@ func _ready() -> void:
 	$Fog.get_active_material(0).set_shader_parameter("fog_tint", fog_color)
 		
 
-func _on_area_3d_2_body_entered(body: Node3D) -> void:
-	# add check if all masks are collected
-	$AnimationPlayer.play("unlock_tunnel")
-
-
-# play credits
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	
-	pass # Replace with function body.
+	print("HELLO")
+	if body.is_in_group("Player"):
+		if next_scene != "":
+			Globals.next_door_id = door_id
+			get_tree().change_scene_to_file(next_scene)
