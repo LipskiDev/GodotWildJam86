@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://drvm475mdagfk"]
+[gd_scene load_steps=25 format=4 uid="uid://drvm475mdagfk"]
 
 [ext_resource type="Script" uid="uid://bhgwfchvstiqj" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="Script" uid="uid://c0x7wwsb4q63n" path="res://entities/player/attack.gd" id="2_abrql"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ce6a44yh8ppxo" path="res://entities/masks/kaktus_mask_model.tscn" id="4_8fjmc"]
 [ext_resource type="PackedScene" uid="uid://d4flbv8c15tmm" path="res://entities/player/ground_smoke_trail.tscn" id="4_bls4j"]
 [ext_resource type="PackedScene" uid="uid://cmq7ttt0eqanx" path="res://entities/masks/stone_mask_model.tscn" id="5_qiwj3"]
+[ext_resource type="Texture2D" uid="uid://ctexvjejaj3b1" path="res://assets/textures/youdiedscreen.png" id="8_26q78"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fkugw"]
 height = 1.4609375
@@ -47,6 +48,131 @@ bind/0/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16760641, 0)
 bind/1/name = &"Bone.001"
 bind/1/bone = -1
 bind/1/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6726854, 0)
+
+[sub_resource type="Animation" id="Animation_8fjmc"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D/Icosphere:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D/Icosphere:mesh:surface_0/material:albedo_color:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.21191512, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D/Icosphere:mesh:surface_0/material:albedo_color:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.72676414, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D/Icosphere:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature/Skeleton3D/Icosphere:scale:z")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Armature/Skeleton3D/Icosphere:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Armature/Skeleton3D/Icosphere:position:z")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Armature/Skeleton3D/Icosphere:scale:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Armature/Skeleton3D/Icosphere:mesh:surface_0/material:albedo_color:b")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.035818163, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Armature/Skeleton3D/Icosphere:mesh:surface_0/material:albedo_color:a")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("%Area3D:monitoring")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_wcms4"]
 resource_name = "jump leer"
@@ -692,6 +818,76 @@ tracks/15/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_fkugw"]
+resource_name = "stone_smash"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D/Icosphere:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.4, -0.25, 0, 0.09359318, -0.007737428, 2.5, -0.051919043, 0.010710955, 0.21474761, 0.010710955, 0, 0, 1.2011508, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6730735, 0.7852524, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D/Icosphere:mesh:surface_0/material:albedo_color:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0.21191512, -0.25, 0, 0.25, 0, 0.21191512, -0.25, 0, 0.09709877, -0.0011397451, 1, -0.062435806, 0.0015987158, 0.25, 0, 0.21191512, -0.100000024, -0.0011397451, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6695679, 0.79576916, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D/Icosphere:mesh:surface_0/material:albedo_color:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0.72676414, -0.25, 0, 0.25, 0, 0.72676414, -0.25, 0, 0.086582005, -0.0039801, 0.142, -0.099274755, 0.0047742873, 0.25, 0, 0.72676414, -0.100000024, -0.0039801, 0.25, 0),
+"times": PackedFloat32Array(0, 0.68008465, 0.79927474, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D/Icosphere:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.6, 0.010788918, 1.4971972, -0.25, 0, 0.26666665, -0.0064001083, 1, 0, 0.32439423, 0.25, 0),
+"times": PackedFloat32Array(0, 0.73333335, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature/Skeleton3D/Icosphere:scale:z")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.6, 0.010788918, 1.5035973, -0.25, 0, 0.26666665, -0.019200325, 1, 0, 0.29239368, 0.25, 0),
+"times": PackedFloat32Array(0, 0.73333335, 1)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%Area3D:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.73333335, 0.93333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="Animation" id="Animation_an08l"]
 resource_name = "walk"
 length = 0.41666666
@@ -853,201 +1049,6 @@ tracks/15/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_fkugw"]
-resource_name = "stone_smash"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D/Icosphere:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.4, -0.25, 0, 0.09359318, -0.007737428, 2.5, -0.051919043, 0.010710955, 0.21474761, 0.010710955, 0, 0, 1.2011508, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6730735, 0.7852524, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Armature/Skeleton3D/Icosphere:mesh:surface_0/material:albedo_color:r")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0.21191512, -0.25, 0, 0.25, 0, 0.21191512, -0.25, 0, 0.09709877, -0.0011397451, 1, -0.062435806, 0.0015987158, 0.25, 0, 0.21191512, -0.100000024, -0.0011397451, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6695679, 0.79576916, 1)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Armature/Skeleton3D/Icosphere:mesh:surface_0/material:albedo_color:g")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0.72676414, -0.25, 0, 0.25, 0, 0.72676414, -0.25, 0, 0.086582005, -0.0039801, 0.142, -0.099274755, 0.0047742873, 0.25, 0, 0.72676414, -0.100000024, -0.0039801, 0.25, 0),
-"times": PackedFloat32Array(0, 0.68008465, 0.79927474, 1)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Armature/Skeleton3D/Icosphere:scale:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.6, 0.010788918, 1.4971972, -0.25, 0, 0.26666665, -0.0064001083, 1, 0, 0.32439423, 0.25, 0),
-"times": PackedFloat32Array(0, 0.73333335, 1)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Armature/Skeleton3D/Icosphere:scale:z")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.6, 0.010788918, 1.5035973, -0.25, 0, 0.26666665, -0.019200325, 1, 0, 0.29239368, 0.25, 0),
-"times": PackedFloat32Array(0, 0.73333335, 1)
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("%Area3D:monitoring")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.73333335, 0.93333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_8fjmc"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D/Icosphere:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Armature/Skeleton3D/Icosphere:mesh:surface_0/material:albedo_color:r")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.21191512, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Armature/Skeleton3D/Icosphere:mesh:surface_0/material:albedo_color:g")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.72676414, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Armature/Skeleton3D/Icosphere:scale:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Armature/Skeleton3D/Icosphere:scale:z")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Armature/Skeleton3D/Icosphere:position:y")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Armature/Skeleton3D/Icosphere:position:z")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Armature/Skeleton3D/Icosphere:scale:y")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.0005, 0, 0.0005, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/8/type = "bezier"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Armature/Skeleton3D/Icosphere:mesh:surface_0/material:albedo_color:b")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.035818163, -0.0005, 0, 0.0005, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/9/type = "bezier"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Armature/Skeleton3D/Icosphere:mesh:surface_0/material:albedo_color:a")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.0005, 0, 0.0005, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("%Area3D:monitoring")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vpc44"]
 _data = {
 &"RESET": SubResource("Animation_8fjmc"),
@@ -1062,6 +1063,121 @@ _data = {
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_symyc"]
 radius = 0.7
 height = 1.5
+
+[sub_resource type="Animation" id="Animation_26q78"]
+resource_name = "youdied"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:self_modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:self_modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:self_modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect:self_modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.16666667, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.9666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"player_died"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_bectd"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:self_modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:self_modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:self_modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect:self_modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wvtmh"]
+_data = {
+&"RESET": SubResource("Animation_bectd"),
+&"youdied": SubResource("Animation_26q78")
+}
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_symyc")
@@ -1141,5 +1257,20 @@ player = NodePath("..")
 rotation_object = NodePath("../RotatableObjects")
 
 [node name="GroundSmokeTrail" parent="." instance=ExtResource("4_bls4j")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_26q78")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wvtmh")
+}
 
 [connection signal="body_entered" from="RotatableObjects/Attack/Area3D" to="RotatableObjects/Attack" method="_on_area_3d_body_entered"]
