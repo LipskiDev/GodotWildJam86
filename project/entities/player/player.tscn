@@ -325,77 +325,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.033333335, 1, 0.90581775, 0.90581775, 0.90581775, 0.06666667, 1, 0.75108975, 0.75108975, 0.75108975, 0.1, 1, 0.6165437, 0.61654365, 0.61654365, 0.13333334, 1, 0.5459071, 0.545907, 0.545907, 0.33333334, 1, 0.5459071, 0.5459071, 0.545907, 0.41666666, 1, 1, 1, 1)
 
-[sub_resource type="Animation" id="Animation_fkugw"]
-resource_name = "stone_smash"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D/Icosphere:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.4, -0.25, 0, 0.09359318, -0.007737428, 2.5, -0.051919043, 0.010710955, 0.21474761, 0.010710955, 0, 0, 1.2011508, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6730735, 0.7852524, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Armature/Skeleton3D/Icosphere:mesh:surface_0/material:albedo_color:r")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0.21191512, -0.25, 0, 0.25, 0, 0.21191512, -0.25, 0, 0.09709877, -0.0011397451, 1, -0.062435806, 0.0015987158, 0.25, 0, 0.21191512, -0.100000024, -0.0011397451, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6695679, 0.79576916, 1)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Armature/Skeleton3D/Icosphere:mesh:surface_0/material:albedo_color:g")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0.72676414, -0.25, 0, 0.25, 0, 0.72676414, -0.25, 0, 0.086582005, -0.0039801, 0.142, -0.099274755, 0.0047742873, 0.25, 0, 0.72676414, -0.100000024, -0.0039801, 0.25, 0),
-"times": PackedFloat32Array(0, 0.68008465, 0.79927474, 1)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Armature/Skeleton3D/Icosphere:scale:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.6, 0.010788918, 1.4971972, -0.25, 0, 0.26666665, -0.0064001083, 1, 0, 0.32439423, 0.25, 0),
-"times": PackedFloat32Array(0, 0.73333335, 1)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Armature/Skeleton3D/Icosphere:scale:z")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.6, 0.010788918, 1.5035973, -0.25, 0, 0.26666665, -0.019200325, 1, 0, 0.29239368, 0.25, 0),
-"times": PackedFloat32Array(0, 0.73333335, 1)
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("%Area3D:monitoring")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.73333335, 0.93333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_an08l"]
+[sub_resource type="Animation" id="Animation_a5wsf"]
 resource_name = "walk"
 length = 0.41666666
 tracks/0/type = "position_3d"
@@ -578,21 +508,6 @@ player = NodePath("..")
 rotation_object = NodePath("../RotatableObjects")
 
 [node name="GroundSmokeTrail" parent="." instance=ExtResource("4_bls4j")]
-
-[node name="TextureRect" type="TextureRect" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_26q78")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_wvtmh")
-}
 
 [connection signal="body_entered" from="RotatableObjects/Attack/Area3D" to="RotatableObjects/Attack" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/Stick/Armature/Skeleton3D/BoneAttachment3D/AttackArea" to="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/Stick" method="_on_attack_area_body_entered"]
