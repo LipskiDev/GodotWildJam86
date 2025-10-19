@@ -120,9 +120,12 @@ func take_damage(_amount: int) -> void:
 	Globals.damage_taken.emit()
 	if health <= 0:
 		Globals.player_died.emit()
-		player_died()
-
-
+		show_you_died_screen()
+		
+func show_you_died_screen() -> void:
+	$AnimationPlayer.play("youdied")
+		
+    
 func player_died() -> void:
 	if Globals.last_bonfire_scene != "":
 		Globals.player_just_died = true
