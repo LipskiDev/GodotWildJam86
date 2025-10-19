@@ -1,19 +1,28 @@
 extends CharacterBody3D
 
+
 @export var shoot_cooldown: int = 3
 @export var contact_hit_cooldown: int = 3
+
+
 var health: int = 100
 var player: Player = null
 var player_locked: bool = false
 var player_touching: bool = true
 var tween: Tween
+var kaktus_mask: PackedScene = preload("res://entities/masks/kaktus_mask.tscn")
+
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+
 func _ready() -> void:
+	#$EyeLeft.light_energy = 0.0
+	#$EyeRight.light_energy = 0.0
 	$ShootTimer.wait_time = shoot_cooldown
 	$ContactHitTimer.wait_time = contact_hit_cooldown
-	
+
+
 func _process(delta: float) -> void:
 	if player_locked:
 		var direction: Vector3 = player.global_position - global_position
@@ -30,7 +39,8 @@ func attack():
 	direction.y = 0
 	$ShootTimer.start()
 	Globals.shoot_spike.emit(start_pos, direction)
-	
+
+
 func take_damage(dmg: int):
 	print("cactus: takes damage")
 	if animation_player.current_animation == "die":
@@ -39,6 +49,9 @@ func take_damage(dmg: int):
 	health -= dmg
 	if health <= 0:
 		die()
+		var mask_scene: Node3D = kaktus_mask.instantiate()
+		get_tree().root.get_child(0).add_child(mask_scene)
+		mask_scene.global_position = self.global_position
 	
 	
 	if tween:
@@ -60,6 +73,8 @@ func die():
 func _on_detection_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		print("cactus: player detected")
+		#$EyeLeft.light_energy = 1.0
+		#$EyeRight.light_energy = 1.0
 		player = body
 		player_locked = true
 		attack()

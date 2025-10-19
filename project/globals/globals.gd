@@ -18,9 +18,10 @@ signal mask_collected(n: int)
 signal mask_switched
 
 
+var current_mask: int = -1
+var collected_masks: Array[bool] = [false, false, false, false]
+
 var is_bonfire_lit: Array[bool] = [false, false, false, false, false, false]
 var last_bonfire_scene: String = ""
 var player_just_died: bool = false
 var next_door_id: int = -1
-
-var current_mask: int = -1

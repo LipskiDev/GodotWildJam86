@@ -9,6 +9,7 @@ extends CharacterBody3D
 
 
 var playback
+var stone_mask: PackedScene = preload("res://entities/masks/stone_mask.tscn")
 
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
@@ -38,8 +39,8 @@ func take_damage(amount: int) -> void:
 	
 	# BUG: knockback funktoiniert nicht so richtig 
 	# weil die velocity von dem nav agent geregelt wird
-	self.velocity.y += 0.0
-	self.velocity.z += 10.0
+	#self.velocity.y += 0.0
+	#self.velocity.z += 10.0
 	
 	if health <= 0:
 		die()
@@ -51,7 +52,9 @@ func take_damage(amount: int) -> void:
 
 func die() -> void:
 	$StateMachine.current_state.transitioned.emit($StateMachine.current_state, "die")
-	#$CollisionShape3D.shape.radius = 0.01
+	var mask_scene: Node3D = stone_mask.instantiate()
+	get_tree().root.get_child(0).add_child(mask_scene)
+	mask_scene.global_position = self.global_position
 
 
 func _on_detection_area_body_entered(body: Node3D) -> void:
