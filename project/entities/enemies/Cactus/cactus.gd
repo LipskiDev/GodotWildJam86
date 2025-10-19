@@ -11,8 +11,6 @@ var tween: Tween
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
-	$EyeLeft.light_energy = 0.0
-	$EyeRight.light_energy = 0.0
 	$ShootTimer.wait_time = shoot_cooldown
 	$ContactHitTimer.wait_time = contact_hit_cooldown
 	
@@ -62,8 +60,6 @@ func die():
 func _on_detection_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		print("cactus: player detected")
-		$EyeLeft.light_energy = 1.0
-		$EyeRight.light_energy = 1.0
 		player = body
 		player_locked = true
 		attack()
