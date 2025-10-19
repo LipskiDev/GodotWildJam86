@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=4 uid="uid://bgr5gnctvwvoy"]
+[gd_scene load_steps=23 format=4 uid="uid://bgr5gnctvwvoy"]
 
 [ext_resource type="Script" uid="uid://3m3amj6s0j8x" path="res://entities/enemies/tree_enemy_rigged.gd" id="1_b4yqb"]
 [ext_resource type="Texture2D" uid="uid://bagk2vq0n1hrm" path="res://assets/textures/bark_brown.png" id="1_sewl5"]
 [ext_resource type="Texture2D" uid="uid://c1dfqvgj2s8nk" path="res://assets/textures/bark_brown_n.png" id="2_b4yqb"]
+[ext_resource type="PackedScene" uid="uid://cqsqqtgi5km12" path="res://entities/masks/wood_mask_model.tscn" id="4_ntq46"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4yqb"]
 resource_local_to_scene = true
@@ -382,6 +383,14 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BoneAttachment3D/DamageArea"]
 transform = Transform3D(0.97959465, -0.20030054, -0.016580114, 0.20050494, 0.96821904, 0.14949909, -0.013891568, -0.14977296, 0.98862314, 0.015993983, -0.12522495, -0.15704134)
 shape = SubResource("CylinderShape3D_b4yqb")
+
+[node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(0.9912583, -0.12860754, 0.029440278, 0.13178454, 0.9757941, -0.17452382, -0.0062825684, 0.17687805, 0.9842126, 0.01015255, 1.0690606, 0.08631772)
+bone_name = "Bone.002"
+bone_idx = 2
+
+[node name="WoodMaskModel" parent="Armature/Skeleton3D/BoneAttachment3D2" instance=ExtResource("4_ntq46")]
+transform = Transform3D(0.03232684, 0.11772405, 0.38091496, -0.06728682, 0.37829432, -0.11120353, -0.39297286, -0.05508925, 0.050375763, -0.0029737651, 0.23481798, -0.22154924)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

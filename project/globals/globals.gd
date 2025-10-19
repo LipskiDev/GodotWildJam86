@@ -19,6 +19,7 @@ signal teleport_player_to(pos: Vector3)
 
 
 var current_mask: int = -1
+var collected_masks: Array[bool] = [false, false, false, false]
 
 var is_bonfire_lit: Array[bool] = [false, false, false, false, false, false]
 var last_bonfire_scene: String = ""

@@ -1067,7 +1067,7 @@ height = 1.331543
 radius = 0.7426758
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
-floor_max_angle = 1.0471976
+floor_max_angle = 1.5707964
 script = ExtResource("1_symyc")
 
 [node name="RotatableObjects" type="Node3D" parent="."]

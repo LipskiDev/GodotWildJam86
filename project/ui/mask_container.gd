@@ -9,20 +9,34 @@ extends VBoxContainer
 
 func _ready() -> void:
 	Globals.mask_collected.connect(_mask_collected)
+	
+	display_mask_up.enabled = Globals.collected_masks[0]
+	display_mask_left.enabled = Globals.collected_masks[1]
+	display_mask_right.enabled = Globals.collected_masks[2]
+	display_mask_down.enabled = Globals.collected_masks[3]
+	
+	var mask: int = Globals.current_mask
+	_switch_mask(-1)
+	_switch_mask(mask)
 
 
 func _unhandled_input(event: InputEvent) -> void:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	if event.is_action_pressed("mask_up") and display_mask_up.enabled:
+=======
+	if event.is_action_pressed("mask_up") and Globals.collected_masks[0]:
+>>>>>>> efba7fe (stock anfang)
 		_switch_mask(0)
 	
-	if event.is_action_pressed("mask_left") and display_mask_left.enabled:
+	if event.is_action_pressed("mask_left") and Globals.collected_masks[1]:
 		_switch_mask(1)
 	
-	if event.is_action_pressed("mask_right") and display_mask_right.enabled:
+	if event.is_action_pressed("mask_right") and Globals.collected_masks[2]:
 		_switch_mask(2)
 	
+<<<<<<< HEAD
 	if event.is_action_pressed("mask_down") and display_mask_down.enabled:
 =======
 	if event.is_action_pressed("mask_up"):
@@ -43,6 +57,9 @@ func _unhandled_input(event: InputEvent) -> void:
 =======
 	if event.is_action_pressed("mask_down") and display_mask_down.enabled:
 >>>>>>> 17dc0f3 (masken funktionieren)
+=======
+	if event.is_action_pressed("mask_down") and Globals.collected_masks[3]:
+>>>>>>> efba7fe (stock anfang)
 		_switch_mask(3)
 
 
@@ -89,13 +106,17 @@ func _mask_collected(n: int) -> void:
 	match n:
 		0:
 			display_mask_up.enabled = true
+			Globals.collected_masks[0] = true
 			_switch_mask(0)
 		1:
 			display_mask_left.enabled = true
+			Globals.collected_masks[1] = true
 			_switch_mask(1)
 		2:
 			display_mask_right.enabled = true
+			Globals.collected_masks[2] = true
 			_switch_mask(2)
 		3:
 			display_mask_down.enabled = true
+			Globals.collected_masks[3] = true
 			_switch_mask(3)
