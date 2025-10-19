@@ -1121,7 +1121,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.059701186, 0)
 mesh = SubResource("SphereMesh_news4")
 
 [node name="StoneMaskModel" parent="Body" instance=ExtResource("3_fay7w")]
-transform = Transform3D(-4.390828e-08, 0, 1.0045044, 0, 0.9995976, 0, -0.9995976, 0, -4.36938e-08, 0.02185052, -0.3544462, -0.24865322)
+transform = Transform3D(-3.0607982e-08, 0, 0.70022905, 0, 0.6999795, 0, -0.6999795, 0, -3.0597075e-08, 0.014806448, -0.26468703, -0.24623223)
 
 [node name="Leg" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.3, 0)

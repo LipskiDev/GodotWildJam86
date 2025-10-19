@@ -43,6 +43,6 @@ shadow_mesh = SubResource("ArrayMesh_ab7ka")
 [node name="StoneMaskModel" type="Node3D"]
 
 [node name="Quad Sphere" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.4179778, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.4179778, 0)
 mesh = SubResource("ArrayMesh_se3dp")
 skeleton = NodePath("")
