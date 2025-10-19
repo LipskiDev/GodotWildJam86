@@ -14,4 +14,4 @@ signal mask_collected(n: int)
 @warning_ignore("unused_signal")
 signal mask_switched
 
-var current_mask: int = 0
+var current_mask: int = -1

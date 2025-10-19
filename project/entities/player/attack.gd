@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("attack"):
+	if event.is_action_pressed("attack") and Globals.current_mask == 0:
 		animation_player.play("stone_smash")
 
 

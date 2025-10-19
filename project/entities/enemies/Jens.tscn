@@ -302,12 +302,12 @@ tracks/22/keys = {
 tracks/23/type = "bezier"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("CollisionShape3D:scale:y")
+tracks/23/path = NodePath("CollisionShape3D:shape:radius")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0.55, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 
@@ -1092,7 +1092,7 @@ graph_offset = Vector2(-243, -63.625538)
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_a2waq"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rdm4j"]
-graph_offset = Vector2(-380.1112, 30.134487)
+graph_offset = Vector2(-598, -7)
 nodes/output/position = Vector2(320, 100)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_tjn76")
 nodes/StateMachine/position = Vector2(-460, 20)
@@ -1167,7 +1167,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/StateMachine/conditions/attack = false
 parameters/StateMachine/conditions/die = false
 parameters/StateMachine/conditions/idle = true
-parameters/StateMachine/conditions/run = true
+parameters/StateMachine/conditions/run = false
 parameters/StateMachine/conditions/squash = false
 parameters/TimeScale/scale = 1.0
 parameters/OneShot/active = false
