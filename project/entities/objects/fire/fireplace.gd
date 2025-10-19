@@ -14,7 +14,9 @@ func _ready() -> void:
 			$VFX_fire.kindle()
 			found = true
 			$HealTimer.start()
-			Globals.teleport_player_to.emit($TeleportPoint.global_position)
+			if Globals.player_just_died:
+				Globals.teleport_player_to.emit($TeleportPoint.global_position)
+				Globals.player_just_died = false
 	
 func _process(_delta: float) -> void:
 	pass

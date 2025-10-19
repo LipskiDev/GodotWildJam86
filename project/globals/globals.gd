@@ -18,3 +18,7 @@ signal teleport_player_to(pos: Vector3)
 var is_bonfire_lit: Array[bool] = [false, false, false, false, false, false]
 
 var last_bonfire_scene: String = ""
+
+var player_just_died: bool = false
+
+var next_door_id: int = -1
