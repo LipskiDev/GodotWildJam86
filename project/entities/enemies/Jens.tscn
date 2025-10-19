@@ -1134,16 +1134,17 @@ gi_mode = 2
 mesh = SubResource("SphereMesh_rdm4j")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-debug_enabled = true
 
 [node name="StateLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8187759, 0)
+visible = false
 billboard = 1
 text = "Hallo"
 font_size = 64
 
 [node name="Healthbar" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0196626, 0)
+visible = false
 cast_shadow = 0
 mesh = SubResource("QuadMesh_a2waq")
 

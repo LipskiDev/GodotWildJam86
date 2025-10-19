@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://5daaqhjouyn3"]
 
-[ext_resource type="PackedScene" uid="uid://di57jl4oe4003" path="res://level/level_template.tscn" id="1_suhml"]
+[ext_resource type="PackedScene" path="res://level/level_template.tscn" id="1_suhml"]
 [ext_resource type="PackedScene" uid="uid://37ssktu6xoyy" path="res://level/level-utils/stair_new.tscn" id="3_dxks8"]
 [ext_resource type="Material" uid="uid://c8wk787ymea7l" path="res://level/materials/moss.tres" id="3_fvot5"]
 [ext_resource type="PackedScene" uid="uid://bkde6bj67rxov" path="res://entities/objects/tunnel/tunnel.tscn" id="4_vl510"]
@@ -76,13 +76,18 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [node name="Level2" instance=ExtResource("1_suhml")]
 
-[node name="Player" parent="." index="1"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="0"]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.101960786, 0.20392157, 0.7176471, 1)
+shadow_enabled = true
+
+[node name="Player" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7876685, 2.6146262, 0.25063682)
 
-[node name="PlayerCamera" parent="." index="2" node_paths=PackedStringArray("player")]
+[node name="PlayerCamera" parent="." index="3" node_paths=PackedStringArray("player")]
 player = NodePath("../Player")
 
-[node name="NavigationRegion3D" parent="." index="3"]
+[node name="NavigationRegion3D" parent="." index="4"]
 navigation_mesh = SubResource("NavigationMesh_rgj0g")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D" index="0"]
@@ -505,7 +510,7 @@ transform = Transform3D(0.9167466, 0, -0.39946923, 0, 1, 0, 0.39946923, 0, 0.916
 [node name="GrassFoliage33" parent="grass" index="38" instance=ExtResource("7_ejyio")]
 transform = Transform3D(0.9167466, 0, -0.39946923, 0, 1, 0, 0.39946923, 0, 0.9167466, 36.52634, -0.19273871, 1.945569)
 
-[node name="trees" type="Node" parent="." index="9"]
+[node name="trees" type="Node" parent="." index="10"]
 
 [node name="Tree" parent="trees" index="0" instance=ExtResource("7_rgj0g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.373914, 0, -19.80776)
@@ -801,17 +806,17 @@ transform = Transform3D(-0.999975, 0, 0.007068612, 0, 1, 0, -0.007068612, 0, -0.
 [node name="Tree25" parent="trees" index="97" instance=ExtResource("7_rgj0g")]
 transform = Transform3D(-0.999975, 0, 0.007068612, 0, 1, 0, -0.007068612, 0, -0.999975, 17.030638, 0, -25.167763)
 
-[node name="Tunnel" parent="." index="11" instance=ExtResource("4_vl510")]
+[node name="Tunnel" parent="." index="12" instance=ExtResource("4_vl510")]
 transform = Transform3D(5.9604645e-08, 0, 0.69999987, 0, 0.7, 0, -0.69999987, 0, 5.9604645e-08, -3.5259113, 2.0605474, 0)
 door_id = 1
 next_scene = "res://level/level_1.tscn"
 fog_color = Color(1, 1, 1, 1)
 
-[node name="Tunnel2" parent="." index="12" instance=ExtResource("4_vl510")]
+[node name="Tunnel2" parent="." index="13" instance=ExtResource("4_vl510")]
 transform = Transform3D(5.9604645e-08, 0, 0.69999987, 0, 0.7, 0, -0.69999987, 0, 5.9604645e-08, 39.416817, -0.09513891, -1.2720569)
 door_id = 2
 fog_color = Color(0.15294118, 0.3882353, 0, 1)
 
-[node name="Fireplace" parent="." index="13" instance=ExtResource("7_fvot5")]
+[node name="Fireplace" parent="." index="14" instance=ExtResource("7_fvot5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4032943, 0.4602177, -10.357577)
 bonfire_id = 2

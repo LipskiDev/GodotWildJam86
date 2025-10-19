@@ -1,15 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjhti4wvqv0f4"]
+[gd_scene load_steps=14 format=3 uid="uid://pp11rqlqm2u6"]
 
-[ext_resource type="PackedScene" uid="uid://di57jl4oe4003" path="res://level/level_template.tscn" id="1_rkgpj"]
+[ext_resource type="PackedScene" path="res://level/level_template.tscn" id="1_rkgpj"]
 [ext_resource type="Material" uid="uid://dwam3nmsa7xom" path="res://level/materials/grass.tres" id="2_de74q"]
 [ext_resource type="Material" uid="uid://c2bev1ykeep5s" path="res://level/materials/dreck.tres" id="3_a2scg"]
 [ext_resource type="Material" uid="uid://bs7a41iqvwiyb" path="res://level/materials/rock.tres" id="4_tuv4f"]
 [ext_resource type="PackedScene" uid="uid://b7517a6cp3rr6" path="res://entities/objects/grass_foliage.tscn" id="5_srvxc"]
 [ext_resource type="PackedScene" uid="uid://r3rjtqvtt0jf" path="res://entities/objects/tree/tree.tscn" id="6_7gdp7"]
-[ext_resource type="PackedScene" uid="uid://bcphksinfddr6" path="res://entities/objects/flowers.tscn" id="6_de74q"]
+[ext_resource type="PackedScene" path="res://entities/objects/flowers.tscn" id="6_de74q"]
 [ext_resource type="PackedScene" uid="uid://bkde6bj67rxov" path="res://entities/objects/tunnel/tunnel.tscn" id="7_a7rma"]
 [ext_resource type="PackedScene" uid="uid://e7pgxn3fixl8" path="res://entities/objects/fire/fireplace.tscn" id="8_w6blq"]
-[ext_resource type="PackedScene" uid="uid://c04frxjk0bv53" path="res://entities/objects/waysign.tscn" id="10_a2scg"]
+[ext_resource type="PackedScene" path="res://entities/objects/waysign.tscn" id="10_a2scg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4ctk"]
 transparency = 1
@@ -23,7 +23,14 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [node name="Level5" instance=ExtResource("1_rkgpj")]
 
-[node name="PlayerCamera" parent="." index="2" node_paths=PackedStringArray("player")]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="0"]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.29769063, 0.394539, 0.5340647, 1)
+light_energy = 0.8
+shadow_enabled = true
+sky_mode = 1
+
+[node name="PlayerCamera" parent="." index="3" node_paths=PackedStringArray("player")]
 player = NodePath("../Player")
 distance = 10.0
 angle = -60.0
@@ -88,10 +95,15 @@ transform = Transform3D(1.693798, 0, -2.1189642, 0, 11.398696, 0, 1.9532381, 0, 
 material = ExtResource("4_tuv4f")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="environment/CSGCombiner3D" index="12"]
-transform = Transform3D(2.1105208, 0, 0, 0, 1.5605775, 0, 0, 0, 2.4431896, -15.215006, 4.105998, 7.970826)
+transform = Transform3D(2.1105208, 0, 0, 0, 1.5605775, 0, 0, 0, 2.4431896, -15.215006, 4.3148813, 7.970826)
 operation = 2
-size = Vector3(1.3759766, 1, 1.1469727)
+size = Vector3(1.3759766, 1.2677002, 1.1469727)
 material = ExtResource("4_tuv4f")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="environment/CSGCombiner3D" index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35.86203, 0)
+operation = 2
+size = Vector3(100, 18.45459, 100)
 
 [node name="InvisWall" type="StaticBody3D" parent="environment" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.478365)
@@ -214,7 +226,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2955334, -1.3864377, 4.7249
 [node name="Flowers3" parent="grass" index="3" instance=ExtResource("6_de74q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4425957, -1.3864377, -4.576261)
 
-[node name="trees" type="Node" parent="." index="9"]
+[node name="trees" type="Node" parent="." index="10"]
 
 [node name="Tree" parent="trees" index="0" instance=ExtResource("6_7gdp7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.288489, 0.78190565, 16.230492)
@@ -495,20 +507,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.246067, -0.50981164, 6.547
 [node name="Tree18" parent="trees" index="92" instance=ExtResource("6_7gdp7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.246067, -0.50981164, 0.05466652)
 
-[node name="WaldTunnel" parent="." index="11" instance=ExtResource("7_a7rma")]
+[node name="WaldTunnel" parent="." index="12" instance=ExtResource("7_a7rma")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.07653761, -0.29472494, 16.427784)
 door_id = 3
 fog_color = Color(0.15294118, 0.3882353, 0, 1)
 
-[node name="Starttunnel" parent="." index="12" instance=ExtResource("7_a7rma")]
+[node name="Starttunnel" parent="." index="13" instance=ExtResource("7_a7rma")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -11.601614, 8.102369, -10.081802)
 door_id = 5
 next_scene = "res://level/level_1.tscn"
 fog_color = Color(1, 1, 1, 1)
 
-[node name="Fireplace" parent="." index="13" instance=ExtResource("8_w6blq")]
+[node name="Fireplace" parent="." index="14" instance=ExtResource("8_w6blq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99442, -1.8890612, 9.79272)
 bonfire_id = 5
 
-[node name="Waysign" parent="." index="14" instance=ExtResource("10_a2scg")]
+[node name="Waysign" parent="." index="15" instance=ExtResource("10_a2scg")]
 transform = Transform3D(0.4859389, 0, -0.87399274, 0, 1, 0, 0.87399274, 0, 0.4859389, -6.022805, -1.9475484, -2.4399877)
