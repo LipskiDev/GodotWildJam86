@@ -1,9 +1,6 @@
 extends HBoxContainer
 
 
-var health: int = 3
-
-
 @onready var heart: TextureRect = $Heart
 @onready var heart_2: TextureRect = $Heart2
 @onready var heart_3: TextureRect = $Heart3
@@ -15,7 +12,8 @@ func _ready() -> void:
 
 
 func _update() -> void:
-	health -= 1
+	var player: Player = get_tree().get_first_node_in_group("Player")
+	var health: int = player.health
 	heart.visible = health >= 1
 	heart_2.visible = health >= 2
 	heart_3.visible = health >= 3
