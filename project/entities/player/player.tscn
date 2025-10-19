@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cqsqqtgi5km12" path="res://entities/masks/wood_mask_model.tscn" id="7_bectd"]
 [ext_resource type="PackedScene" uid="uid://d0srxd433wsl6" path="res://entities/masks/movement_mask_model.tscn" id="8_wvtmh"]
 [ext_resource type="Material" uid="uid://cg3utj6oyr1n2" path="res://level/materials/bark.tres" id="9_a1qjk"]
-[ext_resource type="Script" uid="uid://2bug5xnvwiey" path="res://entities/player/stick.gd" id="9_j3ovn"]
+[ext_resource type="Script" path="res://entities/player/stick.gd" id="9_j3ovn"]
 [ext_resource type="Animation" uid="uid://dagye53ftq8gd" path="res://stick.res" id="10_j3ovn"]
 [ext_resource type="Animation" uid="uid://dhjg1qa0yuvlv" path="res://stone_smash.res" id="12_afbqv"]
 
@@ -430,7 +430,7 @@ bones/1/name = "Bone.001"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.505079, 0)
 bones/1/enabled = true
-bones/1/position = Vector3(0, 0.505079, 0)
+bones/1/position = Vector3(0, 0.505079, -0.09739944)
 bones/1/rotation = Quaternion(0, 0, 0, 1)
 bones/1/scale = Vector3(1, 1, 1)
 
