@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dkul0s31xums5"]
+[gd_scene load_steps=16 format=4 uid="uid://dkul0s31xums5"]
 
 [ext_resource type="Script" uid="uid://d041u1w8fbxc0" path="res://entities/enemies/Cactus/cactus.gd" id="1_tvlb7"]
 
@@ -161,6 +161,9 @@ points = PackedVector3Array(0.13524497, 1.1406958, -1.6045469, -0.17241773, 0.97
 height = 3.1220703
 radius = 7.9262695
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_tvlb7"]
+size = Vector3(2.09729, 3.765747, 3.5608215)
+
 [node name="Cactus" type="CharacterBody3D"]
 script = ExtResource("1_tvlb7")
 
@@ -190,12 +193,12 @@ skeleton = NodePath("")
 [node name="EyeLeft" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6757395, 2.1905603, 0.39947468)
 visible = false
-light_color = Color(7.460266e-07, 0.5353445, 0.059546567, 1)
+light_color = Color(0.76987535, 0.13204041, 0.25496706, 1)
 
 [node name="EyeRight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6465012, 2.1890097, -0.40087295)
 visible = false
-light_color = Color(7.460266e-07, 0.5353445, 0.059546567, 1)
+light_color = Color(0.76987535, 0.13204041, 0.25496706, 1)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
 transform = Transform3D(-1, 0, -3.2584137e-07, 0, 1, 0, 3.2584137e-07, 0, -1, 0, 0.48900962, -0.07832694)
@@ -214,6 +217,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6926681, 1.2884661, 0)
 
 [node name="ShootTimer" type="Timer" parent="."]
 
+[node name="DmgArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DmgArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15289307, 1.3828735, 0.010726929)
+shape = SubResource("BoxShape3D_tvlb7")
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="body_entered" from="DmgArea" to="." method="_on_dmg_area_body_entered"]

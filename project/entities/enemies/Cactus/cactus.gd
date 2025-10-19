@@ -29,17 +29,21 @@ func attack():
 	$ShootTimer.start()
 	Globals.shoot_spike.emit(start_pos, direction)
 	
-func get_hit(dmg: int):
+func take_damage(dmg: int):
+	print("cactus: takes damage")
 	health -= dmg;
-	if dmg <= 0:
+	if health <= 0:
 		die()
 
 func die():
 	queue_free()
 	
+
 func _on_detection_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		print("cactus: player detected")
+		$EyeLeft.light_energy = 1.0
+		$EyeRight.light_energy = 1.0
 		player = body
 		player_locked = true
 		attack()
@@ -55,3 +59,7 @@ func _on_detection_area_body_exited(body: Node3D) -> void:
 func _on_shoot_timer_timeout() -> void:
 	if player_locked:
 		attack()
+
+
+func _on_dmg_area_body_entered(body: Node3D) -> void:
+	pass
