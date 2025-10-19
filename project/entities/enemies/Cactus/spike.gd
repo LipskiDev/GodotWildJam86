@@ -1,18 +1,19 @@
 extends Area3D
 
-var speed: int = 5
+var speed: float = 10.0
 var direction: Vector3 = Vector3.FORWARD
 
-	
+
 func _ready() -> void:
 	$LifeTimer.wait_time = 5.0
 	$LifeTimer.start()
 	look_at(global_position + direction)
-	rotation.y += PI/2
+	rotation.y += PI / 2.0
+
 
 func _process(delta: float) -> void:
 	position += direction * speed * delta
-	
+
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
@@ -20,6 +21,9 @@ func _on_body_entered(body: Node3D) -> void:
 		queue_free()
 	elif body.has_method("pop"):
 		body.pop()
+		queue_free()
+	elif body.has_method("take_damage"):
+		body.take_damage(1)
 		queue_free()
 
 

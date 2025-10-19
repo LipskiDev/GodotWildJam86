@@ -36,6 +36,7 @@ func attack():
 	#print("cactus: attack")
 	var start_pos = $SpikeSpawn.global_position
 	var direction: Vector3 = player.global_position - global_position
+	direction = direction.normalized()
 	#direction.y = 0
 	$ShootTimer.start(randf_range(0.7, 2.0))
 	Globals.shoot_spike.emit(start_pos, direction)

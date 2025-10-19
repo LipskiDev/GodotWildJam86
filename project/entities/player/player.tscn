@@ -1105,7 +1105,7 @@ height = 1.331543
 radius = 0.7426758
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
-floor_max_angle = 1.5707964
+floor_max_angle = 1.2217305
 script = ExtResource("1_symyc")
 
 [node name="RotatableObjects" type="Node3D" parent="."]
@@ -1122,6 +1122,9 @@ monitoring = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RotatableObjects/Attack/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7685547, -2.6784415)
 shape = SubResource("CylinderShape3D_fkugw")
+
+[node name="SpikeSpawnPoint" type="Marker3D" parent="RotatableObjects/Attack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1920929e-07, 1.0235482, -1.0775274)
 
 [node name="TreppenFesthängungsPrävention" type="Node3D" parent="RotatableObjects" node_paths=PackedStringArray("player")]
 script = ExtResource("3_fkugw")
@@ -1164,7 +1167,7 @@ transform = Transform3D(0.9470199, -0.321175, -2.3158364e-09, 0.321175, 0.947019
 script = ExtResource("4_26q78")
 
 [node name="KaktusMaskModel" parent="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/MaskContainer" instance=ExtResource("4_8fjmc")]
-transform = Transform3D(0.1, 1.8626451e-09, -8.881784e-16, -1.8626451e-09, 0.1, -4.440892e-16, 0, -1.110223e-16, 0.1, -0.7502196, 0.25443164, -3.279313e-08)
+transform = Transform3D(0.1, 5.5879354e-09, -4.440892e-16, -5.5879354e-09, 0.1, -2.220446e-16, -4.440892e-16, 2.220446e-16, 0.1, -0.5, 0, 0)
 
 [node name="StoneMaskModel" parent="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/MaskContainer" instance=ExtResource("5_qiwj3")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, -8.881784e-17, 0, 8.881784e-17, 0.1, -0.72504604, 0.2458942, -3.1692768e-08)
@@ -1176,7 +1179,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, -8.881784e-17, 0, 8.881784e-17, 0.1, 
 transform = Transform3D(0.1, 0, 0, 0, 0.1, -8.881784e-17, 0, 8.881784e-17, 0.1, -0.5688751, 0.19292995, -2.486632e-08)
 
 [node name="Stick" type="Node3D" parent="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere"]
-transform = Transform3D(0.92401314, 0, -0.3823609, 0, 1, 0, 0.3823609, 0, 0.92401314, -3.8888707e-08, 0, 0.8896699)
+transform = Transform3D(0.09240131, 0, -0.03823609, 0, 0.1, 0, 0.03823609, 0, 0.09240131, 0, 0, 0)
 script = ExtResource("9_j3ovn")
 
 [node name="Armature" type="Node3D" parent="RotatableObjects/schleim/Armature/Skeleton3D/Icosphere/Stick"]

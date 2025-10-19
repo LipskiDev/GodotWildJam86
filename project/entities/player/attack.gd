@@ -1,21 +1,30 @@
 extends Node3D
 
 
-@onready var animation_player: AnimationPlayer = $"../schleim/AnimationPlayer"
+var attack_time: float = 0.5
+var time: float = 0.0
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+
+@onready var animation_player: AnimationPlayer = $"../schleim/AnimationPlayer"
+@onready var spike_spawn_point: Marker3D = $SpikeSpawnPoint
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func _process(delta: float) -> void:
+	time += delta
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack") and Globals.current_mask == 0:
 		animation_player.play("stone_smash")
+	
+	if event.is_action_pressed("attack") and Globals.current_mask == 2 and time > attack_time:
+		var start_pos = spike_spawn_point.global_position
+		var direction: Vector3 = start_pos - $"../..".global_position
+		direction = direction.normalized()
+		direction.y = 0
+		Globals.shoot_spike.emit(start_pos, direction)
+		time = 0.0
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
