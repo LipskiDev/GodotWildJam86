@@ -31,7 +31,7 @@ func _switch_mask() -> void:
 	tween = get_tree().create_tween()
 	tween.set_parallel(true)
 	if current_mask_model:
-		tween.tween_property(current_mask_model, "scale", Vector3(0.1, 0.1, 0.1), switch_time)
+		tween.tween_property(current_mask_model, "scale", Vector3(0.01, 0.01, 0.01), switch_time)
 		tween.tween_property(current_mask_model, "position", Vector3(-0.5, 0.0, 0.0), switch_time)
 	
 	tween.tween_property(new_mask_model, "scale", Vector3(1.0, 1.0, 1.0), switch_time)

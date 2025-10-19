@@ -4,7 +4,7 @@ extends CharacterBody3D
 
 @export var player: CharacterBody3D
 @export var speed := 4.0
-@export var health := 100.0
+@export var health: int = 5
 @export var knockback_strength := 20.0
 
 
@@ -73,8 +73,8 @@ func _on_attack_area_body_entered(body: Node3D) -> void:
 				body.global_position.z - self.global_position.z
 			)).normalized() * knockback_strength
 
-func squash(dmg: int):
-	health -= dmg
+func squash(_dmg: int):
+	health -= 1
 	if health <= 0:
 		die()
 	else:

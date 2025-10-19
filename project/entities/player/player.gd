@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("jump") and jump_held_time < FULL_JUMP_TIME and jumping:
 		jump_held_time += delta
 		self.velocity.y = JUMP_VELOCITY
-		animation_player.play("jump start")
+		animation_player.queue("jump start")
 	
 	if velocity.length() > 0.1 and is_on_floor() and animation_player.current_animation != "stone_smash" and animation_player.current_animation != "jump land":
 		animation_player.play("walk")
@@ -66,7 +66,8 @@ func _physics_process(delta: float) -> void:
 		animation_player.play("idle")
 	
 	if in_air_last_frame and is_on_floor():
-		animation_player.play("jump land")
+		animation_player.play("RESET")
+		animation_player.queue("jump land")
 	
 	in_air_last_frame = not is_on_floor()
 	
