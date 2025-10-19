@@ -187,7 +187,7 @@ radius = 0.7
 height = 1.5
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_x53d5"]
-radius = 3.0
+radius = 5.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_743rl"]
 radius = 0.3
