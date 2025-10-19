@@ -145,7 +145,7 @@ material = ExtResource("5_k4ctk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.035559)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="environment/CSGCombiner3D/StaticBody3D" index="0"]
-transform = Transform3D(35.037243, 0, 0, 0, 13.144299, 0, 0, 0, 1, 0, 4.5861883, 0.8596401)
+transform = Transform3D(35.037243, 0, 0, 0, 13.144299, 0, 0, 0, 1, 0.007851601, 4.5861883, 0.8611088)
 mesh = SubResource("BoxMesh_lx8gb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="environment/CSGCombiner3D/StaticBody3D" index="1"]
@@ -170,11 +170,47 @@ step_width = 2.0
 transform = Transform3D(4.6115165, 0, 0, 0, 0.951218, 0, 0, 0, 4.37945, -15.328504, 4.1955185, 1)
 material = ExtResource("5_k4ctk")
 
-[node name="CSGSphere3D2" type="CSGSphere3D" parent="environment/CSGCombiner3D/WallStones" index="1"]
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="environment/CSGCombiner3D/WallStones" index="1"]
+transform = Transform3D(5.814365, 0, 0, 0, 4.0847864, 0, 0, 0, 4.7562413, -11.706956, 2.7460587, 13.6619005)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGSphere3D8" type="CSGSphere3D" parent="environment/CSGCombiner3D/WallStones" index="2"]
+transform = Transform3D(5.814365, 0, 0, 0, 4.0847864, 0, 0, 0, 4.7562413, -6.3124948, 5.3102083, 15.32669)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGSphere3D9" type="CSGSphere3D" parent="environment/CSGCombiner3D/WallStones" index="3"]
+transform = Transform3D(5.814365, 0, 0, 0, 4.0847864, 0, 0, 0, 4.7562413, 1.125359, 2.3476777, 13.841707)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGSphere3D10" type="CSGSphere3D" parent="environment/CSGCombiner3D/WallStones" index="4"]
+transform = Transform3D(5.814365, 0, 0, 0, 4.0847864, 0, 0, 0, 4.7562413, -1.9114919, 2.3476777, 13.61545)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGSphere3D11" type="CSGSphere3D" parent="environment/CSGCombiner3D/WallStones" index="5"]
+transform = Transform3D(5.814365, 0, 0, 0, 4.0847864, 0, 0, 0, 4.7562413, -4.681484, 3.8858066, 14.255605)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGSphere3D12" type="CSGSphere3D" parent="environment/CSGCombiner3D/WallStones" index="6"]
+transform = Transform3D(5.814365, 0, 0, 0, 4.0847864, 0, 0, 0, 4.7562413, -8.038551, 2.3853035, 13.222709)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="environment/CSGCombiner3D/WallStones" index="7"]
+transform = Transform3D(5.814365, 0, 0, 0, 4.0847864, 0, 0, 0, 4.7562413, -6.9130535, -0.7874377, 12.0779085)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="environment/CSGCombiner3D/WallStones" index="8"]
+transform = Transform3D(5.814365, 0, 0, 0, 4.0847864, 0, 0, 0, 4.7562413, 0.084243774, -0.7874377, 11.687413)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="environment/CSGCombiner3D/WallStones" index="9"]
+transform = Transform3D(5.814365, 0, 0, 0, 4.0847864, 0, 0, 0, 4.7562413, -14.526927, -0.7874377, 12.0779085)
+material = ExtResource("5_k4ctk")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="environment/CSGCombiner3D/WallStones" index="10"]
 transform = Transform3D(4.6115165, 0, 0, 0, 0.951218, 0, 0, 0, 4.37945, -15.489257, 5.3822603, -4.9727306)
 material = ExtResource("5_k4ctk")
 
-[node name="CSGSphere3D3" type="CSGSphere3D" parent="environment/CSGCombiner3D/WallStones" index="2"]
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="environment/CSGCombiner3D/WallStones" index="11"]
 transform = Transform3D(7.0302234, 0, 0, 0, 0.951218, 0, 0, 0, 4.37945, -6.400595, 9.877907, -14.2943125)
 radius = 1.016076
 material = ExtResource("5_k4ctk")
