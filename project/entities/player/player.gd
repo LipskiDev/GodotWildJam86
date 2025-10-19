@@ -21,9 +21,11 @@ var coyote_timer: float = 0.0
 var jumps: int = 0
 var jump_held_time: float = 0.0
 var jumping: bool = false
+var in_air_last_frame: bool = false
 
 
 @onready var rotatable_objects: Node3D = %RotatableObjects
+@onready var animation_player: AnimationPlayer = $RotatableObjects/schleim/AnimationPlayer
 
 
 func _physics_process(delta: float) -> void:
@@ -51,10 +53,22 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("jump") and jump_held_time < FULL_JUMP_TIME and jumping:
 		jump_held_time += delta
 		self.velocity.y = JUMP_VELOCITY
+		animation_player.play("jump start")
+	
+	if velocity.length() > 0.1 and is_on_floor() and animation_player.current_animation != "stone_smash":
+		animation_player.play("walk")
+	
+	if in_air_last_frame and is_on_floor():
+		animation_player.play("jump leer")
+	
+	in_air_last_frame = not is_on_floor()
 	
 	if Input.is_action_just_released("jump") and velocity.y > 0.0:
 		self.velocity.y *= 0.5
 		jumping = false
+		
+	if Input.is_action_just_pressed("reset"):
+		get_tree().reload_current_scene()
 	
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
@@ -72,7 +86,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * 0.1)
 		velocity.z = move_toward(velocity.z, 0, SPEED * 0.1)
-
+	
+	
 	move_and_slide()
 	
 	# squash jens
@@ -82,7 +97,7 @@ func _physics_process(delta: float) -> void:
 			continue
 		if collision.get_collider().has_method("squash"):
 			var squashable = collision.get_collider()
-				
+			
 			if Vector3.UP.dot(collision.get_normal()) > 0.1:
 				squashable.squash(20)
 				velocity.y = BOUNCE_IMPULSE
@@ -94,3 +109,7 @@ func take_damage(_amount: int) -> void:
 	Globals.damage_taken.emit()
 	if health <= 0:
 		Globals.player_died.emit()
+
+
+func switch_mask() -> void:
+	pass

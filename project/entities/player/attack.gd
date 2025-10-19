@@ -1,9 +1,7 @@
 extends Node3D
 
 
-@onready var area_3d: Area3D = %Area3D
-@onready var mesh_instance_3d: MeshInstance3D = %MeshInstance3D
-
+@onready var animation_player: AnimationPlayer = $"../schleim/AnimationPlayer"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,11 +15,7 @@ func _process(_delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
-		area_3d.monitoring = true
-		mesh_instance_3d.visible = true
-		await get_tree().create_timer(0.1).timeout
-		area_3d.monitoring = false
-		mesh_instance_3d.visible = false
+		animation_player.play("stone_smash")
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:

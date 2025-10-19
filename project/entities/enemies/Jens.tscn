@@ -19,7 +19,6 @@ radius = 0.55
 [sub_resource type="SphereMesh" id="SphereMesh_news4"]
 resource_local_to_scene = true
 material = ExtResource("2_a2waq")
-height = 0.99999994
 radial_segments = 7
 rings = 5
 
@@ -1093,7 +1092,7 @@ graph_offset = Vector2(-243, -63.625538)
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_a2waq"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rdm4j"]
-graph_offset = Vector2(-1066.6423, 91.676865)
+graph_offset = Vector2(-380.1112, 30.134487)
 nodes/output/position = Vector2(320, 100)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_tjn76")
 nodes/StateMachine/position = Vector2(-460, 20)
@@ -1167,8 +1166,8 @@ tree_root = SubResource("AnimationNodeBlendTree_rdm4j")
 anim_player = NodePath("../AnimationPlayer")
 parameters/StateMachine/conditions/attack = false
 parameters/StateMachine/conditions/die = false
-parameters/StateMachine/conditions/idle = false
-parameters/StateMachine/conditions/run = false
+parameters/StateMachine/conditions/idle = true
+parameters/StateMachine/conditions/run = true
 parameters/StateMachine/conditions/squash = false
 parameters/TimeScale/scale = 1.0
 parameters/OneShot/active = false
