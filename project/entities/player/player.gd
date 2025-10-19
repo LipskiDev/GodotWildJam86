@@ -27,10 +27,13 @@ var in_air_last_frame: bool = false
 @onready var rotatable_objects: Node3D = %RotatableObjects
 @onready var animation_player: AnimationPlayer = $RotatableObjects/schleim/AnimationPlayer
 
+
 func _ready() -> void:
 	Globals.teleport_player_to.connect(teleport_player)
 
+
 func _physics_process(delta: float) -> void:
+	max_jumps = 2 if Globals.current_mask == 3 else 1
 	# Add the gravity. and coyote time
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -57,11 +60,13 @@ func _physics_process(delta: float) -> void:
 		self.velocity.y = JUMP_VELOCITY
 		animation_player.play("jump start")
 	
-	if velocity.length() > 0.1 and is_on_floor() and animation_player.current_animation != "stone_smash":
+	if velocity.length() > 0.1 and is_on_floor() and animation_player.current_animation != "stone_smash" and animation_player.current_animation != "jump land":
 		animation_player.play("walk")
+	elif velocity.length() < 0.1 and is_on_floor() and animation_player.current_animation != "stone_smash" and animation_player.current_animation != "jump land":
+		animation_player.play("idle")
 	
 	if in_air_last_frame and is_on_floor():
-		animation_player.play("jump leer")
+		animation_player.play("jump land")
 	
 	in_air_last_frame = not is_on_floor()
 	
@@ -105,8 +110,10 @@ func _physics_process(delta: float) -> void:
 				velocity.y = BOUNCE_IMPULSE
 				break
 
+
 func teleport_player(pos: Vector3) -> void:
 	global_position = pos
+
 
 func take_damage(_amount: int) -> void:
 	health -= 1
@@ -118,12 +125,10 @@ func take_damage(_amount: int) -> void:
 func show_you_died_screen() -> void:
 	$AnimationPlayer.play("youdied")
 		
+    
 func player_died() -> void:
 	if Globals.last_bonfire_scene != "":
 		Globals.player_just_died = true
 		get_tree().change_scene_to_file(Globals.last_bonfire_scene)
 	else:
 		get_tree().reload_current_scene()
-
-func switch_mask() -> void:
-	pass

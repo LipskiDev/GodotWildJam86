@@ -9,41 +9,85 @@ extends VBoxContainer
 
 func _ready() -> void:
 	Globals.mask_collected.connect(_mask_collected)
+	
+	display_mask_up.enabled = Globals.collected_masks[0]
+	display_mask_left.enabled = Globals.collected_masks[1]
+	display_mask_right.enabled = Globals.collected_masks[2]
+	display_mask_down.enabled = Globals.collected_masks[3]
+	
+	var mask: int = Globals.current_mask
+	_switch_mask(-1)
+	_switch_mask(mask)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("mask_up"):
-		display_mask_up.selected = true
-		display_mask_left.selected = false
-		display_mask_right.selected = false
-		display_mask_down.selected = false
+	if event.is_action_pressed("mask_up") and Globals.collected_masks[0]:
+		_switch_mask(0)
 	
-	if event.is_action_pressed("mask_left"):
-		display_mask_up.selected = false
-		display_mask_left.selected = true
-		display_mask_right.selected = false
-		display_mask_down.selected = false
+	if event.is_action_pressed("mask_left") and Globals.collected_masks[1]:
+		_switch_mask(1)
 	
-	if event.is_action_pressed("mask_right"):
-		display_mask_up.selected = false
-		display_mask_left.selected = false
-		display_mask_right.selected = true
-		display_mask_down.selected = false
+	if event.is_action_pressed("mask_right") and Globals.collected_masks[2]:
+		_switch_mask(2)
 	
-	if event.is_action_pressed("mask_down"):
-		display_mask_up.selected = false
-		display_mask_left.selected = false
-		display_mask_right.selected = false
-		display_mask_down.selected = true
+	if event.is_action_pressed("mask_down") and Globals.collected_masks[3]:
+		_switch_mask(3)
+
+
+func _switch_mask(n: int) -> void:
+	if n == Globals.current_mask:
+		return
+	
+	Globals.current_mask = n
+	
+	match n:
+		0:
+			if display_mask_up.enabled == false:
+				return
+			display_mask_up.selected = true
+			display_mask_left.selected = false
+			display_mask_right.selected = false
+			display_mask_down.selected = false
+		1:
+			if display_mask_left.enabled == false:
+				return
+			display_mask_up.selected = false
+			display_mask_left.selected = true
+			display_mask_right.selected = false
+			display_mask_down.selected = false
+		2:
+			if display_mask_right.enabled == false:
+				return
+			display_mask_up.selected = false
+			display_mask_left.selected = false
+			display_mask_right.selected = true
+			display_mask_down.selected = false
+		3:
+			if display_mask_down.enabled == false:
+				return
+			display_mask_up.selected = false
+			display_mask_left.selected = false
+			display_mask_right.selected = false
+			display_mask_down.selected = true
+	
+	Globals.mask_switched.emit()
 
 
 func _mask_collected(n: int) -> void:
 	match n:
 		0:
 			display_mask_up.enabled = true
+			Globals.collected_masks[0] = true
+			_switch_mask(0)
 		1:
 			display_mask_left.enabled = true
+			Globals.collected_masks[1] = true
+			_switch_mask(1)
 		2:
 			display_mask_right.enabled = true
+			Globals.collected_masks[2] = true
+			_switch_mask(2)
 		3:
 			display_mask_down.enabled = true
+			Globals.collected_masks[3] = true
+			_switch_mask(3)

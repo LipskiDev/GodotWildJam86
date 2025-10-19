@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://ts0h3qr5grgg"]
+[gd_scene load_steps=51 format=3 uid="uid://ts0h3qr5grgg"]
 
 [ext_resource type="Script" uid="uid://dnlwjjttjmxsk" path="res://entities/enemies/jens.gd" id="1_871r8"]
 [ext_resource type="Script" uid="uid://lp3uj8068cc1" path="res://entities/enemies/states/state_machine.gd" id="1_m7yin"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dnci7ni3toc6h" path="res://entities/enemies/states/idle.gd" id="2_g2phv"]
 [ext_resource type="Shader" uid="uid://crt1kpjgc1vn8" path="res://entities/enemies/healthbar/healthbar.gdshader" id="2_wqgnt"]
 [ext_resource type="Animation" uid="uid://qv5q0h6ylrey" path="res://squash.res" id="3_a2waq"]
+[ext_resource type="PackedScene" uid="uid://cmq7ttt0eqanx" path="res://entities/masks/stone_mask_model.tscn" id="3_fay7w"]
 [ext_resource type="Script" uid="uid://c07a4o2w21s8g" path="res://entities/enemies/states/wander.gd" id="3_md1d0"]
 [ext_resource type="Script" uid="uid://bvia45vj7dbi0" path="res://entities/enemies/states/hunt.gd" id="5_b3j2p"]
 [ext_resource type="Script" uid="uid://cpg4wec8mcqnv" path="res://entities/enemies/states/die.gd" id="6_news4"]
@@ -302,12 +303,12 @@ tracks/22/keys = {
 tracks/23/type = "bezier"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("CollisionShape3D:scale:y")
+tracks/23/path = NodePath("CollisionShape3D:shape:radius")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0.55, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 
@@ -1092,7 +1093,7 @@ graph_offset = Vector2(-243, -63.625538)
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_a2waq"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rdm4j"]
-graph_offset = Vector2(-380.1112, 30.134487)
+graph_offset = Vector2(-598, -7)
 nodes/output/position = Vector2(320, 100)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_tjn76")
 nodes/StateMachine/position = Vector2(-460, 20)
@@ -1118,6 +1119,9 @@ shape = SubResource("SphereShape3D_g2phv")
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.059701186, 0)
 mesh = SubResource("SphereMesh_news4")
+
+[node name="StoneMaskModel" parent="Body" instance=ExtResource("3_fay7w")]
+transform = Transform3D(-3.0607982e-08, 0, 0.70022905, 0, 0.6999795, 0, -0.6999795, 0, -3.0597075e-08, 0.014806448, -0.26468703, -0.24623223)
 
 [node name="Leg" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.3, 0)
@@ -1167,7 +1171,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/StateMachine/conditions/attack = false
 parameters/StateMachine/conditions/die = false
 parameters/StateMachine/conditions/idle = true
-parameters/StateMachine/conditions/run = true
+parameters/StateMachine/conditions/run = false
 parameters/StateMachine/conditions/squash = false
 parameters/TimeScale/scale = 1.0
 parameters/OneShot/active = false

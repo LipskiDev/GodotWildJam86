@@ -8,6 +8,7 @@ var time: float = 0.0
 var player_locked: bool = false
 var attacking: bool = false
 var tween: Tween
+var wood_mask: PackedScene = preload("res://entities/masks/wood_mask.tscn")
 
 
 @onready var damage_area: Area3D = $Armature/Skeleton3D/BoneAttachment3D/DamageArea
@@ -54,6 +55,9 @@ func take_damage(amount: int) -> void:
 	health -= amount
 	if health <= 0:
 		animation_player.queue("die")
+		var mask_scene: Node3D = wood_mask.instantiate()
+		get_tree().root.get_child(0).add_child(mask_scene)
+		mask_scene.global_position = self.global_position
 	
 	$HitParticles.emitting = true
 	
