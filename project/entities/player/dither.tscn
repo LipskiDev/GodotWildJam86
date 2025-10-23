@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc8hlfp6pygtc"]
+
+[ext_resource type="Shader" uid="uid://768e0ys3okl6" path="res://entities/player/dither.gdshader" id="1_rthn0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fotyc"]
+render_priority = 0
+shader = ExtResource("1_rthn0")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ctpqo"]
+material = SubResource("ShaderMaterial_fotyc")
+
+[node name="Dither" type="MeshInstance3D"]
+mesh = SubResource("QuadMesh_ctpqo")
