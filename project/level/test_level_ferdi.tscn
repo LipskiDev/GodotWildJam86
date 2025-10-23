@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://m34aoulp4i4o" path="res://entities/masks/kaktus_mask.tscn" id="24_0u714"]
 [ext_resource type="PackedScene" uid="uid://bqnncq8sfq0op" path="res://entities/masks/stone_mask.tscn" id="25_lo87i"]
 [ext_resource type="PackedScene" uid="uid://wyn8oo54qkfi" path="res://entities/masks/wood_mask.tscn" id="26_su1bj"]
-[ext_resource type="PackedScene" path="res://entities/masks/movement_mask.tscn" id="27_m2bj2"]
+[ext_resource type="PackedScene" uid="uid://c6bssccjd4v11" path="res://entities/masks/movement_mask.tscn" id="27_m2bj2"]
 [ext_resource type="PackedScene" uid="uid://bsx36bwi6d2au" path="res://entities/enemies/Cactus/spike_container.tscn" id="29_shalb"]
 [ext_resource type="PackedScene" uid="uid://e7pgxn3fixl8" path="res://entities/objects/fire/fireplace.tscn" id="30_q3nnh"]
 
