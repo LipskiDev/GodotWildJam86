@@ -11,6 +11,7 @@ const FULL_JUMP_TIME: float = 0.2
 
 @export var max_jumps: int = 1
 @export var health: int = 3
+@export var invincible_time: float = 0.5
 
 
 var movement_force: float = 0.09 # Kraft der aktuellen input eingebe
@@ -23,6 +24,9 @@ var jump_held_time: float = 0.0
 var jumping: bool = false
 var in_air_last_frame: bool = false
 
+var hittable: bool = true
+var i_timer: float = 0.0
+
 
 @onready var rotatable_objects: Node3D = %RotatableObjects
 @onready var animation_player: AnimationPlayer = $RotatableObjects/schleim/AnimationPlayer
@@ -31,6 +35,14 @@ var in_air_last_frame: bool = false
 func _ready() -> void:
 	Globals.teleport_player_to.connect(teleport_player)
 	Globals.play_credits.connect(play_credits)
+
+
+func _process(delta: float) -> void:
+	if not hittable:
+		i_timer += delta
+		
+		if i_timer > invincible_time:
+			hittable = true
 
 
 func _physics_process(delta: float) -> void:
@@ -123,6 +135,12 @@ func end_game() -> void:
 
 
 func take_damage(_amount: int) -> void:
+	if not hittable:
+		return
+	
+	hittable = false
+	i_timer = 0.0
+	
 	health -= 1
 	Globals.damage_taken.emit()
 	if health <= 0:
