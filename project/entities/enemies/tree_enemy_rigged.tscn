@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bgr5gnctvwvoy"]
+[gd_scene load_steps=28 format=4 uid="uid://bgr5gnctvwvoy"]
 
 [ext_resource type="Script" uid="uid://3m3amj6s0j8x" path="res://entities/enemies/tree_enemy_rigged.gd" id="1_b4yqb"]
 [ext_resource type="Texture2D" uid="uid://bagk2vq0n1hrm" path="res://assets/textures/bark_brown.png" id="1_sewl5"]
@@ -6,8 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://04j72mk5ql0t" path="res://assets/models/WoodMask_bark_brown.png" id="4_nc0je"]
 [ext_resource type="Texture2D" uid="uid://d1umqbxb4fix2" path="res://assets/models/WoodMask_bark_brown_n.png" id="5_kcqfr"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kcqfr"]
+cull_mode = 1
+shading_mode = 0
+grow = true
+grow_amount = 0.02
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4yqb"]
 resource_local_to_scene = true
+next_pass = SubResource("StandardMaterial3D_kcqfr")
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0

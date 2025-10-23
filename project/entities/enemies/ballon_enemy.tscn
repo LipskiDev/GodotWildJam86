@@ -1,15 +1,23 @@
-[gd_scene load_steps=9 format=4 uid="uid://bdlcs67dc0nyb"]
+[gd_scene load_steps=10 format=4 uid="uid://bdlcs67dc0nyb"]
 
 [ext_resource type="Script" uid="uid://bc7f30gfuhcdv" path="res://entities/enemies/ballon_enemy.gd" id="1_yl1uf"]
 [ext_resource type="PackedScene" uid="uid://d0srxd433wsl6" path="res://entities/masks/movement_mask_model.tscn" id="2_e8rcj"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e8rcj"]
+cull_mode = 1
+shading_mode = 0
+grow = true
+grow_amount = 0.03
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojhiq"]
 resource_name = "Balloon"
+next_pass = SubResource("StandardMaterial3D_e8rcj")
 cull_mode = 2
 albedo_color = Color(0.9064733, 0, 0.08802219, 1)
 metallic = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77vpp"]
+grow_amount = -0.451
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tj008"]
 _surfaces = [{

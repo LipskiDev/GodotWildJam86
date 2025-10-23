@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dkul0s31xums5"]
+[gd_scene load_steps=20 format=4 uid="uid://dkul0s31xums5"]
 
 [ext_resource type="Script" uid="uid://d041u1w8fbxc0" path="res://entities/enemies/Cactus/cactus.gd" id="1_tvlb7"]
 
@@ -8,8 +8,15 @@ cull_mode = 2
 albedo_color = Color(0.056188673, 0.27332032, 0.019528087, 1)
 roughness = 0.5
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvlb7"]
+cull_mode = 1
+shading_mode = 0
+grow = true
+grow_amount = 0.03
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qtcw7"]
 resource_name = "CactusBody"
+next_pass = SubResource("StandardMaterial3D_tvlb7")
 cull_mode = 2
 albedo_color = Color(0.056188673, 0.27332032, 0.019528087, 1)
 roughness = 0.5
