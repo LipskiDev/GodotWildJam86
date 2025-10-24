@@ -15,6 +15,7 @@ const FULL_JUMP_TIME: float = 0.2
 
 
 var movement_force: float = 0.09 # Kraft der aktuellen input eingebe
+var block_penalty: float = 0.4
 
 var on_floor: bool = true
 var coyote_timer: float = 0.0
@@ -26,6 +27,8 @@ var in_air_last_frame: bool = false
 
 var hittable: bool = true
 var i_timer: float = 0.0
+
+var blocking: bool = true
 
 
 @onready var rotatable_objects: Node3D = %RotatableObjects
@@ -59,7 +62,7 @@ func _physics_process(delta: float) -> void:
 		jumps = max_jumps
 
 	# Handle jump. and double jump
-	if Input.is_action_just_pressed("jump") and (on_floor or jumps > 0):
+	if Input.is_action_just_pressed("jump") and (on_floor or jumps > 0) and Globals.current_mask != 1:
 		# catch case when player falls off a ledge and still has 2 jumps left
 		if jumps == max_jumps and not on_floor:
 			jumps -= 1
@@ -68,7 +71,7 @@ func _physics_process(delta: float) -> void:
 		jump_held_time = 0.0
 		jumping = true
 	
-	if Input.is_action_pressed("jump") and jump_held_time < FULL_JUMP_TIME and jumping:
+	if Input.is_action_pressed("jump") and jump_held_time < FULL_JUMP_TIME and jumping and Globals.current_mask != 1:
 		jump_held_time += delta
 		self.velocity.y = JUMP_VELOCITY
 		animation_player.play("jump start")
@@ -94,9 +97,12 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		var wish_dir: Vector2
+		var wish_dir: Vector2 = Vector2(0.0, 0.0)
 		wish_dir.x = direction.x * SPEED
 		wish_dir.y = direction.z * SPEED
+		
+		if blocking:
+			wish_dir *= block_penalty
 		
 		velocity.x = velocity.x * (1.0 - movement_force) + wish_dir.x * movement_force
 		velocity.z = velocity.z * (1.0 - movement_force) + wish_dir.y * movement_force
@@ -135,7 +141,7 @@ func end_game() -> void:
 
 
 func take_damage(_amount: int) -> void:
-	if not hittable:
+	if not hittable or blocking:
 		return
 	
 	hittable = false

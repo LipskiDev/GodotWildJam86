@@ -54,7 +54,8 @@ func take_damage(amount: int) -> void:
 	
 	health -= amount
 	if health <= 0:
-		animation_player.queue("die")
+		animation_player.play("die")
+		await get_tree().create_timer(1.0).timeout
 		var mask_scene: Node3D = wood_mask.instantiate()
 		get_tree().root.get_child(0).add_child(mask_scene)
 		mask_scene.global_position = self.global_position

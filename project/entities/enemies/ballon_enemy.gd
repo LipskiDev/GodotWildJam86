@@ -52,7 +52,7 @@ func pop() -> void:
 	tween.tween_property($Balloon, "position", Vector3(0.0, -2.0, 0.0), 0.7)
 	tween.tween_property($Balloon, "scale", Vector3(0.1, 0.1, 0.1), 0.7)
 	
-	await get_tree().create_timer(0.7).timeout
+	await get_tree().create_timer(1.0).timeout
 	
 	var maske_scene: Node3D = maske.instantiate()
 	get_tree().root.get_child(0).add_child(maske_scene)

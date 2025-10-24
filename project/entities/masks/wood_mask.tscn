@@ -53,7 +53,7 @@ radius = 0.52086073
 script = ExtResource("1_jqe4m")
 
 [node name="Mask" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.034422245, 0.39814633, -0.017164322, -0.39806148, 0.035173777, 0.017602835, 0.019030595, 0.015566315, 0.3992437, 0.28399044, 0.8173344, -0.082530625)
+transform = Transform3D(0.00086055615, 0.009953658, -0.00042910798, -0.0099515375, 0.0008793444, 0.00044007075, 0.0004757648, 0.00038915782, 0.009981093, 0.28399044, 0.8173344, -0.082530625)
 mesh = SubResource("ArrayMesh_80hv2")
 skeleton = NodePath("")
 
@@ -67,6 +67,6 @@ shape = SubResource("SphereShape3D_h51i7")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5827937, 0)
 light_color = Color(0.91550773, 0.93763137, 0.341533, 1)
-light_energy = 2.0
+light_energy = 0.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
