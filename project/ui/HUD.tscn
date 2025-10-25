@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://y3ecl1gcn72n"]
+[gd_scene load_steps=13 format=3 uid="uid://y3ecl1gcn72n"]
 
 [ext_resource type="PackedScene" uid="uid://brx4i2bpn4rrp" path="res://ui/Display_mask.tscn" id="1_1x8ju"]
 [ext_resource type="Script" uid="uid://bppau8auxrbst" path="res://ui/heart_management.gd" id="1_pom5v"]
+[ext_resource type="Script" uid="uid://dh5ivocc5npfh" path="res://ui/hud.gd" id="1_tvtyy"]
 [ext_resource type="PackedScene" uid="uid://po84pmft2rgq" path="res://ui/heart.tscn" id="1_wxbmk"]
 [ext_resource type="Script" uid="uid://ct75erd1k5nf" path="res://ui/mask_container.gd" id="2_jd13s"]
 [ext_resource type="Texture2D" uid="uid://b4a6vvcp77yr8" path="res://assets/textures/maske-stone.png" id="5_3q2by"]
@@ -69,6 +70,7 @@ corner_radius_bottom_left = 4
 shadow_size = 2
 
 [node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_tvtyy")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
