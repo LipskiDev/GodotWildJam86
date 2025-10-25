@@ -50,6 +50,7 @@ func take_damage_stick(dmg: int) -> void:
 	health -= dmg
 	if health <= 0:
 		die()
+		await get_tree().create_timer(1.0).timeout
 		var mask_scene: Node3D = kaktus_mask.instantiate()
 		get_tree().root.get_child(0).add_child(mask_scene)
 		mask_scene.global_position = self.global_position

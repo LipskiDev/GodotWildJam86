@@ -54,14 +54,14 @@ radius = 0.52086073
 script = ExtResource("1_mk4w2")
 
 [node name="MaskLow" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.1855694e-08, 0.5, 0, -0.5, -2.1855694e-08, 0, 0, 0, 0.5, 0, 0.95694923, 0)
+transform = Transform3D(-4.3711387e-10, 0.01, 0, -0.01, -4.3711387e-10, 0, 0, 0, 0.01, 0, 0.95694923, 0)
 mesh = SubResource("ArrayMesh_mk4w2")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5827937, 0)
 light_color = Color(0, 1, 0, 1)
-light_energy = 2.0
+light_energy = 0.0
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.11868143, 0)

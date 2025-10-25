@@ -1,6 +1,13 @@
 extends Node3D
 
 
+func _ready() -> void:
+	var tween: Tween = get_tree().create_tween()
+	tween.set_parallel(true)
+	tween.tween_property($Mask, "scale", Vector3(0.5, 0.5, 0.5), 2.0)
+	tween.tween_property($OmniLight3D, "light_energy", 2.0, 2.0)
+
+
 func _process(delta: float) -> void:
 	$"Mask".rotate_y(delta)
 
