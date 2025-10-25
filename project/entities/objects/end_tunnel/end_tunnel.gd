@@ -12,11 +12,16 @@ func _ready() -> void:
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
+	pass
 	if body.is_in_group("Player") and is_enabled:
 		Globals.play_credits.emit()
 		
 func enable_tunnel() -> void:
 	is_enabled = true
+	for body in $Area3D.get_overlapping_bodies():
+		if body.is_in_group("Player"):
+			Globals.play_credits.emit()
+			break
 
 
 func _on_area_3d_2_body_entered(body: Node3D) -> void:
