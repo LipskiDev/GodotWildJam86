@@ -1,3 +1,4 @@
+class_name Cactus
 extends CharacterBody3D
 
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://by1lqe602105f" path="res://entities/objects/end_tunnel/end_tunnel.gd" id="1_sr8k3"]
 [ext_resource type="Shader" uid="uid://drxrea0vx3hop" path="res://fog_shader.gdshader" id="2_cncf7"]
-[ext_resource type="Texture2D" uid="uid://2jbh5sesd5ip" path="res://assets/models/fog_noise_material.tres" id="3_oljp2"]
+[ext_resource type="Texture2D" uid="uid://brh8utjq8w7u0" path="res://assets/models/fog_noise_material.tres" id="3_oljp2"]
 [ext_resource type="Texture2D" uid="uid://c4a5cg1kboqmi" path="res://assets/models/CactusMask_Cactus_Color.png" id="4_sr8k3"]
 [ext_resource type="Texture2D" uid="uid://kri2phclgu8o" path="res://assets/models/CactusMask_Cactus_Normal.png" id="5_at1ru"]
 [ext_resource type="PackedScene" uid="uid://nxih0bl4qlu0" path="res://assets/models/StoneMask.glb" id="6_3bsc3"]

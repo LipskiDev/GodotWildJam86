@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 	pass
 
 
-func take_damage(_amount: int) -> void:
+func take_damage(_amount: int, _pos: Vector3) -> void:
 	$CPUParticles3D.emitting = true
 	
 	var radius = leafs.mesh.radius

@@ -48,7 +48,7 @@ func attack() -> void:
 		animation_player.play("attack")
  
 
-func take_damage(amount: int) -> void:
+func take_damage(amount: int, _pos: Vector3 = Vector3.ZERO) -> void:
 	if animation_player.current_animation == "die":
 		return
 	
@@ -97,8 +97,8 @@ func _on_damage_area_body_entered(body: Node3D) -> void:
 	if body == self:
 		return
 	
-	if body.has_method("take_damage"): 
-		body.take_damage(10)
+	if body.has_method("take_damage"):
+		body.take_damage(1, self.global_position)
 	
-	if body is Player:
-		body.velocity += (body.global_position - self.global_position).normalized() * 10.0
+	if body.has_method("knockback"):
+		body.knockback(self.global_position, 20.0)

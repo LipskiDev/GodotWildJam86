@@ -8,13 +8,13 @@ var is_enabled : bool = false
 
 func _ready() -> void:
 	$Fog.get_active_material(0).set_shader_parameter("fog_tint", fog_color)
-		
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") and is_enabled:
 		Globals.play_credits.emit()
-		
+
+
 func enable_tunnel() -> void:
 	is_enabled = true
 
