@@ -1,16 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://c61d4ujst1otw"]
+[gd_scene load_steps=20 format=3 uid="uid://c61d4ujst1otw"]
 
-[ext_resource type="PackedScene" uid="uid://di57jl4oe4003" path="res://level/level_template.tscn" id="1_ypwww"]
+[ext_resource type="PackedScene" uid="uid://c6a4230h2w5fl" path="res://level/level_template.tscn" id="1_ypwww"]
 [ext_resource type="Material" uid="uid://c8wk787ymea7l" path="res://level/materials/moss.tres" id="2_f0ovp"]
 [ext_resource type="PackedScene" uid="uid://r3rjtqvtt0jf" path="res://entities/objects/tree/tree.tscn" id="3_vk6f1"]
 [ext_resource type="Material" uid="uid://bs7a41iqvwiyb" path="res://level/materials/rock.tres" id="4_21jwj"]
 [ext_resource type="PackedScene" uid="uid://bvcv2kgodv0ic" path="res://entities/objects/fence/fence.tscn" id="4_eueb8"]
 [ext_resource type="PackedScene" uid="uid://e7pgxn3fixl8" path="res://entities/objects/fire/fireplace.tscn" id="4_vk6f1"]
 [ext_resource type="PackedScene" uid="uid://lg0rqoxmmrdx" path="res://entities/objects/vase/vase.tscn" id="5_21jwj"]
-[ext_resource type="PackedScene" uid="uid://dk3f8rrfdbyf0" path="res://entities/objects/fire/vfx_fire.tscn" id="7_lopto"]
 [ext_resource type="PackedScene" uid="uid://bkde6bj67rxov" path="res://entities/objects/tunnel/tunnel.tscn" id="8_07kww"]
 [ext_resource type="PackedScene" uid="uid://bgr5gnctvwvoy" path="res://entities/enemies/tree_enemy_rigged.tscn" id="8_lopto"]
 [ext_resource type="PackedScene" uid="uid://ts0h3qr5grgg" path="res://entities/enemies/Jens.tscn" id="9_6xa2d"]
+[ext_resource type="PackedScene" uid="uid://bjh5a81sqd0d1" path="res://entities/objects/fire/irrlicht.tscn" id="9_hrebq"]
 [ext_resource type="PackedScene" uid="uid://dhjmue468flpp" path="res://entities/objects/stone/stone.tscn" id="10_5mhvx"]
 [ext_resource type="PackedScene" uid="uid://c04frxjk0bv53" path="res://entities/objects/waysign.tscn" id="10_hrebq"]
 [ext_resource type="PackedScene" uid="uid://b7517a6cp3rr6" path="res://entities/objects/grass_foliage.tscn" id="12_f1jq1"]
@@ -21,6 +21,16 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 3, 5), PackedInt32Arr
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f1jq1"]
 size = Vector3(1, 11.891113, 27.969437)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrebq"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wcq0y"]
+material = SubResource("StandardMaterial3D_hrebq")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3lca4"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="LevelTemplate" instance=ExtResource("1_ypwww")]
 
@@ -494,73 +504,70 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 78.731255, 
 
 [node name="fires" type="Node" parent="environment" index="1"]
 
-[node name="VFX_fire6" parent="environment/fires" index="0" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2275133, 1.368288, -36.161423)
+[node name="Irrlicht" parent="environment/fires" index="0" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -55.312332, 1.4311581, 1.4548388)
 
-[node name="VFX_fire9" parent="environment/fires" index="1" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7543182, 1.3682842, -40.220543)
+[node name="Irrlicht2" parent="environment/fires" index="1" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -44.256603, 1.4311581, -4.673939)
 
-[node name="VFX_fire7" parent="environment/fires" index="2" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.347807, 1.3682833, -41.90192)
+[node name="Irrlicht3" parent="environment/fires" index="2" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -36.919853, 1.4311581, -10.957199)
 
-[node name="VFX_fire14" parent="environment/fires" index="3" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.495846, 1.3682833, -39.69648)
+[node name="Irrlicht4" parent="environment/fires" index="3" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -32.32882, 1.4311581, -18.398113)
 
-[node name="VFX_fire13" parent="environment/fires" index="4" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.827078, 1.3682833, -63.9143)
+[node name="Irrlicht5" parent="environment/fires" index="4" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -28.789204, 1.4311581, -28.091194)
 
-[node name="VFX_fire22" parent="environment/fires" index="5" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.450134, 1.3682833, -63.9143)
+[node name="Irrlicht6" parent="environment/fires" index="5" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -13.705017, 1.4311581, -34.625862)
 
-[node name="VFX_fire8" parent="environment/fires" index="6" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.895428, 1.3682842, -34.43817)
+[node name="Irrlicht7" parent="environment/fires" index="6" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.229759, 1.4311581, -36.15062)
 
-[node name="VFX_fire10" parent="environment/fires" index="7" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.195368, 1.3682842, -26.818071)
+[node name="Irrlicht8" parent="environment/fires" index="7" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.795002, 1.4311581, -40.234787)
 
-[node name="VFX_fire11" parent="environment/fires" index="8" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.995869, 1.3682842, -21.043924)
+[node name="Irrlicht9" parent="environment/fires" index="8" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.235607, 1.4311581, -41.92291)
 
-[node name="VFX_fire12" parent="environment/fires" index="9" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.16609, 1.3682842, -14.557754)
+[node name="Irrlicht10" parent="environment/fires" index="9" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 17.497982, 1.4311581, -39.799145)
 
-[node name="VFX_fire16" parent="environment/fires" index="10" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.408959, 1.3682842, -12.282626)
+[node name="Irrlicht11" parent="environment/fires" index="10" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 15.973228, 1.4311581, -21.011986)
 
-[node name="VFX_fire17" parent="environment/fires" index="11" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.195928, 1.3682842, -7.3777056)
+[node name="Irrlicht12" parent="environment/fires" index="11" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 21.146503, 1.4311581, -26.784271)
 
-[node name="VFX_fire18" parent="environment/fires" index="12" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.469224, 1.3682852, -4.62418)
+[node name="Irrlicht13" parent="environment/fires" index="12" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 22.017788, 1.4311581, -34.408047)
 
-[node name="VFX_fire19" parent="environment/fires" index="13" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.752488, 1.3682852, -6.9992914)
+[node name="Irrlicht14" parent="environment/fires" index="13" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 10.146481, 1.4311581, -14.53178)
 
-[node name="VFX_fire21" parent="environment/fires" index="14" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3921247, 1.3682852, -11.885913)
+[node name="Irrlicht15" parent="environment/fires" index="14" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 13.35936, 1.4311581, -12.135736)
 
-[node name="VFX_fire20" parent="environment/fires" index="15" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.752488, 1.3682852, -6.9992914)
+[node name="Irrlicht16" parent="environment/fires" index="15" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 14.176189, 1.4311581, -7.398108)
 
-[node name="VFX_fire" parent="environment/fires" index="16" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.35361, 1.368288, -4.608456)
+[node name="Irrlicht17" parent="environment/fires" index="16" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.493015, 1.4311581, -4.675331)
 
-[node name="VFX_fire2" parent="environment/fires" index="17" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.97426, 1.3682823, -10.941542)
+[node name="Irrlicht18" parent="environment/fires" index="17" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.755386, 1.4311581, -7.016918)
 
-[node name="VFX_fire15" parent="environment/fires" index="18" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.453297, 1.3682804, -18.521555)
+[node name="Irrlicht19" parent="environment/fires" index="18" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.408851, 1.4311581, -11.863462)
 
-[node name="VFX_fire4" parent="environment/fires" index="19" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.389267, 1.3682842, 1.2779121)
+[node name="Irrlicht20" parent="environment/fires" index="19" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 23.257107, 1.4311581, -63.883823)
 
-[node name="VFX_fire3" parent="environment/fires" index="20" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.759674, 1.3682842, -28.179485)
+[node name="Irrlicht21" parent="environment/fires" index="20" instance=ExtResource("9_hrebq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 28.783081, 1.4311581, -63.947342)
 
-[node name="VFX_fire5" parent="environment/fires" index="21" instance=ExtResource("7_lopto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.723601, 1.3682842, -34.704308)
-
-[node name="Waysign" parent="environment/fires" index="22" instance=ExtResource("10_hrebq")]
+[node name="Waysign" parent="environment/fires" index="21" instance=ExtResource("10_hrebq")]
 transform = Transform3D(-0.95734966, 0, -0.28893167, 0, 1, 0, 0.28893167, 0, -0.95734966, 31.445004, 9.536743e-07, -53.678215)
 
 [node name="Tunnel" parent="environment" index="2" instance=ExtResource("8_07kww")]
@@ -579,7 +586,7 @@ fog_color = Color(1, 0, 0, 1)
 transform = Transform3D(0.6999936, 0, 0.0029932302, 0, 0.7, 0, -0.0029932302, 0, 0.6999936, 26.244637, 0.20244437, -65.599365)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="environment/StaticBody3D" index="0"]
-transform = Transform3D(1.4285583, 0, -0.0061086332, 0, 1.4285716, 0, 0.0061086332, 0, 1.4285583, 74.482506, 7.490161, 55.33079)
+transform = Transform3D(1.4285583, 0, -0.019540854, 0, 10.202848, 0, 0.0061086332, 0, 4.5698028, 74.482506, 7.4901648, 55.330814)
 shape = SubResource("BoxShape3D_f1jq1")
 
 [node name="tree_enemy_rigged2" parent="enemies" index="0" instance=ExtResource("8_lopto")]
@@ -872,3 +879,69 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.068085, -0.24988532, -35.7
 
 [node name="GrassFoliage5" parent="grass" index="85" instance=ExtResource("12_f1jq1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.18529, -0.04124713, -8.54166)
+
+[node name="InvisWall" type="StaticBody3D" parent="." index="11"]
+transform = Transform3D(4.941948, 0, 0, 0, 3.079445, 0, 0, 0, 1, 0, 18.032505, 22.572485)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InvisWall" index="0"]
+transform = Transform3D(35.037243, 0, 0, 0, 13.144299, 0, 0, 0, 1, 0.007851601, 4.5861883, 0.8611088)
+mesh = SubResource("BoxMesh_wcq0y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvisWall" index="1"]
+transform = Transform3D(35.037243, 0, 0, 0, 13.144299, 0, 0, 0, 1, 0, 4.5861883, 0.8596401)
+shape = SubResource("ConcavePolygonShape3D_3lca4")
+
+[node name="InvisWall5" type="StaticBody3D" parent="." index="12"]
+transform = Transform3D(4.941948, 0, 0, 0, 3.079445, 0, 0, 0, 1, 0, 18.032505, -78.05361)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InvisWall5" index="0"]
+transform = Transform3D(35.037243, 0, 0, 0, 13.144299, 0, 0, 0, 1, 0.007851601, 4.5861883, 0.8611088)
+mesh = SubResource("BoxMesh_wcq0y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvisWall5" index="1"]
+transform = Transform3D(35.037243, 0, 0, 0, 13.144299, 0, 0, 0, 1, 0, 4.5861883, 0.8596401)
+shape = SubResource("ConcavePolygonShape3D_3lca4")
+
+[node name="InvisWall6" type="StaticBody3D" parent="." index="13"]
+transform = Transform3D(2.4802988, 0, 0.25558874, 0, 3.0794446, 0, -1.8252281, 0, 0.347319, -51.200874, 8.126221, -57.109684)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InvisWall6" index="0"]
+transform = Transform3D(35.037243, 0, 0, 0, 13.144299, 0, 0, 0, 1, 0.007851601, 4.5861883, 0.8611088)
+mesh = SubResource("BoxMesh_wcq0y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvisWall6" index="1"]
+transform = Transform3D(35.037243, 0, 0, 0, 13.144299, 0, 0, 0, 1, 0, 4.5861883, 0.8596401)
+shape = SubResource("ConcavePolygonShape3D_3lca4")
+
+[node name="InvisWall7" type="StaticBody3D" parent="." index="14"]
+transform = Transform3D(1.9539895, 0, -0.3332994, 0, 3.0794444, 0, 2.3801816, 0, 0.2736194, 83.74381, 8.126221, -57.109684)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InvisWall7" index="0"]
+transform = Transform3D(35.037243, 0, 0, 0, 13.144299, 0, 0, 0, 1, 0.007851601, 4.5861883, 0.8611088)
+mesh = SubResource("BoxMesh_wcq0y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvisWall7" index="1"]
+transform = Transform3D(35.037243, 0, 0, 0, 13.144299, 0, 0, 0, 1, 0, 4.5861883, 0.8596401)
+shape = SubResource("ConcavePolygonShape3D_3lca4")
+
+[node name="InvisWall3" type="StaticBody3D" parent="." index="15"]
+transform = Transform3D(-0.23667568, 0, -0.997876, 0, 3.079445, 0, 3.6255138, 0, -0.06514193, -88.35144, 18.032505, 22.572485)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InvisWall3" index="0"]
+transform = Transform3D(40.788986, 0, 1.8626451e-09, 0, 13.144299, 0, 0, 0, 0.98928356, -0.053387642, 4.586188, -2.5472336)
+mesh = SubResource("BoxMesh_wcq0y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvisWall3" index="1"]
+transform = Transform3D(35.037243, 0, 0, 0, 13.144299, 0, 0, 0, 1, 0, 4.5861883, 0.8596401)
+shape = SubResource("ConcavePolygonShape3D_3lca4")
+
+[node name="InvisWall2" type="StaticBody3D" parent="." index="16"]
+transform = Transform3D(1.037415, 0, 0.7934172, 0, 2.5400302, 0, -1.3522788, 0, 0.6086784, 80.94878, 18.032505, -5.3915024)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InvisWall2" index="0"]
+transform = Transform3D(35.03723, 0, 0, 0, 23.753511, 0, 1.9073486e-06, 0, 1, -0.92390823, 4.5861893, -3.6963768)
+mesh = SubResource("BoxMesh_wcq0y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvisWall2" index="1"]
+transform = Transform3D(35.037243, 0, 0, 0, 13.144299, 0, 0, 0, 1, 0, 4.5861883, 0.8596401)
+shape = SubResource("ConcavePolygonShape3D_3lca4")
