@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://drvm475mdagfk"]
+[gd_scene load_steps=64 format=4 uid="uid://drvm475mdagfk"]
 
 [ext_resource type="Script" uid="uid://bhgwfchvstiqj" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="Script" uid="uid://c0x7wwsb4q63n" path="res://entities/player/attack.gd" id="2_abrql"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bagk2vq0n1hrm" path="res://assets/textures/bark_brown.png" id="10_we0b7"]
 [ext_resource type="Texture2D" uid="uid://c1dfqvgj2s8nk" path="res://assets/textures/bark_brown_n.png" id="11_mtric"]
 [ext_resource type="Animation" uid="uid://dhjg1qa0yuvlv" path="res://stone_smash.res" id="12_afbqv"]
+[ext_resource type="Texture2D" uid="uid://d0wumgid11sgb" path="res://assets/textures/star.png" id="14_221hk"]
 [ext_resource type="Texture2D" uid="uid://dk5c8xc703yd" path="res://assets/textures/heal.png" id="14_eyb6c"]
 [ext_resource type="Script" uid="uid://ctk05gygv6ufg" path="res://entities/player/block.gd" id="14_mtric"]
 [ext_resource type="PackedScene" uid="uid://cc8hlfp6pygtc" path="res://entities/player/dither.tscn" id="18_b2kln"]
@@ -862,6 +863,28 @@ _data = {
 &"walk": SubResource("Animation_a5wsf")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1t22"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("14_221hk")
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_50fht"]
+material = SubResource("StandardMaterial3D_t1t22")
+
+[sub_resource type="Curve" id="Curve_qpopc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.30072463, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_wq0jh"]
+colors = PackedColorArray(0.8023094, 0.66443187, 0.3553846, 1, 0.45490196, 0.3647059, 0.15686275, 0)
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wvtmh"]
 height = 1.331543
 radius = 0.7426758
@@ -1190,6 +1213,26 @@ libraries = {
 &"": SubResource("AnimationLibrary_16nu5")
 }
 
+[node name="BlockParticles" type="CPUParticles3D" parent="RotatableObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0087258, -1.0620358)
+emitting = false
+amount = 16
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.9
+mesh = SubResource("QuadMesh_50fht")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 1, 0)
+spread = 90.0
+gravity = Vector3(0, -1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+scale_amount_min = 0.05
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_qpopc")
+color_ramp = SubResource("Gradient_wq0jh")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6657715, 0)
 shape = SubResource("CylinderShape3D_wvtmh")
@@ -1206,9 +1249,9 @@ emission_shape = 1
 emission_sphere_radius = 1.0
 direction = Vector3(0, 1, 0)
 initial_velocity_min = 1.0
-initial_velocity_max = 4.0
+initial_velocity_max = 1.0
 radial_accel_min = 1.0
-radial_accel_max = 50.0
+radial_accel_max = 20.0
 radial_accel_curve = SubResource("Curve_t1t22")
 scale_amount_min = 0.05
 scale_amount_max = 0.5

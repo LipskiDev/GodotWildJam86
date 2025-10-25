@@ -153,7 +153,9 @@ func take_damage(_amount: int, pos: Vector3 = Vector3.ZERO) -> void:
 		var forward: Vector3 = -rotatable_objects.global_transform.basis.z
 		var angle: float = rad_to_deg(forward.angle_to(direction_to_target))
 		
+		#print(angle)
 		if angle < 90.0:
+			$RotatableObjects/BlockParticles.restart()
 			return
 	
 	if not hittable:

@@ -23,10 +23,10 @@ func _on_body_entered(body: Node3D) -> void:
 		body.pop()
 	
 	if body.has_method("take_damage"): 
-		body.take_damage(1, self.global_position)
+		body.take_damage(1, self.global_position - direction * 10.0)
 	
 	if body.has_method("knockback"):
-		body.knockback(self.global_position, 10.0)
+		body.knockback(self.global_position - direction * 10.0, 10.0)
 	
 	queue_free()
 
