@@ -5,6 +5,9 @@ const scene_paths: Array[String] = [
 	"res://entities/player/player.tscn",
 	"res://entities/player/dither.tscn",
 	"res://entities/player/ground_smoke_trail.tscn",
+	"res://entities/player/block_particles.tscn",
+	"res://entities/player/blood_particles.tscn",
+	"res://entities/player/heal_particles.tscn",
 	
 	"res://entities/enemies/Jens.tscn",
 	"res://entities/enemies/tree_enemy_rigged.tscn",
@@ -68,7 +71,7 @@ func _ready() -> void:
 			#await get_tree().create_timer(0.2).timeout
 		
 		#compile_container.add_child(scene)
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(0.1).timeout
 		#scene.queue_free()
 	
 	$ColorRect.visible = false
