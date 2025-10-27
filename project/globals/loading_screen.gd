@@ -74,7 +74,7 @@ func _ready() -> void:
 		await get_tree().create_timer(0.1).timeout
 		#scene.queue_free()
 	
-	$ColorRect.visible = false
+	#$ColorRect.visible = false
 	get_tree().change_scene_to_file("res://level/level_1.tscn")
 
 
