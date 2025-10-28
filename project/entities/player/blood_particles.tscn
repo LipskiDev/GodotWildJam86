@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6y4badqii03c"]
+
+[sub_resource type="Gradient" id="Gradient_mtric"]
+offsets = PackedFloat32Array(0, 0.9953271, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eyb6c"]
+gradient = SubResource("Gradient_mtric")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.2)
+metadata/_snap_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_221hk"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_eyb6c")
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+point_size = 33.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_ghoj8"]
+material = SubResource("StandardMaterial3D_221hk")
+
+[sub_resource type="Curve" id="Curve_t1t22"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.25, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_50fht"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_wuv6x"]
+offsets = PackedFloat32Array(0, 0.504)
+colors = PackedColorArray(0.69803923, 0, 0, 0.89411765, 0.8, 0, 0, 0)
+
+[node name="BloodParticles" type="CPUParticles3D"]
+emitting = false
+amount = 32
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.9
+mesh = SubResource("QuadMesh_ghoj8")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+radial_accel_min = 1.0
+radial_accel_max = 20.0
+radial_accel_curve = SubResource("Curve_t1t22")
+scale_amount_min = 0.05
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_50fht")
+color_ramp = SubResource("Gradient_wuv6x")

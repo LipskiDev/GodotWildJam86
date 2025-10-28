@@ -34,7 +34,7 @@ func _hit_finished() -> void:
 	attack_area.monitoring = false
 
 
-func take_damage(amount: int) -> void:
+func take_damage(amount: int, _pos: Vector3 = Vector3.ZERO) -> void:
 	health -= amount
 	
 	# BUG: knockback funktoiniert nicht so richtig 
@@ -64,15 +64,12 @@ func _on_detection_area_body_entered(body: Node3D) -> void:
 
 
 func _on_attack_area_body_entered(body: Node3D) -> void:
-	if body.has_method("take_damage"):
-		body.take_damage(10)
+	if body.has_method("knockback"):
+		body.knockback(self.global_position, knockback_strength)
 	
-	if body is CharacterBody3D:
-		body.velocity += (Vector3(
-				body.global_position.x - self.global_position.x, 
-				0.0, 
-				body.global_position.z - self.global_position.z
-			)).normalized() * knockback_strength
+	if body.has_method("take_damage"):
+		body.take_damage(1, self.global_position)
+
 
 func squash(_dmg: int):
 	health -= 1
@@ -80,4 +77,3 @@ func squash(_dmg: int):
 		die()
 	else:
 		$StateMachine.current_state.transitioned.emit($StateMachine.current_state, "squash")
-		

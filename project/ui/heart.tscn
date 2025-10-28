@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://po84pmft2rgq"]
+[gd_scene load_steps=8 format=3 uid="uid://po84pmft2rgq"]
 
 [ext_resource type="Texture2D" uid="uid://cyxucxllb4guu" path="res://assets/textures/heart-0001.png" id="1_7in5q"]
 [ext_resource type="Texture2D" uid="uid://p8ws8cunmbtu" path="res://assets/textures/heart-0002.png" id="2_11reb"]
@@ -25,7 +25,21 @@ frame_6/duration = 0.08
 frame_7/texture = ExtResource("2_11reb")
 frame_7/duration = 0.08
 
+[sub_resource type="GDScript" id="GDScript_7in5q"]
+script/source = "@tool
+extends TextureRect
+
+
+@export_range(0.0, 1.0, 0.01)
+var heart_scale: float = 1.0:
+	set(v):
+		heart_scale = v
+		self.scale = Vector2(heart_scale, heart_scale)
+"
+
 [node name="Heart" type="TextureRect"]
 texture_filter = 1
+pivot_offset = Vector2(16, 16)
 texture = SubResource("AnimatedTexture_xl3ym")
 stretch_mode = 2
+script = SubResource("GDScript_7in5q")

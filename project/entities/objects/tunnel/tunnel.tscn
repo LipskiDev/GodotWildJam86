@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://m6cet263cosx" path="res://entities/objects/tunnel/tunnel.gd" id="1_eawuw"]
 [ext_resource type="Shader" uid="uid://drxrea0vx3hop" path="res://fog_shader.gdshader" id="2_kao11"]
-[ext_resource type="Texture2D" uid="uid://2jbh5sesd5ip" path="res://assets/models/fog_noise_material.tres" id="3_bgr3p"]
+[ext_resource type="Texture2D" uid="uid://brh8utjq8w7u0" path="res://assets/models/fog_noise_material.tres" id="3_bgr3p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f57oj"]
 resource_name = "Material.030"

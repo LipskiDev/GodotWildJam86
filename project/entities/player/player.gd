@@ -24,15 +24,18 @@ var jumps: int = 0
 var jump_held_time: float = 0.0
 var jumping: bool = false
 var in_air_last_frame: bool = false
+var velocity_last_frame: Vector3 = Vector3.ZERO
 
 var hittable: bool = true
 var i_timer: float = 0.0
+var damage_tween: Tween
 
 var blocking: bool = true
 
 
 @onready var rotatable_objects: Node3D = %RotatableObjects
 @onready var animation_player: AnimationPlayer = $RotatableObjects/schleim/AnimationPlayer
+@onready var mesh: MeshInstance3D = $RotatableObjects/schleim/Armature/Skeleton3D/Icosphere
 
 
 func _ready() -> void:
@@ -81,10 +84,11 @@ func _physics_process(delta: float) -> void:
 	elif velocity.length() < 0.1 and is_on_floor() and animation_player.current_animation != "stone_smash" and animation_player.current_animation != "jump land":
 		animation_player.play("idle")
 	
-	if in_air_last_frame and is_on_floor():
+	if in_air_last_frame and is_on_floor() and velocity_last_frame.y < -8.0:
 		animation_player.play("jump land")
 	
 	in_air_last_frame = not is_on_floor()
+	velocity_last_frame = self.velocity
 	
 	if Input.is_action_just_released("jump") and velocity.y > 0.0:
 		self.velocity.y *= 0.5
@@ -113,8 +117,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED * 0.1)
 		velocity.z = move_toward(velocity.z, 0, SPEED * 0.1)
 	
-	
 	move_and_slide()
+	
 	
 	# squash jens
 	for index in range(get_slide_collision_count()):
@@ -132,16 +136,29 @@ func _physics_process(delta: float) -> void:
 
 func teleport_player(pos: Vector3) -> void:
 	global_position = pos
-	
+
+
 func play_credits() -> void:
+	get_tree().get_first_node_in_group("HUD").visible = false
 	$AnimationPlayer.play("credits")
-	
+
+
 func end_game() -> void:
 	get_tree().quit()
 
 
-func take_damage(_amount: int) -> void:
-	if not hittable or blocking:
+func take_damage(_amount: int, pos: Vector3 = Vector3.ZERO) -> void:
+	if pos != Vector3.ZERO and blocking:
+		var direction_to_target: Vector3 = (pos - self.global_position).normalized()
+		var forward: Vector3 = -rotatable_objects.global_transform.basis.z
+		var angle: float = rad_to_deg(forward.angle_to(direction_to_target))
+		
+		#print(angle)
+		if angle < 90.0:
+			$RotatableObjects/BlockParticles.restart()
+			return
+	
+	if not hittable:
 		return
 	
 	hittable = false
@@ -149,9 +166,33 @@ func take_damage(_amount: int) -> void:
 	
 	health -= 1
 	Globals.damage_taken.emit()
+	$BloodParticles.restart()
+	Engine.set_time_scale(0.2)
+	
+	if damage_tween:
+		damage_tween.kill()
+	damage_tween = get_tree().create_tween()
+	damage_tween.set_parallel(true)
+	mesh.get_active_material(0).set("shader_parameter/albedo", Color(1.0, 0.0, 0.0, 1.0))
+	damage_tween.tween_property(mesh.get_active_material(0), "shader_parameter/albedo", Color(0.21, 0.72, 0.03, 1.0), 2.0).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	damage_tween.tween_callback(Engine.set_time_scale.bind(1.0)).set_delay(0.2)
+	
 	if health <= 0:
 		Globals.player_died.emit()
 		show_you_died_screen()
+		Engine.set_time_scale(0.1)
+		$AnimationPlayer.speed_scale = 10.0
+
+
+func knockback(pos: Vector3, knockback_amount: float) -> void:
+	if blocking:
+		knockback_amount /= 2.0
+	
+	self.velocity += (Vector3(
+		self.global_position.x - pos.x, 
+		0.0, 
+		self.global_position.z - pos.z
+	)).normalized() * knockback_amount
 
 
 func heal(amount: int) -> void:
@@ -159,13 +200,18 @@ func heal(amount: int) -> void:
 		return
 	health += amount
 	Globals.damage_taken.emit()
+	$HealParticles.restart()
 
 
 func show_you_died_screen() -> void:
+	get_tree().get_first_node_in_group("HUD").visible = false
 	$AnimationPlayer.play("YouDied")
 
 
 func player_died() -> void:
+	Engine.set_time_scale(1.0)
+	$AnimationPlayer.speed_scale = 1.0
+	get_tree().get_first_node_in_group("HUD").visible = true
 	if Globals.last_bonfire_scene != "":
 		Globals.player_just_died = true
 		get_tree().change_scene_to_file(Globals.last_bonfire_scene)
