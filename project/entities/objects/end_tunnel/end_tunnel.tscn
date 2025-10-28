@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c4a5cg1kboqmi" path="res://assets/models/CactusMask_Cactus_Color.png" id="4_sr8k3"]
 [ext_resource type="Texture2D" uid="uid://kri2phclgu8o" path="res://assets/models/CactusMask_Cactus_Normal.png" id="5_at1ru"]
 [ext_resource type="PackedScene" uid="uid://nxih0bl4qlu0" path="res://assets/models/StoneMask.glb" id="6_3bsc3"]
+[ext_resource type="PackedScene" uid="uid://cqsqqtgi5km12" path="res://entities/masks/wood_mask_model.tscn" id="7_3bsc3"]
+[ext_resource type="PackedScene" uid="uid://d0srxd433wsl6" path="res://entities/masks/movement_mask_model.tscn" id="8_vt8tj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2xbaj"]
 resource_name = "Material.030"
@@ -159,10 +161,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0jky2")
-
-[sub_resource type="BoxMesh" id="BoxMesh_sr8k3"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_at1ru"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vt8tj"]
 size = Vector3(6.4345703, 4.6274414, 2.5760498)
@@ -358,19 +356,14 @@ transform = Transform3D(-2.1512738e-08, 0, -0.49215406, 0, 0.49215406, 0, 0.4921
 [node name="Wood Slot" type="MeshInstance3D" parent="."]
 visible = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wood Slot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9349847, 1.7156267, 1.3811392)
-mesh = SubResource("BoxMesh_sr8k3")
+[node name="WoodMaskModel" parent="Wood Slot" instance=ExtResource("7_3bsc3")]
+transform = Transform3D(-6.244484e-08, 0, -1.4285715, 0, 1.4285715, 0, 1.4285715, 0, -6.244484e-08, -5.0254235, 1.0247092, 0.96657485)
 
 [node name="Movement Slot" type="MeshInstance3D" parent="."]
 visible = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Movement Slot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.950506, 1.7484049, 1.0536317)
-mesh = SubResource("BoxMesh_at1ru")
-
-[node name="CactusMask" type="Node3D" parent="."]
-transform = Transform3D(1.4285715, 0, 0, 0, 1.4285715, 0, 0, 0, 1.4285715, 3.2932255, 0, 1.4691135)
+[node name="MovementMaskModel" parent="Movement Slot" instance=ExtResource("8_vt8tj")]
+transform = Transform3D(5.9604645e-08, 0, -1.4285715, 0, 1.4285715, 0, 1.4285715, 0, 5.9604645e-08, 4.9912, 1.2280874, 1.2277366)
 
 [node name="Area3D2" type="Area3D" parent="."]
 

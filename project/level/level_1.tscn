@@ -240,7 +240,7 @@ transform = Transform3D(4.6115165, 0, 0, 0, 0.951218, 0, 0, 0, 4.37945, -15.4892
 material = ExtResource("5_k4ctk")
 
 [node name="CSGSphere3D3" type="CSGSphere3D" parent="environment/CSGCombiner3D/WallStones" index="22"]
-transform = Transform3D(7.0302234, 0, 0, 0, 0.951218, 0, 0, 0, 4.37945, -6.400595, 5.97983, -14.2943125)
+transform = Transform3D(7.0302234, 0, 0, 0, 0.951218, 0, 0, 0, 5.4140944, -5.4223037, 5.97983, -14.2943125)
 radius = 1.016076
 material = ExtResource("5_k4ctk")
 
@@ -314,4 +314,4 @@ fog_color = Color(0.44705883, 0.7607843, 0.7019608, 1)
 transform = Transform3D(-0.8816251, 0, 0.47195065, 0, 1, 0, -0.47195065, 0, -0.8816251, 2.8137074, -1.1976967, 4.7922983)
 
 [node name="Tunnel" parent="." index="17" instance=ExtResource("11_hdc4k")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.0541506, 7.062166, -11.06954)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.0541506, 7.062166, -12.177704)

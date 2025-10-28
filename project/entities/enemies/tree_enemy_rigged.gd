@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 var health: int = 3
 var player: Player = null
-var attack_time: float = 0.5
+var attack_time: float = 1.0
 var time: float = 0.0
 var player_locked: bool = false
 var attacking: bool = false
@@ -35,13 +35,14 @@ func _physics_process(delta: float) -> void:
 		if time > attack_time + randf_range(0.0, 0.5) and not attacking:
 			attacking = true
 			attack()
+		
+		
 
 
 func attack() -> void:
 	if animation_player.current_animation == "die":
 		return
 	
-	damage_area.monitoring = true
 	if randi() % 2 == 0:
 		animation_player.play("pray")
 	else:
@@ -102,3 +103,4 @@ func _on_damage_area_body_entered(body: Node3D) -> void:
 	
 	if body.has_method("knockback"):
 		body.knockback(self.global_position, 20.0)
+

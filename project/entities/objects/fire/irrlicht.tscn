@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjh5a81sqd0d1"]
+
+[ext_resource type="Shader" uid="uid://spujcywyycvy" path="res://entities/objects/fire/fire_shader3.tres" id="1_bxyi7"]
+[ext_resource type="Script" uid="uid://dr3sjlwu5u1wr" path="res://entities/objects/fire/irrlicht.gd" id="1_gdq3p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gdq3p"]
+render_priority = 0
+shader = ExtResource("1_bxyi7")
+shader_parameter/Vector2Parameter = Vector2(0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ei3ya"]
+material = SubResource("ShaderMaterial_gdq3p")
+
+[node name="Irrlicht" type="Node3D"]
+script = ExtResource("1_gdq3p")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1.8, 0, 0, 0, 2, 0, 0, 0)
+light_color = Color(0.16078432, 1, 1, 0.5294118)
+light_energy = 2.0
+omni_range = 10.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_ei3ya")
