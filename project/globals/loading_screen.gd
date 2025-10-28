@@ -1,6 +1,9 @@
 extends CanvasLayer
 
 
+signal finished
+
+
 const scene_paths: Array[String] = [
 	"res://entities/player/player.tscn",
 	"res://entities/player/dither.tscn",
@@ -74,8 +77,9 @@ func _ready() -> void:
 		await get_tree().create_timer(0.1).timeout
 		#scene.queue_free()
 	
-	#$ColorRect.visible = false
-	get_tree().change_scene_to_file("res://level/level_1.tscn")
+	$ColorRect.visible = false
+	finished.emit()
+	#get_tree().change_scene_to_file("res://level/level_1.tscn")
 
 
 func compile_scene(scene: Node) -> void:

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ts0h3qr5grgg" path="res://entities/enemies/Jens.tscn" id="9_6xa2d"]
 [ext_resource type="PackedScene" uid="uid://bjh5a81sqd0d1" path="res://entities/objects/fire/irrlicht.tscn" id="9_hrebq"]
 [ext_resource type="PackedScene" uid="uid://dhjmue468flpp" path="res://entities/objects/stone/stone.tscn" id="10_5mhvx"]
-[ext_resource type="PackedScene" uid="uid://c04frxjk0bv53" path="res://entities/objects/waysign.tscn" id="10_hrebq"]
+[ext_resource type="PackedScene" path="res://entities/objects/waysign.tscn" id="10_hrebq"]
 [ext_resource type="PackedScene" uid="uid://b7517a6cp3rr6" path="res://entities/objects/grass_foliage.tscn" id="12_f1jq1"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_5mhvx"]

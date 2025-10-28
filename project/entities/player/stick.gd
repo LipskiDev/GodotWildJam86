@@ -21,4 +21,4 @@ func _on_attack_area_body_entered(body: Node3D) -> void:
 	if body.has_method("take_damage_stick"):
 		body.take_damage_stick(1)
 	elif body.has_method("take_damage"):
-		body.take_damage(1)
+		body.take_damage(1, Vector3.ZERO)

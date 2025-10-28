@@ -1,15 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://bpagloucg1sce"]
+[gd_scene load_steps=18 format=3 uid="uid://cxmo7adunuejo"]
 
 [ext_resource type="PackedScene" uid="uid://c6a4230h2w5fl" path="res://level/level_template.tscn" id="1_omx5w"]
 [ext_resource type="Material" uid="uid://4px458ycnie7" path="res://level/materials/stone_wall.tres" id="2_lx8gb"]
 [ext_resource type="PackedScene" uid="uid://37ssktu6xoyy" path="res://level/level-utils/stair_new.tscn" id="3_vb5hv"]
-[ext_resource type="PackedScene" uid="uid://b1mywarjpm32d" path="res://entities/objects/fake_jens.tscn" id="4_vndax"]
+[ext_resource type="PackedScene" path="res://entities/objects/fake_jens.tscn" id="4_vndax"]
 [ext_resource type="Material" uid="uid://bs7a41iqvwiyb" path="res://level/materials/rock.tres" id="5_k4ctk"]
 [ext_resource type="PackedScene" uid="uid://dhjmue468flpp" path="res://entities/objects/stone/stone.tscn" id="6_skxlf"]
 [ext_resource type="PackedScene" uid="uid://e7pgxn3fixl8" path="res://entities/objects/fire/fireplace.tscn" id="7_hdc4k"]
 [ext_resource type="PackedScene" uid="uid://lg0rqoxmmrdx" path="res://entities/objects/vase/vase.tscn" id="8_vndax"]
 [ext_resource type="PackedScene" uid="uid://bkde6bj67rxov" path="res://entities/objects/tunnel/tunnel.tscn" id="9_k4ctk"]
-[ext_resource type="PackedScene" uid="uid://c04frxjk0bv53" path="res://entities/objects/waysign.tscn" id="10_skxlf"]
+[ext_resource type="PackedScene" path="res://entities/objects/waysign.tscn" id="10_skxlf"]
 [ext_resource type="PackedScene" uid="uid://b75uap3o3blr" path="res://entities/objects/end_tunnel/end_tunnel.tscn" id="11_hdc4k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lx8gb"]
@@ -50,7 +50,7 @@ environment = SubResource("Environment_nokfs")
 [node name="Player" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.154255, -0.33966255, 8.04488)
 
-[node name="OmniLight3D" parent="Player" index="9"]
+[node name="OmniLight3D" parent="Player" index="13"]
 light_color = Color(0.97763807, 0.7887983, 0.22394401, 1)
 
 [node name="PlayerCamera" parent="." index="2" node_paths=PackedStringArray("player")]

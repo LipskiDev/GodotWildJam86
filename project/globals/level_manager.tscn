@@ -1,0 +1,123 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddhdpylgximxq"]
+
+[ext_resource type="Script" uid="uid://bklsq57jii03b" path="res://globals/level_manager.gd" id="1_m4udf"]
+[ext_resource type="PackedScene" uid="uid://drk83qwk64jaq" path="res://globals/loading_screen.tscn" id="2_e6jjw"]
+[ext_resource type="Shader" uid="uid://ciw7ww5w506dx" path="res://globals/level_transition.gdshader" id="2_ogmsl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2mqgi"]
+shader = ExtResource("2_ogmsl")
+shader_parameter/progress = 0.0
+shader_parameter/number_of_tiles_x = 8.0000001192096
+shader_parameter/pixel_per_tile = Vector2(16, 16)
+shader_parameter/reverse = true
+
+[sub_resource type="Animation" id="Animation_6d6pd"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2mqgi"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/reverse")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_tpf72"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2dv6e"]
+_data = {
+&"RESET": SubResource("Animation_tpf72"),
+&"fade_in": SubResource("Animation_6d6pd"),
+&"fade_out": SubResource("Animation_2mqgi")
+}
+
+[node name="LevelManager" type="Node" groups=["LevelManager"]]
+script = ExtResource("1_m4udf")
+
+[node name="LevelContainer" type="Node" parent="."]
+
+[node name="LevelTransition" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_2mqgi")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelTransition"]
+libraries = {
+&"": SubResource("AnimationLibrary_2dv6e")
+}
+
+[node name="LoadingScreen" parent="." instance=ExtResource("2_e6jjw")]
+
+[connection signal="finished" from="LoadingScreen" to="." method="_on_loading_screen_finished"]

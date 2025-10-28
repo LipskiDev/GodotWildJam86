@@ -1,10 +1,13 @@
 extends Node3D
 
+
 @export var door_id: int = -1
 @export var next_scene: String = ""
 @export var fog_color: Color
 
+
 var is_enabled : bool = false
+
 
 func _ready() -> void:
 	$Fog.get_active_material(0).set_shader_parameter("fog_tint", fog_color)
